@@ -1,4 +1,4 @@
-package clases;
+package ProductosYServicios;
 
 public class Fuente extends Producto{
 	private int watts;

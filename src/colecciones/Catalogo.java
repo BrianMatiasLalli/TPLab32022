@@ -1,5 +1,4 @@
 package colecciones;
 
-public class Pedido {
-
+public class Catalogo {
 }

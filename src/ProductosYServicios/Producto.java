@@ -1,6 +1,4 @@
-package clases;
-
-import java.util.Objects;
+package ProductosYServicios;
 
 public class Producto {
     private String codigo;

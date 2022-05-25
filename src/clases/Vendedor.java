@@ -3,11 +3,13 @@ package clases;
 public class Vendedor extends Persona{
     private String id;//puede ser las iniciales de nombre y apellido
     private String contrasenia;//alfanumerica;
+    private double totalVentas;
 
     public Vendedor(String nombre, String apellido, String dni, String telefono, String direccion, String correo, String id, String contrasenia) {
         super(nombre,apellido,dni,telefono,direccion,correo);
         this.id = id;
         this.contrasenia = contrasenia;
+        this.totalVentas=0;
     }
 
     public String getId() {
@@ -26,8 +28,15 @@ public class Vendedor extends Persona{
         this.contrasenia = contrasenia;
     }
 
+    public double getTotalVentas() {
+        return totalVentas;
+    }
+    public void sumarVenta(double venta){
+        this.totalVentas=totalVentas+venta;
+    }
+
     @Override
     public String toString() {
-        return "\nVendedor=" + "\nId= " + id + super.toString();
+        return "\nVendedor=" + "\nId= " + id + super.toString() + "Total de ventas acumuladas" + totalVentas;
     }
 }

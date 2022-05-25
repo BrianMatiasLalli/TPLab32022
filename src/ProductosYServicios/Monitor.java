@@ -1,4 +1,4 @@
-package clases;
+package ProductosYServicios;
 
 public class Monitor extends Producto {
 
