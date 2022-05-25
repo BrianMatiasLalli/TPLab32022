@@ -14,6 +14,19 @@ public class Producto {
     private String color;
     private String descripcion;
 
+    public Producto() {
+        this.codigo = "";
+        this.marca = "";
+        this.modelo = "";
+        this.stock = 0;
+        this.precio = 0;
+        this.peso = 0;
+        this.paisOrigen = "";
+        this.rgb = false;
+        this.color = "";
+        this.descripcion = "";
+    }
+
     public Producto(String codigo, String marca, String modelo, int stock, double precio, double peso, String paisOrigen, boolean rgb, String color, String descripcion) {
         this.codigo = codigo;
         this.marca = marca;
