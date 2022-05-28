@@ -9,7 +9,7 @@ public class Persona {
     private String telefono;
     private String direccion;
     private String correo;
-
+    
     public Persona(String nombre, String apellido, String dni, String telefono, String direccion, String correo) {
         this.nombre = nombre;
         this.apellido = apellido;
@@ -17,6 +17,7 @@ public class Persona {
         this.telefono = telefono;
         this.direccion = direccion;
         this.correo = correo;
+       
     }
 
     public String getNombre() {
@@ -66,8 +67,10 @@ public class Persona {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
+    
+  
 
-    @Override
+	@Override
     public String toString() {
         return "\nNombre= "+ nombre+"\nApellido= "+apellido +"\nDni= "+dni+"\nTelefono= "+telefono +"\nDireccion= "+direccion +"\nCorreo= "+correo;
     }
