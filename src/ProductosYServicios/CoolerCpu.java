@@ -7,7 +7,7 @@ public class CoolerCpu extends Cooler{
 	private String socketCompatible;
 	
 	
-	public CoolerCpu(int tdp, String tipoDeDisipacion, String socketCompatible) {
+	public CoolerCpu() {
 		super();
 		this.tdp = 0;
 		this.tipoDeDisipacion = "";
