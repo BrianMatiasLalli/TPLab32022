@@ -39,5 +39,11 @@ public class ListaClientes<T>  implements InterfazColecciones<T>{
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public T retornarObjeto(T elemento) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

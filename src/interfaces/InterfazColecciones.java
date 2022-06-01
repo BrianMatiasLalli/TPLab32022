@@ -10,5 +10,7 @@ public interface InterfazColecciones<T> {
 	
 	public String mostrarListas();
 	
+	public T retornarObjeto(T elemento) ;
+	
 	public void ordenarLista();
 }

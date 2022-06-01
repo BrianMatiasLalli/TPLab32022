@@ -4,8 +4,8 @@ import clases.Cliente;
 
 public class ArmadoPc extends Servicio{
     private Computadora aArmar;
-    public ArmadoPc(String descripcion, Cliente cliente,Computadora aArmar) {
-        super(descripcion, cliente);
+    public ArmadoPc(String descripcion, Cliente cliente,Computadora aArmar,double precio) {
+        super(descripcion, cliente,precio);
         this.aArmar = aArmar;
     }
 

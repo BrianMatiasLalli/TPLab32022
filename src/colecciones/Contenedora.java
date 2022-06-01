@@ -1,17 +1,24 @@
 package colecciones;
 
+
 import java.util.HashMap;
 
-import clases.Vendedor;
+import clases.Persona;
 import interfaces.InterfazColecciones;
 
-public class ListaDeVendedores<T> implements InterfazColecciones<T> {
+public class Contenedora<T extends Persona> implements InterfazColecciones<T> {
 
+	HashMap<String,T> contenedoraGenerica; //lista de facturas,lista de clientes,lista vendedores
 	
-	HashMap<Integer, Vendedor> empleados = new HashMap<>();
 	
+	
+	public Contenedora() {
+		super();
+		this.contenedoraGenerica = new HashMap<>();
+	}
+
 	@Override
-	public  void agregarObjetoColeccion(T elemento) {
+	public void agregarObjetoColeccion(T elemento) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -34,6 +41,8 @@ public class ListaDeVendedores<T> implements InterfazColecciones<T> {
 		return null;
 	}
 
+	
+	
 	@Override
 	public void ordenarLista() {
 		// TODO Auto-generated method stub
@@ -45,5 +54,4 @@ public class ListaDeVendedores<T> implements InterfazColecciones<T> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 }

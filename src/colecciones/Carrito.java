@@ -1,18 +1,22 @@
 package colecciones;
 
 import ProductosYServicios.Producto;
-import ProductosYServicios.ServicioAfacturar;
+import ProductosYServicios.Servicio;
+
 
 import java.util.ArrayList;
 
 public class Carrito {
+	
     private ArrayList<Producto> misProductos;
-    private ArrayList<ServicioAfacturar>misServicios;
+    private ArrayList<Servicio>misServicios;
 
     public Carrito() {
         this.misProductos=new ArrayList<>();
         this.misServicios=new ArrayList<>();
     }
+    
+    
     public String mostrarCarrito(){
         StringBuilder sb = new StringBuilder();
         for(int i=0;i<misProductos.size();i++)
@@ -25,4 +29,7 @@ public class Carrito {
         }
         return sb.toString();
     }
+    
+    
+    
 }
