@@ -26,4 +26,11 @@ public class Factura {
         this.id=cantTotalFacturas+1;
         cantTotalFacturas++;
     }
+
+    @Override
+    public String toString() {
+        return "Tienda de Informatica\n"+"Factura numero:"+id+"\nFecha=" + fecha +
+                "\nCliente:" + comprador.getApellido() + " "+ comprador.getNombre() +
+                "\nProductos:" + listaDeProductos +"Vendedor:" + vendedor + "\nPrecio total:" + precio ;
+    }
 }

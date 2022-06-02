@@ -1,6 +1,6 @@
 package ProductosYServicios;
 
-public class Producto {
+public abstract class Producto {
     private String codigo;
     private String marca;
     private String modelo;
