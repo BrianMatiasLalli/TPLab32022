@@ -1,10 +1,242 @@
 package colecciones;
 
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
-import ProductosYServicios.Producto;
+import ProductosYServicios.*;
 
 public class Catalogo {
 
 	HashMap<String,Producto> mapaCatalogo;
+
+	public Catalogo() {
+		this.mapaCatalogo = new HashMap<String,Producto>();
+	}
+	public void agregarProducto(String id, Producto nuevo){
+		this.mapaCatalogo.put(id,nuevo);
+	}
+	public void eliminarProducto(String id){
+		this.mapaCatalogo.remove(id);
+	}
+	public String listarCatalogo(){
+		StringBuilder sb = new StringBuilder();
+		Iterator<Map.Entry<String, Producto>> it = mapaCatalogo.entrySet().iterator();
+		while (it.hasNext())
+		{
+			Map.Entry<String, Producto> entry =  (Map.Entry<String,Producto>)it.next();
+			//if(entry.getValue() instanceof Almacenamiento)
+			sb.append(entry.getKey()+" / "+ entry.getValue().toString()+"\n");
+		}
+		return sb.toString();
+	}
+	public String listarAlmacenamiento(){
+		StringBuilder sb = new StringBuilder();
+		Iterator<Map.Entry<String, Producto>> it = mapaCatalogo.entrySet().iterator();
+		while (it.hasNext())
+		{
+			Map.Entry<String, Producto> entry =  (Map.Entry<String,Producto>)it.next();
+			if(entry.getValue() instanceof Almacenamiento){
+				sb.append(entry.getKey()+" / "+ entry.getValue().toString()+"\n");
+			}
+
+		}
+		return sb.toString();
+	}
+	public String listarAuriculares(){
+		StringBuilder sb = new StringBuilder();
+		Iterator<Map.Entry<String, Producto>> it = mapaCatalogo.entrySet().iterator();
+		while (it.hasNext())
+		{
+			Map.Entry<String, Producto> entry =  (Map.Entry<String,Producto>)it.next();
+			if(entry.getValue() instanceof Auriculares){
+				sb.append(entry.getKey()+" / "+ entry.getValue().toString()+"\n");
+			}
+		}
+		return sb.toString();
+	}
+	public String listarComputadoras(){
+		StringBuilder sb = new StringBuilder();
+		Iterator<Map.Entry<String, Producto>> it = mapaCatalogo.entrySet().iterator();
+		while (it.hasNext())
+		{
+			Map.Entry<String, Producto> entry =  (Map.Entry<String,Producto>)it.next();
+			if(entry.getValue() instanceof Computadora){
+				sb.append(entry.getKey()+" / "+ entry.getValue().toString()+"\n");
+			}
+		}
+		return sb.toString();
+	}
+	public String listarCoolers(){
+		StringBuilder sb = new StringBuilder();
+		Iterator<Map.Entry<String, Producto>> it = mapaCatalogo.entrySet().iterator();
+		while (it.hasNext())
+		{
+			Map.Entry<String, Producto> entry =  (Map.Entry<String,Producto>)it.next();
+			if(entry.getValue() instanceof Cooler){
+				sb.append(entry.getKey()+" / "+ entry.getValue().toString()+"\n");
+			}
+		}
+		return sb.toString();
+	}
+	public String listarFuentes(){
+		StringBuilder sb = new StringBuilder();
+		Iterator<Map.Entry<String, Producto>> it = mapaCatalogo.entrySet().iterator();
+		while (it.hasNext())
+		{
+			Map.Entry<String, Producto> entry =  (Map.Entry<String,Producto>)it.next();
+			if(entry.getValue() instanceof Fuente){
+				sb.append(entry.getKey()+" / "+ entry.getValue().toString()+"\n");
+			}
+		}
+		return sb.toString();
+	}
+	public String listarGabinetes(){
+		StringBuilder sb = new StringBuilder();
+		Iterator<Map.Entry<String, Producto>> it = mapaCatalogo.entrySet().iterator();
+		while (it.hasNext())
+		{
+			Map.Entry<String, Producto> entry =  (Map.Entry<String,Producto>)it.next();
+			if(entry.getValue() instanceof Gabinete){
+				sb.append(entry.getKey()+" / "+ entry.getValue().toString()+"\n");
+			}
+		}
+		return sb.toString();
+	}
+	public String listarMemorias(){
+		StringBuilder sb = new StringBuilder();
+		Iterator<Map.Entry<String, Producto>> it = mapaCatalogo.entrySet().iterator();
+		while (it.hasNext())
+		{
+			Map.Entry<String, Producto> entry =  (Map.Entry<String,Producto>)it.next();
+			if(entry.getValue() instanceof MemoriaRam){
+				sb.append(entry.getKey()+" / "+ entry.getValue().toString()+"\n");
+			}
+		}
+		return sb.toString();
+	}
+	public String listarMicrofonos(){
+		StringBuilder sb = new StringBuilder();
+		Iterator<Map.Entry<String, Producto>> it = mapaCatalogo.entrySet().iterator();
+		while (it.hasNext())
+		{
+			Map.Entry<String, Producto> entry =  (Map.Entry<String,Producto>)it.next();
+			if(entry.getValue() instanceof Microfono){
+				sb.append(entry.getKey()+" / "+ entry.getValue().toString()+"\n");
+			}
+		}
+		return sb.toString();
+	}
+	public String listarMonitores(){
+		StringBuilder sb = new StringBuilder();
+		Iterator<Map.Entry<String, Producto>> it = mapaCatalogo.entrySet().iterator();
+		while (it.hasNext())
+		{
+			Map.Entry<String, Producto> entry =  (Map.Entry<String,Producto>)it.next();
+			if(entry.getValue() instanceof Monitor){
+				sb.append(entry.getKey()+" / "+ entry.getValue().toString()+"\n");
+			}
+		}
+		return sb.toString();
+	}
+	public String listarMotherboards(){
+		StringBuilder sb = new StringBuilder();
+		Iterator<Map.Entry<String, Producto>> it = mapaCatalogo.entrySet().iterator();
+		while (it.hasNext())
+		{
+			Map.Entry<String, Producto> entry =  (Map.Entry<String,Producto>)it.next();
+			if(entry.getValue() instanceof MotherBoard){
+				sb.append(entry.getKey()+" / "+ entry.getValue().toString()+"\n");
+			}
+		}
+		return sb.toString();
+	}
+	public String listarMouses(){
+		StringBuilder sb = new StringBuilder();
+		Iterator<Map.Entry<String, Producto>> it = mapaCatalogo.entrySet().iterator();
+		while (it.hasNext())
+		{
+			Map.Entry<String, Producto> entry =  (Map.Entry<String,Producto>)it.next();
+			if(entry.getValue() instanceof Mouse){
+				sb.append(entry.getKey()+" / "+ entry.getValue().toString()+"\n");
+			}
+		}
+		return sb.toString();
+	}
+	public String listarParlantes(){
+		StringBuilder sb = new StringBuilder();
+		Iterator<Map.Entry<String, Producto>> it = mapaCatalogo.entrySet().iterator();
+		while (it.hasNext())
+		{
+			Map.Entry<String, Producto> entry =  (Map.Entry<String,Producto>)it.next();
+			if(entry.getValue() instanceof Parlante){
+				sb.append(entry.getKey()+" / "+ entry.getValue().toString()+"\n");
+			}
+		}
+		return sb.toString();
+	}
+	public String listarPlacas(){
+		StringBuilder sb = new StringBuilder();
+		Iterator<Map.Entry<String, Producto>> it = mapaCatalogo.entrySet().iterator();
+		while (it.hasNext())
+		{
+			Map.Entry<String, Producto> entry =  (Map.Entry<String,Producto>)it.next();
+			if(entry.getValue() instanceof PlacaDeVideo){
+				sb.append(entry.getKey()+" / "+ entry.getValue().toString()+"\n");
+			}
+		}
+		return sb.toString();
+	}
+	public String listarProcesadores(){
+		StringBuilder sb = new StringBuilder();
+		Iterator<Map.Entry<String, Producto>> it = mapaCatalogo.entrySet().iterator();
+		while (it.hasNext())
+		{
+			Map.Entry<String, Producto> entry =  (Map.Entry<String,Producto>)it.next();
+			if(entry.getValue() instanceof Procesador){
+				sb.append(entry.getKey()+" / "+ entry.getValue().toString()+"\n");
+			}
+		}
+		return sb.toString();
+	}
+	public String listarTeclados(){
+		StringBuilder sb = new StringBuilder();
+		Iterator<Map.Entry<String, Producto>> it = mapaCatalogo.entrySet().iterator();
+		while (it.hasNext())
+		{
+			Map.Entry<String, Producto> entry =  (Map.Entry<String,Producto>)it.next();
+			if(entry.getValue() instanceof Teclado){
+				sb.append(entry.getKey()+" / "+ entry.getValue().toString()+"\n");
+			}
+		}
+		return sb.toString();
+	}
+	public String listarWebcams(){
+		StringBuilder sb = new StringBuilder();
+		Iterator<Map.Entry<String, Producto>> it = mapaCatalogo.entrySet().iterator();
+		while (it.hasNext())
+		{
+			Map.Entry<String, Producto> entry =  (Map.Entry<String,Producto>)it.next();
+			if(entry.getValue() instanceof WebCam){
+				sb.append(entry.getKey()+" / "+ entry.getValue().toString()+"\n");
+			}
+		}
+		return sb.toString();
+	}
+	public void editarProducto(Producto editado){
+		String clave= editado.getCodigo();
+		this.mapaCatalogo.put(clave,editado);
+	}
+	public String buscarProducto(String codigo){
+		String retorno="";
+		Iterator<Map.Entry<String, Producto>> it = mapaCatalogo.entrySet().iterator();
+		while (it.hasNext()) {
+			Map.Entry<String, Producto> entry = (Map.Entry<String, Producto>) it.next();
+			if(entry.getKey().equals(codigo)) {
+				retorno = entry.getValue().toString();
+			}
+			}return retorno;
+		}
+
+
 }

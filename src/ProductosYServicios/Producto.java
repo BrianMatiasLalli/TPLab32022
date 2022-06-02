@@ -70,6 +70,13 @@ public class Producto {
         this.stock = stock;
     }
 
+    public void reducirStock(){
+        this.stock=stock-1;
+    }
+    public void aumentarStock(){
+        this.stock=stock+1;
+    }
+
     public double getPrecio() {
         return precio;
     }
