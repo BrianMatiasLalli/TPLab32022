@@ -41,7 +41,9 @@ public class Servicio {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
-    
+    public enum nuevaDescripcion{
+        armado_de_Pc,instalacion_SO,Reparacion;
+    }
     
     
     public double getPrecio() {
@@ -61,7 +63,6 @@ public class Servicio {
     public String toString() {
         return "\nServicio" + "\nDescripcion=" + descripcion + "\nFecha de Emision=" + fechaEmision + "\nCliente=" + cliente;
     }
-
 
 
 
