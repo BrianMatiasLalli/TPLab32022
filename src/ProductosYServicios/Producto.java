@@ -70,11 +70,14 @@ public abstract class Producto {
         this.stock = stock;
     }
 
-    public void reducirStock(){
-        this.stock=stock-1;
+    public void reducirStock(int cant){
+        if(stock>cant){
+            this.stock=stock-cant;
+        }
+        //ACA HAY QUE CONFECCIONAR UNA EXEPCION
     }
-    public void aumentarStock(){
-        this.stock=stock+1;
+    public void aumentarStock(int cant){
+        this.stock=stock+cant;
     }
 
     public double getPrecio() {
@@ -128,6 +131,9 @@ public abstract class Producto {
     @Override
     public String toString() {
         return "\nProducto= "+"\nCodigo= " + codigo +"\nMarca='" + marca +"\nModelo='" + modelo +"\nStock=" + stock +"\nPrecio= "+precio+"\nPeso= "+peso+"\nPaisOrigen= "+paisOrigen +"\nRgb= "+rgb+"\nColor= "+color+"\nDescripcion= "+descripcion;
+    }
+    public String detallePedido(){
+        return "\nCodigo= " + codigo +"\nMarca=" + marca +"\nModelo=" + modelo +"\nPrecio unitario= "+precio;
     }
 
     @Override
