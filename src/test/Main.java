@@ -5,6 +5,8 @@ import ProductosYServicios.Auriculares;
 import ProductosYServicios.Cooler;
 import ProductosYServicios.CoolerCpu;
 import ProductosYServicios.Producto;
+import clases.Cliente;
+import colecciones.Carrito;
 
 public class Main {
     public static void main(String[] args){
@@ -21,7 +23,12 @@ public class Main {
         
         Producto cooler1 = new Cooler("10007","Sate","RGB-73K",4,6100,300,"Taiwan",true,"negro y rgb multicolor","cooler PC","cooler para Gabinete",6);
         Producto cooler2 = new Cooler("10008","Asus","Strix XF120",7,6400,100,"Taiwan",false,"negro","cooler PC","cooler para Gabinete",3);
-        Producto coolerCpu = new CoolerCpu("10009","Xigmatek","WP964 RGB",8,4700,100,"China",true,"negro","cooler para CPU","Cooler para CPU",3,140,"Ventilador","Intel: LGA 2066/2011-v3 / 2011/1366/115 × / 1200 AMD: AM4 / AM3 + / AM3 / AM2 + / AM2 / FM2 + / FM2 / FM1");
-        
+        Producto coolerCpu = new CoolerCpu("10009","Xigmatek","WP964 RGB",8,4700,100,"China",true,"negro","cooler para CPU","Cooler para CPU",3,140,"Ventilador","Intel: LGA 2066/2011-v3 / 2011/1366/115 ï¿½ / 1200 AMD: AM4 / AM3 + / AM3 / AM2 + / AM2 / FM2 + / FM2 / FM1");
+
+        Cliente nuevoCliente= new Cliente("pablo","cugini","30395657","2236339539","9 de julio 5650","pabloacugini@hotmail.com");
+
+        Carrito nuevoCarrito=new Carrito();
+        //aca hay que invocar metodos de carrito para agregar productos
+
     }
 }
