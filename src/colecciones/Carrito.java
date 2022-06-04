@@ -30,12 +30,16 @@ public class Carrito {
         }
         return sb.toString();
     }
+    
     public void agregar(ItemPedido nuevo){
         this.items.add(nuevo);
     }
+    
     public void agregar(Servicio nuevo){
         this.misServicios.add(nuevo);
     }
+    
+    
 
     
     

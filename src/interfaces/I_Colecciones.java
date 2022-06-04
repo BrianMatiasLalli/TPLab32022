@@ -1,6 +1,6 @@
 package interfaces;
 
-public interface InterfazColecciones<T> {
+public interface I_Colecciones<T> {
 
 	public void agregarObjetoColeccion(T elemento);
 	
@@ -12,5 +12,4 @@ public interface InterfazColecciones<T> {
 	
 	public T retornarObjeto(T elemento) ;
 	
-	public void ordenarLista();
 }

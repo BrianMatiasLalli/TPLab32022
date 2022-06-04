@@ -1,21 +1,28 @@
 package ProductosYServicios;
 
 public class ItemPedido {
-    private String descripcion;
+    //private String descripcion; 
+    private Producto pedido; 
     private double precioTotal;
     private int cantidad;
-
+    
+    
     public ItemPedido(Producto aCargar, int cantidad) {
-        this.descripcion= aCargar.detallePedido();
-        this.precioTotal=cantidad*aCargar.getPrecio();
+        this.pedido= aCargar;
+        this.precioTotal=cantidad*this.pedido.getPrecio();
         this.cantidad = cantidad;
     }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public double getPrecioTotal() {
+    
+ 
+    
+     public String descripcionPedido()
+     {
+     	return pedido.detallePedido();
+     
+     } 
+     
+    public double getPrecioTotal() 
+    {
         return precioTotal;
     }
 
@@ -25,6 +32,6 @@ public class ItemPedido {
 
     @Override
     public String toString() {
-        return "Item" + "\n" + descripcion +"\nCantidad=" + cantidad + "\nPrecio Total=" + precioTotal;
+        return "Item" + "\n" + descripcionPedido() +"\nCantidad=" + cantidad + "\nPrecio Total=" + precioTotal; //
     }
 }
