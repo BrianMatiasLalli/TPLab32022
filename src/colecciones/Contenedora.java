@@ -9,9 +9,9 @@ import ProductosYServicios.Producto;
 import clases.Persona;
 import interfaces.I_Colecciones;
 
-public class Contenedora<T extends Persona> implements I_Colecciones<T> {
+public class Contenedora<K,T extends Persona> implements I_Colecciones<K,T> {
 
-	HashMap<String,T> contenedoraGenerica; //lista de facturas,lista de clientes,lista vendedores
+	HashMap<K,T> contenedoraGenerica; //lista de facturas,lista de clientes,lista vendedores
 	
 	
 	
@@ -21,40 +21,44 @@ public class Contenedora<T extends Persona> implements I_Colecciones<T> {
 	}
 
 	@Override
-	public void agregarObjetoColeccion(T elemento) {
+	public void agregarObjetoColeccion(K clave,T elemento) {
 		// TODO Auto-generated method stub
-		contenedoraGenerica.put(elemento.getDni(),elemento);
+		contenedoraGenerica.put(clave,elemento);
 	}
 
 	@Override
-	public void eliminarObjDeLaColeccion(T elemento) {
+	public void eliminarObjDeLaColeccion(K clave) {
 		// TODO Auto-generated method stub
-		contenedoraGenerica.remove(elemento.getDni());
+		contenedoraGenerica.remove(clave);
 	}
 
 	@Override
-	public String mostrarElementoDeLaColeccion(T elemento) {
+	public String mostrarElementoDeLaColeccion(K clave) {
 		// TODO Auto-generated method stub
+		
 		StringBuilder sb = new StringBuilder();
-		Iterator<Map.Entry<String, T>> it = contenedoraGenerica.entrySet().iterator();
+		Iterator<Map.Entry<K, T>> it = contenedoraGenerica.entrySet().iterator();
 		while (it.hasNext())
 		{
-			Map.Entry<String, T> entry =  (Map.Entry<String,T>)it.next();
-			sb.append(entry.getKey()+" / "+ entry.getValue().toString()+"\n");
-		}
+			Map.Entry<K, T> entry =  (Map.Entry<K,T>)it.next();
+			if(clave.equals(entry.getKey())) {
+			sb.append(entry.getValue().toString()+"\n");
+				}
+			}
 		return sb.toString();
 	}
 
 	@Override
-	public String mostrarListas() {
+	public String listar() {
 		// TODO Auto-generated method stub
-		return null;
+		StringBuilder sb = new StringBuilder();
+		Iterator<Map.Entry<K,T>> it = contenedoraGenerica.entrySet().iterator();
+		while (it.hasNext())
+		{
+			Map.Entry<K,T> entry =  (Map.Entry<K,T>)it.next();
+			sb.append(entry.getValue().toString()+"\n");
+		}
+		return sb.toString();
 	}
-
-
-	@Override
-	public T retornarObjeto(T elemento) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 }

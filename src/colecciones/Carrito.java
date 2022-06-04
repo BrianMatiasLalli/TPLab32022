@@ -39,8 +39,23 @@ public class Carrito {
         this.misServicios.add(nuevo);
     }
     
+    public double calcularPrecioTotal() 
+    {
+    	double total=0;
+    	
+    	for(int i=0;i<items.size();i++) 
+    	{
+    		total=total+items.get(i).getPrecioTotal();
+    	}
+    	
+    	for(int i=0;i<misServicios.size();i++) 
+    	{
+    		total=total+misServicios.get(i).getPrecio();
+    	}
+    	
+    	return total;
+    }
     
-
     
     
     

@@ -1,15 +1,14 @@
 package interfaces;
 
-public interface I_Colecciones<T> {
+public interface I_Colecciones<K,T> {
 
-	public void agregarObjetoColeccion(T elemento);
+	public void agregarObjetoColeccion(K clave, T elemento);
 	
-	public void eliminarObjDeLaColeccion(T elemento);
+	public void eliminarObjDeLaColeccion(K clave);
 	
-	public String mostrarElementoDeLaColeccion(T elemento);
+	public String mostrarElementoDeLaColeccion(K clave);
 	
-	public String mostrarListas();
+	public String listar();
 	
-	public T retornarObjeto(T elemento) ;
 	
 }

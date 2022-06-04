@@ -1,5 +1,7 @@
 package ProductosYServicios;
 
+import excepciones.NoHayStockExcepcion;
+
 public abstract class Producto {
     private String codigo;
     private String marca;
@@ -70,11 +72,16 @@ public abstract class Producto {
         this.stock = stock;
     }
 
-    public void reducirStock(int cant){
-        if(stock>cant){
+    public void reducirStock(int cant) throws NoHayStockExcepcion{
+    	
+    	if(stock>cant)
+    	{
             this.stock=stock-cant;
         }
-        //ACA HAY QUE CONFECCIONAR UNA EXEPCION
+        else
+        {
+        	throw new NoHayStockExcepcion("No Hay Stock disponible");
+        }
     }
     public void aumentarStock(int cant){
         this.stock=stock+cant;
@@ -130,10 +137,10 @@ public abstract class Producto {
 
     @Override
     public String toString() {
-        return "\nProducto= "+"\nCodigo= " + codigo +"\nMarca='" + marca +"\nModelo='" + modelo +"\nStock=" + stock +"\nPrecio= "+precio+"\nPeso= "+peso+"\nPaisOrigen= "+paisOrigen +"\nRgb= "+rgb+"\nColor= "+color+"\nDescripcion= "+descripcion;
+        return "\nProducto: "+"\nCodigo= " + codigo +"\nMarca='" + marca +"\nModelo='" + modelo +"\nStock=" + stock +"\nPrecio= "+precio+"\nPeso= "+peso+"\nPaisOrigen= "+paisOrigen +"\nRgb= "+rgb+"\nColor= "+color+"\nDescripcion= "+descripcion;
     }
     public String detallePedido(){
-        return "\nCodigo= " + codigo +"\nMarca=" + marca +"\nModelo=" + modelo +"\nPrecio unitario= "+precio;
+        return "\nCodigo: " + codigo +"\nMarca=" + marca +"\nModelo=" + modelo +"\nPrecio unitario= "+precio;
     }
 
     @Override

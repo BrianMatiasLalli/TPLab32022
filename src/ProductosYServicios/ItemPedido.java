@@ -1,7 +1,6 @@
 package ProductosYServicios;
 
 public class ItemPedido {
-    //private String descripcion; 
     private Producto pedido; 
     private double precioTotal;
     private int cantidad;

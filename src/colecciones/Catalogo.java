@@ -13,24 +13,29 @@ public class Catalogo {
 	public Catalogo() {
 		this.mapaCatalogo = new HashMap<String,Producto>();
 	}
-	public void agregarProducto(String id, Producto nuevo){
-		this.mapaCatalogo.put(id,nuevo);
+	
+	public void agregar(Producto nuevo){
+		this.mapaCatalogo.put(nuevo.getCodigo(),nuevo);
 	}
-	public void eliminarProducto(String id){
+	
+	
+	public void eliminar(String id){
 		this.mapaCatalogo.remove(id);
 	}
-	public String listarCatalogo(){
+	
+	public String listar(){
 		StringBuilder sb = new StringBuilder();
 		Iterator<Map.Entry<String, Producto>> it = mapaCatalogo.entrySet().iterator();
 		while (it.hasNext())
 		{
 			Map.Entry<String, Producto> entry =  (Map.Entry<String,Producto>)it.next();
-			//if(entry.getValue() instanceof Almacenamiento)
-			sb.append(entry.getKey()+" / "+ entry.getValue().toString()+"\n");
+			sb.append(entry.getValue().toString()+"\n");
 		}
 		return sb.toString();
 	}
-	public String listarAlmacenamiento(){
+	
+	public String listarAlmacenamiento()
+	{
 		StringBuilder sb = new StringBuilder();
 		Iterator<Map.Entry<String, Producto>> it = mapaCatalogo.entrySet().iterator();
 		while (it.hasNext())
@@ -43,7 +48,10 @@ public class Catalogo {
 		}
 		return sb.toString();
 	}
-	public String listarAuriculares(){
+	
+	
+	public String listarAuriculares()
+	{
 		StringBuilder sb = new StringBuilder();
 		Iterator<Map.Entry<String, Producto>> it = mapaCatalogo.entrySet().iterator();
 		while (it.hasNext())
@@ -55,7 +63,9 @@ public class Catalogo {
 		}
 		return sb.toString();
 	}
-	public String listarComputadoras(){
+	
+	public String listarComputadoras()
+	{
 		StringBuilder sb = new StringBuilder();
 		Iterator<Map.Entry<String, Producto>> it = mapaCatalogo.entrySet().iterator();
 		while (it.hasNext())
@@ -67,7 +77,10 @@ public class Catalogo {
 		}
 		return sb.toString();
 	}
-	public String listarCoolers(){
+	
+	
+	public String listarCoolers()
+	{
 		StringBuilder sb = new StringBuilder();
 		Iterator<Map.Entry<String, Producto>> it = mapaCatalogo.entrySet().iterator();
 		while (it.hasNext())
@@ -79,7 +92,10 @@ public class Catalogo {
 		}
 		return sb.toString();
 	}
-	public String listarFuentes(){
+	
+	
+	public String listarFuentes()
+	{
 		StringBuilder sb = new StringBuilder();
 		Iterator<Map.Entry<String, Producto>> it = mapaCatalogo.entrySet().iterator();
 		while (it.hasNext())
@@ -91,7 +107,9 @@ public class Catalogo {
 		}
 		return sb.toString();
 	}
-	public String listarGabinetes(){
+	
+	public String listarGabinetes()
+	{
 		StringBuilder sb = new StringBuilder();
 		Iterator<Map.Entry<String, Producto>> it = mapaCatalogo.entrySet().iterator();
 		while (it.hasNext())
@@ -103,7 +121,10 @@ public class Catalogo {
 		}
 		return sb.toString();
 	}
-	public String listarMemorias(){
+	
+	
+	public String listarMemorias()
+	{
 		StringBuilder sb = new StringBuilder();
 		Iterator<Map.Entry<String, Producto>> it = mapaCatalogo.entrySet().iterator();
 		while (it.hasNext())
@@ -115,7 +136,10 @@ public class Catalogo {
 		}
 		return sb.toString();
 	}
-	public String listarMicrofonos(){
+	
+	
+	public String listarMicrofonos()
+	{
 		StringBuilder sb = new StringBuilder();
 		Iterator<Map.Entry<String, Producto>> it = mapaCatalogo.entrySet().iterator();
 		while (it.hasNext())
@@ -127,7 +151,10 @@ public class Catalogo {
 		}
 		return sb.toString();
 	}
-	public String listarMonitores(){
+	
+	
+	public String listarMonitores()
+	{
 		StringBuilder sb = new StringBuilder();
 		Iterator<Map.Entry<String, Producto>> it = mapaCatalogo.entrySet().iterator();
 		while (it.hasNext())
@@ -139,7 +166,10 @@ public class Catalogo {
 		}
 		return sb.toString();
 	}
-	public String listarMotherboards(){
+	
+	
+	public String listarMotherboards()
+	{
 		StringBuilder sb = new StringBuilder();
 		Iterator<Map.Entry<String, Producto>> it = mapaCatalogo.entrySet().iterator();
 		while (it.hasNext())
@@ -151,7 +181,10 @@ public class Catalogo {
 		}
 		return sb.toString();
 	}
-	public String listarMouses(){
+	
+	
+	public String listarMouses()
+	{
 		StringBuilder sb = new StringBuilder();
 		Iterator<Map.Entry<String, Producto>> it = mapaCatalogo.entrySet().iterator();
 		while (it.hasNext())
@@ -163,7 +196,10 @@ public class Catalogo {
 		}
 		return sb.toString();
 	}
-	public String listarParlantes(){
+	
+	
+	public String listarParlantes()
+	{
 		StringBuilder sb = new StringBuilder();
 		Iterator<Map.Entry<String, Producto>> it = mapaCatalogo.entrySet().iterator();
 		while (it.hasNext())
@@ -175,7 +211,10 @@ public class Catalogo {
 		}
 		return sb.toString();
 	}
-	public String listarPlacas(){
+	
+	
+	public String listarPlacas()
+	{
 		StringBuilder sb = new StringBuilder();
 		Iterator<Map.Entry<String, Producto>> it = mapaCatalogo.entrySet().iterator();
 		while (it.hasNext())
@@ -187,7 +226,10 @@ public class Catalogo {
 		}
 		return sb.toString();
 	}
-	public String listarProcesadores(){
+	
+	
+	public String listarProcesadores()
+	{
 		StringBuilder sb = new StringBuilder();
 		Iterator<Map.Entry<String, Producto>> it = mapaCatalogo.entrySet().iterator();
 		while (it.hasNext())
@@ -199,7 +241,10 @@ public class Catalogo {
 		}
 		return sb.toString();
 	}
-	public String listarTeclados(){
+	
+	
+	public String listarTeclados()
+	{
 		StringBuilder sb = new StringBuilder();
 		Iterator<Map.Entry<String, Producto>> it = mapaCatalogo.entrySet().iterator();
 		while (it.hasNext())
@@ -211,7 +256,10 @@ public class Catalogo {
 		}
 		return sb.toString();
 	}
-	public String listarWebcams(){
+	
+	
+	public String listarWebcams()
+	{
 		StringBuilder sb = new StringBuilder();
 		Iterator<Map.Entry<String, Producto>> it = mapaCatalogo.entrySet().iterator();
 		while (it.hasNext())
@@ -223,11 +271,16 @@ public class Catalogo {
 		}
 		return sb.toString();
 	}
-	public void editarProducto(Producto editado){
+	
+	
+	public void editar(Producto editado){
 		String clave= editado.getCodigo();
 		this.mapaCatalogo.put(clave,editado);
 	}
-	public String buscarProducto(String codigo){
+	
+	
+	public String buscar(String codigo)
+	{
 		String retorno="";
 		Iterator<Map.Entry<String, Producto>> it = mapaCatalogo.entrySet().iterator();
 		while (it.hasNext()) {
@@ -236,7 +289,7 @@ public class Catalogo {
 				retorno = entry.getValue().toString();
 			}
 			}return retorno;
-		}
+	}
 
 
 }
