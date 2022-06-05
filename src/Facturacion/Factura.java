@@ -9,7 +9,7 @@ public class Factura {
     private int id;
     private Date fecha;
     private Cliente comprador;
-    private Carrito listaDeProductos;
+    private String listaDeProductos;
     private double precio;
     private String vendedor;//getNombre de vendedor
     public static int cantTotalFacturas=0;
@@ -18,7 +18,7 @@ public class Factura {
         nuevoID();
         this.fecha = new Date();
         this.comprador = comprador;
-        this.listaDeProductos = listaDeProductos;
+        this.listaDeProductos = listaDeProductos.mostrarCarrito();
         this.precio = listaDeProductos.calcularPrecioTotal();
         this.vendedor = vendedor;
     }
@@ -41,7 +41,7 @@ public class Factura {
 		return comprador;
 	}
 
-	public Carrito getListaDeProductos() {
+	public String getListaDeProductos() {
 		return listaDeProductos;
 	}
 
@@ -61,6 +61,6 @@ public class Factura {
     public String toString() {
         return "Tienda de Informatica\n"+"Factura numero:"+id+"\nFecha=" + fecha +
                 "\nCliente:" + comprador.getApellido() + " "+ comprador.getNombre() +
-                "\nProductos:" + listaDeProductos.mostrarCarrito() +"\nVendedor:" + vendedor + "\n\nPrecio total:" + precio ;
+                "\nProductos:" + listaDeProductos +"\nVendedor:" + vendedor + "\n\nPrecio total:" + precio ;
     }
 }
