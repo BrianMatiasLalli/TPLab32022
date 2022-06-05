@@ -3,7 +3,7 @@ package test;
 import Facturacion.Factura;
 import ProductosYServicios.*;
 import clases.Cliente;
-import colecciones.Carrito;
+import Facturacion.Carrito;
 import colecciones.Catalogo;
 import colecciones.Contenedora;
 import ProductosYServicios.Servicio;

@@ -1,7 +1,6 @@
 package Facturacion;
 
 import clases.Cliente;
-import colecciones.Carrito;
 
 import java.util.Date;
 
