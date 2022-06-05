@@ -50,44 +50,58 @@ public class Menu {
 									opcion= teclado.nextInt();
 									
 									System.out.println("Ingrese codigo: ");
-									String codigo= teclado.nextLine();
+									teclado.nextLine();
+									String codigo2= teclado.nextLine();
+									
 									
 									System.out.println("Ingrese marca: ");
+									
 									String marca= teclado.nextLine();
+									
 									System.out.println("Ingrese modelo: ");
+									
 									String modelo= teclado.nextLine();
+									
 									System.out.println("Ingrese stock: ");
 									int stock= teclado.nextInt();
+
 									System.out.println("Ingrese precio: ");
 									double precio= teclado.nextDouble();
+									
 									System.out.println("Ingrese peso: ");
 									double peso= teclado.nextDouble();
+									
 									System.out.println("Ingrese paisOrigen: ");
+									teclado.nextLine();
+									
 									String paisOrigen= teclado.nextLine();
+						
 									System.out.println("Ingrese 1 si es RGB: ");
 									int rgb= teclado.nextInt();
 									boolean isRgb=false;
 									if(rgb==1) {
 										isRgb=true;
 									}
+									
 									System.out.println("Ingrese color: ");
+									teclado.nextLine();
 									String color= teclado.nextLine();
+									
 									System.out.println("Ingrese descripcion: ");
+									
 									String descripcion= teclado.nextLine();
+									
 
 									switch(opcion) {
-									/**
-									 *String codigo, String marca, String modelo, int stock, double precio, double peso,
-									String paisOrigen, boolean rgb, String color, String descripcion, 
-									String tipoDeDisco, int capacidad
-									 */
-									
+									 
 									case 1:
 										System.out.println("Ingrese tipo de disco: ");
+										
 										String tipoDeDisco= teclado.nextLine();
+										
 										System.out.println("Ingrese capacidad del disco: ");
 										int capacidad=teclado.nextInt();
-										miTienda.agregarProducto(codigo, marca, modelo, stock, precio, peso, paisOrigen, isRgb, color, descripcion, capacidad, tipoDeDisco);
+										miTienda.agregarProducto(codigo2, marca, modelo, stock, precio, peso, paisOrigen, isRgb, color, descripcion, capacidad, tipoDeDisco);
 										
 										break;
 										
@@ -100,7 +114,7 @@ public class Menu {
 									break;
 								case 3:
 									//Listar Productos
-									miTienda.getCatalogo().listar();
+									System.out.println(miTienda.getCatalogo().listar()); 
 									
 									break;
 								case 4:
