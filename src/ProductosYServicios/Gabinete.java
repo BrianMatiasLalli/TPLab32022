@@ -4,7 +4,6 @@ public class Gabinete extends Producto {
 	
 	private String factorMother;
 	private boolean isVentana;
-	private String color;
 	private int cantidadDeSlotsParaCooler;
 	private int usbFrontal;
 	private int alto;
@@ -16,7 +15,6 @@ public class Gabinete extends Producto {
 		super();
 		this.factorMother = "";
 		this.isVentana = false;
-		this.color = "";
 		this.cantidadDeSlotsParaCooler = 0;
 		this.usbFrontal = 0;
 		this.alto = 0;
@@ -25,12 +23,10 @@ public class Gabinete extends Producto {
 	}
 	
 	public Gabinete(String codigo, String marca, String modelo, int stock, double precio, double peso,
-			String paisOrigen, boolean rgb, String color, String descripcion, String facttorMother, boolean isVentana,
-			String color2, int cantidadDeSlotsParaCooler, int usbFrontal, int alto, int ancho, int profundo) {
+			String paisOrigen, boolean rgb, String color, String descripcion, String facttorMother, boolean isVentana, int cantidadDeSlotsParaCooler, int usbFrontal, int alto, int ancho, int profundo) {
 		super(codigo, marca, modelo, stock, precio, peso, paisOrigen, rgb, color, descripcion);
 		this.factorMother = facttorMother;
 		this.isVentana = isVentana;
-		color = color2;
 		this.cantidadDeSlotsParaCooler = cantidadDeSlotsParaCooler;
 		this.usbFrontal = usbFrontal;
 		this.alto = alto;
@@ -46,9 +42,6 @@ public class Gabinete extends Producto {
 		return isVentana;
 	}
 
-	public String getColor() {
-		return color;
-	}
 
 	public int getCantidadDeSlotsParaCooler() {
 		return cantidadDeSlotsParaCooler;
@@ -72,8 +65,7 @@ public class Gabinete extends Producto {
 
 	@Override
 	public String toString() {
-		return super.toString()+"Gabinete FactorMother: " + getFactorMother() + ", Ventana:" + isVentana() + ", Color: "
-				+ getColor() + ", Cantidad de Slots para cooler: " + getCantidadDeSlotsParaCooler()
+		return super.toString()+"Gabinete FactorMother: " + getFactorMother() + ", Ventana:" + isVentana() + ", Cantidad de Slots para cooler: " + getCantidadDeSlotsParaCooler()
 				+ ", Usb Frontal: " + getUsbFrontal() + ", Alto: " + getAlto() + ", Ancho: " + getAncho()
 				+ ", Profundo: " + getProfundo() + "]";
 	}

@@ -8,13 +8,17 @@ import colecciones.Catalogo;
 import colecciones.Contenedora;
 import ProductosYServicios.Servicio;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args){
     	
     	Menu menuPrincipal= new Menu();
+        menuPrincipal.opciones();
+        /*
         Contenedora listaClientes= new Contenedora();
         Catalogo catalogo = new Catalogo();
-        
+
         
         Producto almacenamiento1 = new Almacenamiento("10001","Seagate","STEB6000403",5,30000,950,"Estados Unidos",false,"negro","disco almacenamiento1","coleccion1","SSD",6000);
         Producto almacenamiento2= new Almacenamiento("10002","Seagate","ST2000DM005",6,8700,415,"Estados Unidos",false,"gris","disco almacenamiento2","coleccion2","HDD",2000);
@@ -88,5 +92,9 @@ public class Main {
         Factura factura= new Factura(nuevoCliente,nuevoCarrito,"Brian");
         
         System.out.println(factura.toString());
+
+         */
     }
+
+
 }
