@@ -36,16 +36,62 @@ public class Menu {
 							opcion = teclado.nextInt();
 							switch (opcion) {
 								case 1:
+									
 									System.out.println("\nCategoria:");
 									System.out.println("\n1.Almacenamiento");
 									//aca preguntas los datos exactos y llamas al agregar de tienda
+									//Producto almacenamiento1 = new Almacenamiento("10001","Seagate","STEB6000403",5,30000,950,"Estados Unidos",false,"negro","disco almacenamiento1","coleccion1","SSD",6000);
+									//Producto auriculares1= new Auriculares("10004","HyperX","CloudX Stinger",7,6945,150,"Estados Unidos",false, "negro y verde","Auriculares 1",false,true,1);
 									System.out.println("\n2.Auriculares.");
 									System.out.println("\n3.Categoria:");
 									System.out.println("\n4.Categoria:");
 									System.out.println("\n5.Categoria:");
 									System.out.println("\n6.Categoria:");
+									opcion= teclado.nextInt();
+									
+									System.out.println("Ingrese codigo: ");
+									String codigo= teclado.nextLine();
+									
+									System.out.println("Ingrese marca: ");
+									String marca= teclado.nextLine();
+									System.out.println("Ingrese modelo: ");
+									String modelo= teclado.nextLine();
+									System.out.println("Ingrese stock: ");
+									int stock= teclado.nextInt();
+									System.out.println("Ingrese precio: ");
+									double precio= teclado.nextDouble();
+									System.out.println("Ingrese peso: ");
+									double peso= teclado.nextDouble();
+									System.out.println("Ingrese paisOrigen: ");
+									String paisOrigen= teclado.nextLine();
+									System.out.println("Ingrese 1 si es RGB: ");
+									int rgb= teclado.nextInt();
+									boolean isRgb=false;
+									if(rgb==1) {
+										isRgb=true;
+									}
+									System.out.println("Ingrese color: ");
+									String color= teclado.nextLine();
+									System.out.println("Ingrese descripcion: ");
+									String descripcion= teclado.nextLine();
 
-
+									switch(opcion) {
+									/**
+									 *String codigo, String marca, String modelo, int stock, double precio, double peso,
+									String paisOrigen, boolean rgb, String color, String descripcion, 
+									String tipoDeDisco, int capacidad
+									 */
+									
+									case 1:
+										System.out.println("Ingrese tipo de disco: ");
+										String tipoDeDisco= teclado.nextLine();
+										System.out.println("Ingrese capacidad del disco: ");
+										int capacidad=teclado.nextInt();
+										miTienda.agregarProducto(codigo, marca, modelo, stock, precio, peso, paisOrigen, isRgb, color, descripcion, capacidad, tipoDeDisco);
+										
+										break;
+										
+									}
 
 									//agregar producto
 									break;
@@ -54,6 +100,8 @@ public class Menu {
 									break;
 								case 3:
 									//Listar Productos
+									miTienda.getCatalogo().listar();
+									
 									break;
 								case 4:
 									//Consultar Producto
