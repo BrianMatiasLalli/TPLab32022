@@ -10,6 +10,8 @@ import ProductosYServicios.Servicio;
 
 public class Main {
     public static void main(String[] args){
+    	
+    	Menu menuPrincipal= new Menu();
         Contenedora listaClientes= new Contenedora();
         Catalogo catalogo = new Catalogo();
         
