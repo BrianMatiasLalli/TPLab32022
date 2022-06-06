@@ -37,7 +37,7 @@ public class Parlante extends Producto{
 
 	@Override
 	public String toString() {
-		return "Parlantes Potencia: " + getPotencia() + ", Tipo de conectores: " + getTipoDeConectores()
+		return super.toString()+"Parlantes Potencia: " + getPotencia() + ", Tipo de conectores: " + getTipoDeConectores()
 				+ ", Alimentacion: " + getAlimentacion() + "]";
 	}
 	

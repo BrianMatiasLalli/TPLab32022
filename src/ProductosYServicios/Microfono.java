@@ -26,7 +26,7 @@ public class Microfono extends Producto{
 	
 	@Override
 	public String toString() {
-		return "Microfono Tipo de pie: " + getTipoDePie() + ", Conexion: " + getConexion() + "]";
+		return super.toString()+"Microfono Tipo de pie: " + getTipoDePie() + ", Conexion: " + getConexion() + "]";
 	}
 	
 	

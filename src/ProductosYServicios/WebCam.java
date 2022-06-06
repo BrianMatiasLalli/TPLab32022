@@ -44,7 +44,7 @@ public class WebCam extends Producto{
 
 	@Override
 	public String toString() {
-		return "WebCam Resolucion maxima de video: " + getResolucionMaximaDevideo() + ", Tipo de lente: "
+		return super.toString()+"WebCam Resolucion maxima de video: " + getResolucionMaximaDevideo() + ", Tipo de lente: "
 				+ getTipoDeLente() + ", Tipo de resolucion: " + getTipoDeResolucion() + ", tiene microfono: "
 				+ isMicrofono() + "]";
 	}

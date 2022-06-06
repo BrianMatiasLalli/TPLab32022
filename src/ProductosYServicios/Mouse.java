@@ -52,7 +52,7 @@ public class Mouse extends Producto{
 
 	@Override
 	public String toString() {
-		return "Mouse: Cantidad de botones: " + getCantidadDeBotones() + ", Switch: " + getSwitcH()
+		return super.toString()+"Mouse: Cantidad de botones: " + getCantidadDeBotones() + ", Switch: " + getSwitcH()
 				+ ", Sensor: " + getSensor() + ", es inalambrico: " + isInalambrica() + ", DpiMax: "
 				+ getDpiMax() + "]";
 	}
