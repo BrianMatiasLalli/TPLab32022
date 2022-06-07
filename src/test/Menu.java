@@ -105,17 +105,19 @@ public class Menu {
 									switch(opcionCatalogo) {
 									 
 									case 1:
+										System.out.println("\nALMACENAMIENTO\n");
 										System.out.println("Ingrese tipo de disco: ");
-										
 										String tipoDeDisco= teclado.nextLine();
 										
 										System.out.println("Ingrese capacidad del disco: ");
 										int capacidad=teclado.nextInt();
+										
 										miTienda.agregarProducto(codigo2, marca, modelo, stock, precio, peso, paisOrigen, isRgb, color, descripcion, capacidad, tipoDeDisco);
 										
 										break;
 										
 									case 2: 
+										System.out.println("\nAURICULARES\n");
 										System.out.println("Ingrese 1 si es inalambrico: ");
 										int inalambrico= teclado.nextInt();
 										boolean isInalambrico=false;
@@ -134,6 +136,7 @@ public class Menu {
 										
 										System.out.println("Ingrese el largo del cable: ");
 										int largoDelCable= teclado.nextInt();
+										
 										miTienda.agregarProducto(codigo2, marca, modelo, stock, precio, peso, paisOrigen, isRgb, color, descripcion,isInalambrico,isMicrofono,largoDelCable);
 										break;
 									
@@ -141,35 +144,44 @@ public class Menu {
 										//revisar
 										break;
 									case 4: 
-										
+										System.out.println("\nCOOLER DE GABINETE\n");
 										String tipo="Gabinete";
+										
 										System.out.println("Ingrese el consumo: ");
 										int consumo=teclado.nextInt();
+										
 										miTienda.agregarProducto(codigo2, marca, modelo, stock, precio, peso, paisOrigen, isRgb, color, descripcion,tipo,consumo);							
 										break;
 									
 									case 5: 
-										
+										System.out.println("\nCOOLER DE CPU\n");
 										String tipoCPU="CPU";
+										
 										System.out.println("Ingrese el consumo: ");
 										int consumoCPU=teclado.nextInt();
+										
 										System.out.println("Ingrese el TDP: ");
 										int tdp=teclado.nextInt();
+										
 										System.out.println("Ingrese el tipo de disipacion: ");
 										teclado.nextLine();
 										String tDisipacion= teclado.nextLine();
+										
 										System.out.println("Ingrese socket compatible: ");
 										String socketC=teclado.nextLine();
+										
 										miTienda.agregarProducto(codigo2, marca, modelo, stock, precio, peso, paisOrigen, isRgb, color, descripcion, tipoCPU, consumoCPU,tdp,tDisipacion,socketC);
 										break;
 									
 									case 6: 
-										
+										System.out.println("\nFUENTE\n");
 										System.out.println("Ingrese los watts de consumo: ");
 										int watts=teclado.nextInt();
+										
 										System.out.println("Ingrese el formato: ");
 										teclado.nextLine();
 										String formato=teclado.nextLine();
+										
 										System.out.println("Ingrese la certificacion: ");
 										String certificacion=teclado.nextLine();
 										
@@ -185,7 +197,7 @@ public class Menu {
 										break;
 									
 									case 7: 
-			
+										System.out.println("\nGABINETE\n");
 										System.out.println("Ingrese el factor mother: ");
 										String factorM=teclado.nextLine();
 										
@@ -205,8 +217,10 @@ public class Menu {
 										
 										System.out.println("Ingrese el alto:");
 										int alto= teclado.nextInt();
+										
 										System.out.println("Ingrese el ancho:");
 										int ancho= teclado.nextInt();
+										
 										System.out.println("Ingrese el profundo:");
 										int profundo= teclado.nextInt();
 										
@@ -215,7 +229,7 @@ public class Menu {
 										break;
 									
 									case 8: 
-										
+										System.out.println("\nMEMORIA RAM\n");
 										System.out.println("Ingrese la capacidad: ");
 										int capacidadRam= teclado.nextInt();
 										
@@ -247,16 +261,19 @@ public class Menu {
 										break;
 									
 									case 9: 
+										System.out.println("\nMICROFONO\n");
 										
 										System.out.println("Ingrese el tipo de pie:");
 										String tipoDePie=teclado.nextLine();
+										
 										System.out.println("Ingrese la conexion: ");
 										String conexion=teclado.nextLine();
+										
 										miTienda.agregarProducto(codigo2, marca, modelo, stock, precio, peso, paisOrigen, isRgb, color, descripcion, tipoDePie, conexion);
 										break;
 									
 									case 10: 
-										// String tipoDePanel, boolean isCurvo, String conexion,String tipoDeFuente, int pulgadas, String resolucion, String frecuencia
+										System.out.println("\nMONITOR\n");
 										System.out.println("Ingrese el tipo de panel");
 										String tipoDePanel=teclado.nextLine();
 										
@@ -289,31 +306,163 @@ public class Menu {
 										break;
 									
 									case 11: 
+										System.out.println("\nMOTHERBOARD\n");
+										System.out.println("Ingrese Plataforma: ");
+										String plataforma=teclado.nextLine();
 										
+										System.out.println("Ingrese socket: ");
+										String socket=teclado.nextLine();
+										
+										System.out.println("Ingrese factor: ");
+										String factor=teclado.nextLine();
+										
+										System.out.println("Ingrese cantidad de slots para memoria: ");
+										int canSlotsM=teclado.nextInt();
+										
+										System.out.println("Ingrese cantidad de puertos sata: ");
+										int puertosSata=teclado.nextInt();
+										
+										System.out.println("Ingrese salida de video: ");
+										teclado.nextLine();
+										String salidaDeVideo=teclado.nextLine();
+										
+										System.out.println("Ingrese cantidad de slots M2: ");
+										int cantidadDeSlotsM2=teclado.nextInt();
+										
+										System.out.println("Ingrese cantidad de puertos USB: ");
+										int puertosUSB=teclado.nextInt();
+										
+										miTienda.agregarProducto(codigo2, marca, modelo, stock, precio, peso, paisOrigen, isRgb, color, descripcion,plataforma,socket,factor,canSlotsM,puertosSata,salidaDeVideo,cantidadDeSlotsM2,puertosUSB);
 										break;
 									
 									case 12: 
+										System.out.println("\nMOUSE\n");
+										System.out.println("Ingrese cantidad de botones: ");
+										int cantidadDeBotones=teclado.nextInt(); 
 										
+										System.out.println("Ingrese el tipo de switch: ");
+										teclado.nextLine();
+										String switchM=teclado.nextLine();
+										
+										System.out.println("Ingrese el tipo de sensor: ");
+										String sensor=teclado.nextLine();
+										
+										System.out.println("Ingrese 1 si es inalambrico: ");
+										int inalambricoMouse= teclado.nextInt();
+										boolean isInalambricoMouse=false;
+										if(inalambricoMouse==1) {
+											isInalambricoMouse=true;
+										}
+										
+										System.out.println("Ingrese los dpi maximos: ");
+										int dpiMaximos=teclado.nextInt();
+										
+										miTienda.agregarProducto(codigo2, marca, modelo, stock, precio, peso, paisOrigen, isRgb, color, descripcion, cantidadDeBotones, switchM,sensor,isInalambricoMouse,dpiMaximos);
 										break;
 									
 									case 13: 
+										System.out.println("\nPARLANTES\n");
+										System.out.println("Ingrese la potencia: ");
+										String potencia=teclado.nextLine();
 										
+										System.out.println("Ingrese los tipos de conectores: ");
+										String conectores=teclado.nextLine();
+										
+										System.out.println("Ingrese el tipo de alimentacion: ");
+										String alimentacion=teclado.nextLine();
+										
+										miTienda.agregarProducto(codigo2, marca, modelo, stock, precio, peso, paisOrigen, isRgb, color, descripcion, potencia, conectores,alimentacion);
 										break;
 									
 									case 14: 
+										System.out.println("\nPLACA DE VIDEO\n");
+										System.out.println("Ingrese tipo de conectividad: ");
+										String conectividad=teclado.nextLine();
 										
+										System.out.println("Ingrese tipo de consumo: ");
+										String consumoVideo=teclado.nextLine();
+										
+										System.out.println("Ingrese tipo de memoria: ");
+										String tipoDeMemoria=teclado.nextLine();
+										
+										System.out.println("Ingrese capacidad de memoria: ");
+										int capMemoria= teclado.nextInt();
+										
+										System.out.println("Ingrese 1 si es backPlate: ");
+										int backPlate= teclado.nextInt();
+										boolean isBackPlate=false;
+										if(backPlate==1) {
+											isBackPlate=true;
+										}
+										
+										miTienda.agregarProducto(codigo2, marca, modelo, stock, precio, peso, paisOrigen, isRgb, color, descripcion, conectividad, consumoVideo,tipoDeMemoria,capMemoria,isBackPlate);
 										break;
 									
 									case 15: 
+										System.out.println("\nPROCESADOR\n");
+										System.out.println("Ingrese el tipo de socket: ");
+										String socketP=teclado.nextLine();
 										
+										System.out.println("Ingrese la cantidad de nucleos: ");
+										int nucleos= teclado.nextInt();
+										
+										System.out.println("Ingrese la cantidad de hilos: ");
+										int hilos= teclado.nextInt();
+										
+										System.out.println("Ingrese la frecuencia turbo: ");
+										int frecuenciaTurbo= teclado.nextInt();
+										
+										System.out.println("Ingrese proceso de fabricacion(numero): ");
+										int procesoDeFabricacion= teclado.nextInt();
+										
+										System.out.println("Ingrese TDP: ");
+										int tdpProcesador= teclado.nextInt();
+										
+										System.out.println("Ingrese 1 si tiene cooler: ");
+										int coolerP= teclado.nextInt();
+										boolean isCooler=false;
+										if(coolerP==1) {
+											isCooler=true;
+										}
+										
+										miTienda.agregarProducto(codigo2, marca, modelo, stock, precio, peso, paisOrigen, isRgb, color, descripcion, socketP, nucleos,hilos,frecuenciaTurbo,procesoDeFabricacion,tdpProcesador,isCooler);
 										break;
 									
 									case 16: 
+										System.out.println("\nTECLADOS\n");
+										System.out.println("Ingrese Tipo de teclado: ");
+										String tecladoProducto=teclado.nextLine();
 										
+										System.out.println("Ingrese formFactor: ");
+										String formfactor=teclado.nextLine();
+										
+										System.out.println("Ingrese tipo de switch: ");
+										String switcH=teclado.nextLine();
+										
+										miTienda.agregarTeclado(codigo2, marca, modelo, stock, precio, peso, paisOrigen, isRgb, color, descripcion, tecladoProducto, formfactor,switcH);
 										break;
 									
 									case 17: 
+										System.out.println("\nWEBCAMS\n");
+										System.out.println("Ingrese resolucion de video: ");
+										String resolucionCam=teclado.nextLine();
 										
+										System.out.println("Ingrese tipo de lente: ");
+										String tipoDeLente=teclado.nextLine();
+										
+										System.out.println("Ingrese tipo de resolucion: ");
+										String tipoDeResolucion=teclado.nextLine();
+										
+										System.out.println("Ingrese 1 si tiene microfono: ");
+										int microfono= teclado.nextInt();
+										
+										boolean isMicrofonoCam=false;
+										if(microfono==1) {
+											isMicrofonoCam=true;
+										}
+										
+										miTienda.agregarProducto(codigo2, marca, modelo, stock, precio, peso, paisOrigen, isRgb, color, descripcion, resolucionCam, tipoDeLente,tipoDeResolucion,isMicrofonoCam);
+
 										break;
 
 									}
