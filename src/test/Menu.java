@@ -1,20 +1,25 @@
 package test;
 
-import javax.sound.midi.Soundbank;
+import jsonHerramientas.StreamJSON;
+
 import java.util.Scanner;
 
 public class Menu {
 
 	
-	private TiendaInformatica miTienda;
+	private String nombre;
 
-	public Menu() {
-		this.miTienda = new TiendaInformatica("Tienda1");
+	public Menu(String nombre) {
+		this.nombre=nombre;
 	}
+	TiendaInformatica miTienda= new TiendaInformatica<>(nombre);
+
 
 	public void opciones(){
 		int opcion,opcionCatalogo;
 		Scanner teclado = new Scanner(System.in);
+		miTienda.getCatalogo();
+		StreamJSON nuevoJSON = new StreamJSON();
 		do {
 			System.out.println("\nMenu Principal.\nDiginte la opcion deseada o 9 para salir\n");
 			System.out.println("\n1.Catalogo.");
@@ -565,6 +570,8 @@ public class Menu {
 				}
 			} while (opcion < 6 && opcion > -1);
 
+		System.out.println(nuevoJSON.javaAJSON(miTienda.getCatalogo()));
 		}
+
 
 }

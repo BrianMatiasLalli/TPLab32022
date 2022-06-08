@@ -1,19 +1,9 @@
 package test;
 
-import Facturacion.Factura;
-import ProductosYServicios.*;
-import clases.Cliente;
-import Facturacion.Carrito;
-import colecciones.Catalogo;
-import colecciones.Contenedora;
-import ProductosYServicios.Servicio;
-
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args){
     	
-    	Menu menuPrincipal= new Menu();
+    	Menu menuPrincipal= new Menu("hola");
         menuPrincipal.opciones();
         /*
         Contenedora listaClientes= new Contenedora();
