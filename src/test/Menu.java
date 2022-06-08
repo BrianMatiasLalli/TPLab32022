@@ -61,51 +61,51 @@ public class Menu {
 									System.out.println("\n15.Procesador:");
 									System.out.println("\n16.Teclado:");
 									System.out.println("\n17.Webcam:");
-									
+									System.out.println("\n0 para salir.");
 									opcionCatalogo= teclado.nextInt();
-									
-									System.out.println("Ingrese codigo: ");
-									teclado.nextLine();
-									String codigo2= teclado.nextLine();
-									
-									
-									System.out.println("Ingrese marca: ");
-									
-									String marca= teclado.nextLine();
-									
-									System.out.println("Ingrese modelo: ");
-									
-									String modelo= teclado.nextLine();
-									
-									System.out.println("Ingrese stock: ");
-									int stock= teclado.nextInt();
+									if(opcionCatalogo!=0) {
+										System.out.println("Ingrese codigo: ");
+										teclado.nextLine();
+										String codigo2 = teclado.nextLine();
 
-									System.out.println("Ingrese precio: ");
-									double precio= teclado.nextDouble();
-									
-									System.out.println("Ingrese peso: ");
-									double peso= teclado.nextDouble();
-									
-									System.out.println("Ingrese paisOrigen: ");
-									teclado.nextLine();
-									
-									String paisOrigen= teclado.nextLine();
-						
-									System.out.println("Ingrese 1 si es RGB: ");
-									int rgb= teclado.nextInt();
-									boolean isRgb=false;
-									if(rgb==1) {
-										isRgb=true;
-									}
-									
-									System.out.println("Ingrese color: ");
-									teclado.nextLine();
-									String color= teclado.nextLine();
-									
-									System.out.println("Ingrese descripcion: ");
-									
-									String descripcion= teclado.nextLine();
-									
+
+										System.out.println("Ingrese marca: ");
+
+										String marca = teclado.nextLine();
+
+										System.out.println("Ingrese modelo: ");
+
+										String modelo = teclado.nextLine();
+
+										System.out.println("Ingrese stock: ");
+										int stock = teclado.nextInt();
+
+										System.out.println("Ingrese precio: ");
+										double precio = teclado.nextDouble();
+
+										System.out.println("Ingrese peso: ");
+										double peso = teclado.nextDouble();
+
+										System.out.println("Ingrese paisOrigen: ");
+										teclado.nextLine();
+
+										String paisOrigen = teclado.nextLine();
+
+										System.out.println("Ingrese 1 si es RGB: ");
+										int rgb = teclado.nextInt();
+										boolean isRgb = false;
+										if (rgb == 1) {
+											isRgb = true;
+										}
+
+										System.out.println("Ingrese color: ");
+										teclado.nextLine();
+										String color = teclado.nextLine();
+
+										System.out.println("Ingrese descripcion: ");
+
+										String descripcion = teclado.nextLine();
+
 
 									switch(opcionCatalogo) {
 									 
@@ -471,19 +471,102 @@ public class Menu {
 										break;
 
 									}
+									}
 
 									//agregar producto
 									break;
 								case 2:
 									//quitar producto
+									System.out.println("\nDigite el codigo de producto:\n");
+									String aBorrar= teclado.nextLine();
+									miTienda.borrarProducto(aBorrar);
 									break;
 								case 3:
 									//Listar Productos
-									System.out.println(miTienda.getCatalogo().listar()); 
-									
-									break;
-								case 4:
+									System.out.println("\n1.Almacenamiento.");
+									System.out.println("\n2.Auriculares.");
+									System.out.println("\n3.Computadora:");
+									System.out.println("\n4.Coolers:");
+									System.out.println("\n5.Fuente:");
+									System.out.println("\n6.Gabinete:");
+									System.out.println("\n7.MemoriaRAM:");
+									System.out.println("\n8.Microfono:");
+									System.out.println("\n9.Monitor.");
+									System.out.println("\n10.MotherBoard:");
+									System.out.println("\n11.Mouse:");
+									System.out.println("\n12.Parlante:");
+									System.out.println("\n13.Placa de video:");
+									System.out.println("\n14.Procesador:");
+									System.out.println("\n15.Teclado:");
+									System.out.println("\n16.Webcam:");
+									System.out.println("\n17.Todos.");
+									System.out.println("\n0 para salir.");
+
+									int opcionListar;
+									opcionListar=teclado.nextInt();
+
+									switch(opcionListar) {
+
+										case 1:
+											System.out.println(miTienda.mostrarAlmacenamiento());
+											break;
+										case 2:
+											System.out.println(miTienda.mostrarAuriculares());
+
+											break;
+										case 3:
+											//revisar
+											break;
+										case 4:
+											System.out.println(miTienda.mostrarCooler());
+											break;
+										case 5:
+											System.out.println(miTienda.mostrarFuentes());
+											break;
+										case 6:
+											System.out.println(miTienda.mostrarGabinetes());
+											break;
+										case 7:
+											System.out.println(miTienda.mostrarMemorias());
+											break;
+										case 8:
+											System.out.println(miTienda.mostrarMicrofonos());
+											break;
+										case 9:
+											System.out.println(miTienda.mostrarMonitores());
+											break;
+										case 10:
+											System.out.println(miTienda.mostrarMothers());
+											break;
+										case 11:
+											System.out.println(miTienda.mostrarMouses());
+											break;
+										case 12:
+											System.out.println(miTienda.mostrarParlantes());
+											break;
+										case 13:
+											System.out.println(miTienda.mostrarPlacas());
+											break;
+										case 14:
+											System.out.println(miTienda.mostrarProcesadores());
+											break;
+										case 15:
+											System.out.println(miTienda.mostrarTeclados());
+											break;
+										case 16:
+											System.out.println(miTienda.mostrarWebcams());
+											break;
+										case 17:
+											System.out.println(miTienda.mostrarTodo());
+											break;
+									}
+
+									case 4:
 									//Consultar Producto
+									System.out.println("\nDigite el codigo de producto:\n");
+									teclado.nextLine();
+									String aMostrar= teclado.nextLine();
+									System.out.println(miTienda.buscarProducto(aMostrar));
 									break;
 							}
 							System.out.println("\n1 para continuar, otro digito para salir\n");
@@ -572,6 +655,5 @@ public class Menu {
 
 		System.out.println(nuevoJSON.javaAJSON(miTienda.getCatalogo()));
 		}
-
 
 }

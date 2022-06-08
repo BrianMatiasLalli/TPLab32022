@@ -145,5 +145,58 @@ public class TiendaInformatica<K> {
 		return catalogo;
 	}
 
-	
+	public void borrarProducto(String aBorrar){
+		catalogo.eliminar(aBorrar);
+	}
+	public String buscarProducto(String codigo){
+		return catalogo.buscar(codigo);
+	}
+	public String mostrarAlmacenamiento(){
+		return catalogo.listarAlmacenamiento();
+	}
+	public String mostrarAuriculares(){
+		return catalogo.listarAuriculares();
+	}
+	public String mostrarCooler(){
+		return catalogo.listarCoolers();
+	}
+	public String mostrarFuentes(){
+		return catalogo.listarFuentes();
+	}
+	public String mostrarGabinetes(){
+		return catalogo.listarGabinetes();
+	}
+	public String mostrarMemorias(){
+		return catalogo.listarMemorias();
+	}
+	public String mostrarMicrofonos() {
+		return catalogo.listarMicrofonos();
+	}
+	public String mostrarMonitores(){
+		return catalogo.listarMonitores();
+	}
+	public String mostrarMothers(){
+		return catalogo.listarMotherboards();
+	}
+	public String mostrarMouses(){
+		return catalogo.listarMouses();
+	}
+	public String mostrarParlantes(){
+		return catalogo.listarParlantes();
+	}
+	public String mostrarPlacas(){
+		return catalogo.listarPlacas();
+	}
+	public String mostrarProcesadores(){
+		return catalogo.listarProcesadores();
+	}
+	public String mostrarTeclados(){
+		return catalogo.listarTeclados();
+	}
+	public String mostrarWebcams(){
+		return catalogo.listarWebcams();
+	}
+	public String mostrarTodo(){
+		return catalogo.listar();
+	}
 }
