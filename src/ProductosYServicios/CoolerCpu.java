@@ -1,5 +1,8 @@
 package ProductosYServicios;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class CoolerCpu extends Cooler{
 	
 	private int tdp;
@@ -45,7 +48,34 @@ public class CoolerCpu extends Cooler{
 		return super.toString()+"CoolerCpu: Tdp:" + getTdp() + ", Tipo de disipacion: " + getTipoDeDisipacion()
 				+ ", Socket compatible:" + getSocketCompatible() + "]";
 	}
-	
+	@Override
+	public JSONObject productoAJson() {
+		// TODO Auto-generated method stub
+		JSONObject retorno = new JSONObject();
+
+		try {
+			retorno.put("codigo",getCodigo());
+			retorno.put("marca",getMarca());
+			retorno.put("modelo",getModelo());
+			retorno.put("stock",getStock());
+			retorno.put("precio",getPrecio());
+			retorno.put("peso",getPeso());
+			retorno.put("paisOrigen",getPaisOrigen());
+			retorno.put("rgb",isRgb());
+			retorno.put("color",getColor());
+			retorno.put("descripcion",getDescripcion());
+			retorno.put("Tipo",getTipo());
+			retorno.put("Consumo",getConsumo());
+			retorno.put("TDP", getTdp());
+			retorno.put("Tipo disipacion", getTipoDeDisipacion());
+			retorno.put("Socket", getSocketCompatible());
+
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return retorno;
+	}
 	
 	
 }

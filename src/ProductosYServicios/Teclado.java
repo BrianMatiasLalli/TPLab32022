@@ -1,5 +1,6 @@
 package ProductosYServicios;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Teclado extends Producto{
@@ -49,8 +50,31 @@ public class Teclado extends Producto{
 
 	@Override
 	public JSONObject productoAJson() {
-		// TODO Auto-generated method stub
-		return null;
+
+		JSONObject retorno = new JSONObject();
+
+		try {
+			retorno.put("codigo",getCodigo());
+			retorno.put("marca",getMarca());
+			retorno.put("modelo",getModelo());
+			retorno.put("stock",getStock());
+			retorno.put("precio",getPrecio());
+			retorno.put("peso",getPeso());
+			retorno.put("paisOrigen",getPaisOrigen());
+			retorno.put("rgb",isRgb());
+			retorno.put("color",getColor());
+			retorno.put("descripcion",getDescripcion());
+			retorno.put("Tipo",getTipo());
+			retorno.put("Form Factor",getFormfactor());
+			retorno.put("Switches", getSwitcH());
+		}
+		catch (
+				JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return retorno;
+
 	}
 	
 	

@@ -1,5 +1,6 @@
 package ProductosYServicios;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class PlacaDeVideo extends Producto{
@@ -47,7 +48,7 @@ public class PlacaDeVideo extends Producto{
 		return capacidadDeMemoria;
 	}
 
-	public boolean isIsbackPlate() {
+	public boolean isBackPlate() {
 		return isbackPlate;
 	}
 
@@ -55,13 +56,38 @@ public class PlacaDeVideo extends Producto{
 	public String toString() {
 		return super.toString()+"PlacaDeVideo Conectividad: " + getConectividad() + ", Consumo: " + getConsumo()
 				+ ", Tipo de memoria: " + getTipoDeMemoria() + ", Capacidad de memoria: " + getCapacidadDeMemoria()
-				+ ", backPlate: " + isIsbackPlate() + "]";
+				+ ", backPlate: " + isBackPlate() + "]";
 	}
 
 	@Override
 	public JSONObject productoAJson() {
-		// TODO Auto-generated method stub
-		return null;
+
+		JSONObject retorno = new JSONObject();
+
+		try {
+			retorno.put("codigo",getCodigo());
+			retorno.put("marca",getMarca());
+			retorno.put("modelo",getModelo());
+			retorno.put("stock",getStock());
+			retorno.put("precio",getPrecio());
+			retorno.put("peso",getPeso());
+			retorno.put("paisOrigen",getPaisOrigen());
+			retorno.put("rgb",isRgb());
+			retorno.put("color",getColor());
+			retorno.put("descripcion",getDescripcion());
+			retorno.put("Conectividad",getConectividad());
+			retorno.put("Consumo",getConsumo());
+			retorno.put("Tipo Memoria VRam", getTipoDeMemoria());
+			retorno.put("Capacidad memoria VRam", getCapacidadDeMemoria());
+			retorno.put("Backplate", isBackPlate());
+		}
+		catch (
+				JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return retorno;
+
 	}
 	
 	

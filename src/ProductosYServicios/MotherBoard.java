@@ -1,9 +1,10 @@
 package ProductosYServicios;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class MotherBoard extends Producto{
-	
+
 	private String plataforma;
 	private String socket;
 	private String factor;
@@ -12,7 +13,7 @@ public class MotherBoard extends Producto{
 	private String salidasDeVideo;
 	private int cantidadDeSlotsM2;
 	private int puertosUSB;
-	
+
 	public MotherBoard() {
 		super();
 		this.plataforma = "";
@@ -24,7 +25,7 @@ public class MotherBoard extends Producto{
 		this.cantidadDeSlotsM2 = 0;
 		this.puertosUSB = 0;
 	}
-	
+
 	public MotherBoard(String codigo, String marca, String modelo, int stock, double precio, double peso,
 			String paisOrigen, boolean rgb, String color, String descripcion, String plataforma, String socket,
 			String factor, int cantidadDeSlotsDeMemoria, int puertosSata, String salidasDeVideo, int cantidadDeSlotsM2,
@@ -82,9 +83,37 @@ public class MotherBoard extends Producto{
 
 	@Override
 	public JSONObject productoAJson() {
-		// TODO Auto-generated method stub
-		return null;
+
+	JSONObject retorno = new JSONObject();
+
+		try {
+		retorno.put("codigo",getCodigo());
+		retorno.put("marca",getMarca());
+		retorno.put("modelo",getModelo());
+		retorno.put("stock",getStock());
+		retorno.put("precio",getPrecio());
+		retorno.put("peso",getPeso());
+		retorno.put("paisOrigen",getPaisOrigen());
+		retorno.put("rgb",isRgb());
+		retorno.put("color",getColor());
+		retorno.put("descripcion",getDescripcion());
+		retorno.put("Plataforma",getPlataforma());
+		retorno.put("Socket",getSocket());
+		retorno.put("Factor", getFactor());
+		retorno.put("Slot para memoria Ram", getCantidadDeSlotsDeMemoria());
+		retorno.put("Puertos sata", getPuertosSata());
+		retorno.put("Salidas de video", getSalidasDeVideo());
+		retorno.put("Slots para ssd m2", getCantidadDeSlotsM2());
+		retorno.put("Puertos USB", getPuertosUSB());
 	}
-	
-	
+		catch (
+	JSONException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+		return retorno;
+
+	}
+
+
 }

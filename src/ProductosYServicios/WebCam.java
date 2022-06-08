@@ -1,5 +1,6 @@
 package ProductosYServicios;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class WebCam extends Producto{
@@ -53,8 +54,33 @@ public class WebCam extends Producto{
 
 	@Override
 	public JSONObject productoAJson() {
-		// TODO Auto-generated method stub
-		return null;
+
+		JSONObject retorno = new JSONObject();
+
+		try {
+			retorno.put("codigo",getCodigo());
+			retorno.put("marca",getMarca());
+			retorno.put("modelo",getModelo());
+			retorno.put("stock",getStock());
+			retorno.put("precio",getPrecio());
+			retorno.put("peso",getPeso());
+			retorno.put("paisOrigen",getPaisOrigen());
+			retorno.put("rgb",isRgb());
+			retorno.put("color",getColor());
+			retorno.put("descripcion",getDescripcion());
+			retorno.put("Resolucion Max",getResolucionMaximaDevideo());
+			retorno.put("Tipo de lente",getTipoDeLente());
+			retorno.put("Tipo de resolucion", getTipoDeResolucion());
+			retorno.put("Microfono incluido", isMicrofono());
+
+		}
+		catch (
+				JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return retorno;
+
 	}
 	
 	

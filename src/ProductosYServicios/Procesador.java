@@ -1,5 +1,6 @@
 package ProductosYServicios;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Procesador extends Producto{
@@ -74,8 +75,35 @@ public class Procesador extends Producto{
 
 	@Override
 	public JSONObject productoAJson() {
-		// TODO Auto-generated method stub
-		return null;
+
+		JSONObject retorno = new JSONObject();
+
+		try {
+			retorno.put("codigo",getCodigo());
+			retorno.put("marca",getMarca());
+			retorno.put("modelo",getModelo());
+			retorno.put("stock",getStock());
+			retorno.put("precio",getPrecio());
+			retorno.put("peso",getPeso());
+			retorno.put("paisOrigen",getPaisOrigen());
+			retorno.put("rgb",isRgb());
+			retorno.put("color",getColor());
+			retorno.put("descripcion",getDescripcion());
+			retorno.put("Socket",getSocket());
+			retorno.put("Nucleos", getNucleos());
+			retorno.put("Hilos de proceso", getHilos());
+			retorno.put("Frecuencia turbo", getFrecuenciaTurbo());
+			retorno.put("Proceso de fabricacion", getProcesoDeFabricacion());
+			retorno.put("TDP", getTdp());
+			retorno.put("Cooler incluido", isCooler());
+		}
+		catch (
+				JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return retorno;
+
 	}
 	
 	
