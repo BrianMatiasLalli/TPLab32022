@@ -1,5 +1,7 @@
 package ProductosYServicios;
 
+import org.json.JSONObject;
+
 public class Gabinete extends Producto {
 	
 	private String factorMother;
@@ -68,6 +70,12 @@ public class Gabinete extends Producto {
 		return super.toString()+"Gabinete FactorMother: " + getFactorMother() + ", Ventana:" + isVentana() + ", Cantidad de Slots para cooler: " + getCantidadDeSlotsParaCooler()
 				+ ", Usb Frontal: " + getUsbFrontal() + ", Alto: " + getAlto() + ", Ancho: " + getAncho()
 				+ ", Profundo: " + getProfundo() + "]";
+	}
+
+	@Override
+	public JSONObject productoAJson() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

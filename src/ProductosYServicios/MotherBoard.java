@@ -1,5 +1,7 @@
 package ProductosYServicios;
 
+import org.json.JSONObject;
+
 public class MotherBoard extends Producto{
 	
 	private String plataforma;
@@ -76,6 +78,12 @@ public class MotherBoard extends Producto{
 				+ getFactor() + ", Cantidad de Slots de memoria: " + getCantidadDeSlotsDeMemoria()
 				+ ", Puertos sata: " + getPuertosSata() + ", Salidas de video: " + getSalidasDeVideo()
 				+ ", cantidad de SlotsM2: " + getCantidadDeSlotsM2() + ", PuertosUSB: " + getPuertosUSB() + "]";
+	}
+
+	@Override
+	public JSONObject productoAJson() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

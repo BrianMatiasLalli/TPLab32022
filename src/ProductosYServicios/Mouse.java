@@ -1,5 +1,7 @@
 package ProductosYServicios;
 
+import org.json.JSONObject;
+
 public class Mouse extends Producto{
 
 	private int cantidadDeBotones;
@@ -55,6 +57,12 @@ public class Mouse extends Producto{
 		return super.toString()+"Mouse: Cantidad de botones: " + getCantidadDeBotones() + ", Switch: " + getSwitcH()
 				+ ", Sensor: " + getSensor() + ", es inalambrico: " + isInalambrica() + ", DpiMax: "
 				+ getDpiMax() + "]";
+	}
+
+	@Override
+	public JSONObject productoAJson() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

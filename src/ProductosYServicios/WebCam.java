@@ -1,5 +1,7 @@
 package ProductosYServicios;
 
+import org.json.JSONObject;
+
 public class WebCam extends Producto{
 	
 	private String resolucionMaximaDevideo;
@@ -47,6 +49,12 @@ public class WebCam extends Producto{
 		return super.toString()+"WebCam Resolucion maxima de video: " + getResolucionMaximaDevideo() + ", Tipo de lente: "
 				+ getTipoDeLente() + ", Tipo de resolucion: " + getTipoDeResolucion() + ", tiene microfono: "
 				+ isMicrofono() + "]";
+	}
+
+	@Override
+	public JSONObject productoAJson() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

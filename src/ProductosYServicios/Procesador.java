@@ -1,5 +1,7 @@
 package ProductosYServicios;
 
+import org.json.JSONObject;
+
 public class Procesador extends Producto{
 	
 	private String socket;
@@ -68,6 +70,12 @@ public class Procesador extends Producto{
 		return super.toString()+"Procesador: Socket" + getSocket() + ", Nucleos" + getNucleos() + ", Hilos: "
 				+ getHilos() + ", Frecuencia turbo: " + getFrecuenciaTurbo() + ", Proceso de fabricacion: "
 				+ getProcesoDeFabricacion() + ", Tdp:" + getTdp() + ", tiene Cooler: " + isCooler() + "]";
+	}
+
+	@Override
+	public JSONObject productoAJson() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

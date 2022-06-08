@@ -1,5 +1,7 @@
 package ProductosYServicios;
 
+import org.json.JSONObject;
+
 public class Fuente extends Producto{
 	private int watts;
 	private String formato;
@@ -51,6 +53,13 @@ public class Fuente extends Producto{
 	public String toString() {
 		return super.toString()+"Fuente tWatts: " + getWatts() + ", Formato: " + getFormato() + ", Certificacion: "
 				+ getCertificacion() + ", Modular: " + isModular() + "]";
+	}
+
+
+	@Override
+	public JSONObject productoAJson() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

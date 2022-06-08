@@ -1,5 +1,7 @@
 package ProductosYServicios;
 
+import org.json.JSONObject;
+
 public class PlacaDeVideo extends Producto{
 	
 	private String conectividad;
@@ -54,6 +56,12 @@ public class PlacaDeVideo extends Producto{
 		return super.toString()+"PlacaDeVideo Conectividad: " + getConectividad() + ", Consumo: " + getConsumo()
 				+ ", Tipo de memoria: " + getTipoDeMemoria() + ", Capacidad de memoria: " + getCapacidadDeMemoria()
 				+ ", backPlate: " + isIsbackPlate() + "]";
+	}
+
+	@Override
+	public JSONObject productoAJson() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

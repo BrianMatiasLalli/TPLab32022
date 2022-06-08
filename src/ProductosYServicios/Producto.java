@@ -1,5 +1,7 @@
 package ProductosYServicios;
 
+import org.json.JSONObject;
+
 import excepciones.NoHayStockExcepcion;
 
 public abstract class Producto {
@@ -161,4 +163,7 @@ public abstract class Producto {
     public int hashCode() {
         return 1;
     }
+    
+    public abstract JSONObject productoAJson();
+    
 }

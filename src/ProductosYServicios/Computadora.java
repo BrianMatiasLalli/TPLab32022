@@ -1,5 +1,7 @@
 package ProductosYServicios;
 
+import org.json.JSONObject;
+
 public class Computadora extends Producto {
 
 	private String tipoPc;
@@ -98,6 +100,13 @@ public class Computadora extends Producto {
 				+ ", tipo de Pc: " + getTipoPc() + ", Disco: " + getDisco() + ", Ram: " + getRam()
 				+ ", CPU: " + getCpu() + ", Mother: " + getMother() + ", Fuente: " + getFuente()
 				+ ", Gabinete: " + getGabinete() + ", GPU:" + getGpu() + ", Cooler: " + getCooler() + "]";
+	}
+
+
+	@Override
+	public JSONObject productoAJson() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

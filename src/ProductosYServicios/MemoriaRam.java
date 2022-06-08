@@ -1,5 +1,7 @@
 package ProductosYServicios;
 
+import org.json.JSONObject;
+
 public class MemoriaRam extends Producto{
 	
 	private int capacidad;
@@ -68,6 +70,12 @@ public class MemoriaRam extends Producto{
 		return super.toString()+"MemoriaRam: Capacidad: " + getCapacidad() + ", Frecuencia: " + getFrecuencia() + ", Tipo: "
 				+ getTipo() + ", Cantidad: " + getCantidad() + ", Latencia: " + getLatencia()
 				+ ", Voltaje: " + getVoltaje() + ", Disipador: " + isDisipador() + "]";
+	}
+
+	@Override
+	public JSONObject productoAJson() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

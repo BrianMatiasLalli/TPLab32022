@@ -6,6 +6,7 @@ import java.util.Map;
 
 import ProductosYServicios.*;
 
+
 public class Catalogo {
 
 	HashMap<String,Producto> mapaCatalogo;
@@ -291,5 +292,12 @@ public class Catalogo {
 			}return retorno;
 	}
 
-
+	public Iterator devolerIt() 
+	{
+		
+		Iterator<Map.Entry<String, Producto>> it = mapaCatalogo.entrySet().iterator();
+		
+		return it;
+		
+	}
 }

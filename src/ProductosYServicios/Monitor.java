@@ -1,5 +1,7 @@
 package ProductosYServicios;
 
+import org.json.JSONObject;
+
 public class Monitor extends Producto {
 
 	private String tipoDePanel;
@@ -67,6 +69,12 @@ public class Monitor extends Producto {
 		return super.toString()+"Monitor: Tipo de panel: " + getTipoDePanel() + ", Curvo: " + isCurvo() + ", Conexion: "
 				+ getConexion() + ", Tipo de fuente: " + getTipoDeFuente() + ", Pulgadas: " + getPulgadas()
 				+ ", Resolucion: " + getResolucion() + ", Frecuencia: " + getFrecuencia() + "]";
+	}
+
+	@Override
+	public JSONObject productoAJson() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

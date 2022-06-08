@@ -1,5 +1,8 @@
 package ProductosYServicios;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class Almacenamiento extends Producto{
     
 	
@@ -36,5 +39,29 @@ public class Almacenamiento extends Producto{
 				+ ", Capacidad: " + getCapacidad() + "]";
 	}
 	
-	
+	@Override
+	public JSONObject productoAJson() {
+		// TODO Auto-generated method stub
+		JSONObject retorno = new JSONObject();
+		
+		try {
+			retorno.put("codigo",getCodigo());
+			retorno.put("marca",getMarca());
+			retorno.put("modelo",getModelo());
+			retorno.put("stock",getStock());
+			retorno.put("precio",getPrecio());
+			retorno.put("peso",getPeso());
+			retorno.put("paisOrigen",getPaisOrigen());
+			retorno.put("rgb",isRgb());
+			retorno.put("color",getColor());
+			retorno.put("descripcion",getDescripcion());
+			retorno.put("Capacidad",getCapacidad());
+			retorno.put("Tipo de disco",getTipoDeDisco());
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return retorno;
+	}
 }

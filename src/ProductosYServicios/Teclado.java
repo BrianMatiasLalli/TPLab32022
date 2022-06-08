@@ -1,5 +1,7 @@
 package ProductosYServicios;
 
+import org.json.JSONObject;
+
 public class Teclado extends Producto{
 	
 	private String tipo;
@@ -42,6 +44,13 @@ public class Teclado extends Producto{
 	public String toString() {
 		return super.toString()+"Teclado:  Tipo: " + getTipo() + ", Form factor: " + getFormfactor() + ", Switch: "
 				+ getSwitcH() + "]";
+	}
+
+
+	@Override
+	public JSONObject productoAJson() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

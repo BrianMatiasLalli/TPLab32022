@@ -1,5 +1,7 @@
 package ProductosYServicios;
 
+import org.json.JSONObject;
+
 public class Parlante extends Producto{
 	
 	private String potencia;
@@ -39,6 +41,12 @@ public class Parlante extends Producto{
 	public String toString() {
 		return super.toString()+"Parlantes Potencia: " + getPotencia() + ", Tipo de conectores: " + getTipoDeConectores()
 				+ ", Alimentacion: " + getAlimentacion() + "]";
+	}
+
+	@Override
+	public JSONObject productoAJson() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	
