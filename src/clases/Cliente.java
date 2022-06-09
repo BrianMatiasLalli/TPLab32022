@@ -12,6 +12,9 @@ public class Cliente extends Persona {
         super(nombre, apellido, dni, telefono, direccion, correo);
         this.misCompras=new ArrayList<>();
     }
+	public Cliente(){
+
+	}
 
     
     public String listarCompras() 

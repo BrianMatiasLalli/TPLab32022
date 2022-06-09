@@ -1,5 +1,8 @@
 package test;
 
+import ProductosYServicios.Computadora;
+import ProductosYServicios.Servicio;
+import clases.Cliente;
 import jsonHerramientas.StreamJSON;
 
 import java.util.Scanner;
@@ -660,18 +663,51 @@ public class Menu {
 								}
 								break;
 							case 2:
-								System.out.println("\nElija Motherboard");
+								//aca hay que agregar logica para cuando no hay stock
+								System.out.println("\nMotherboards");
 								System.out.println(miTienda.mostrarMothers());
+								System.out.println("\nIngrese el codigo del motherboard");
+								String codigoMother = teclado.nextLine();
+								String motherAcargar=miTienda.buscarProducto(codigoMother);
 								System.out.println("\nElija Procesador");
 								System.out.println(miTienda.mostrarProcesadores());
+								System.out.println("\nIngrese el codigo del Procesador");
+								String codigoProcesador = teclado.nextLine();
+								String procesadorAcargar=miTienda.buscarProducto(codigoProcesador);
 								System.out.println("\nElija Memoria");
 								System.out.println(miTienda.mostrarMemorias());
+								System.out.println("\nIngrese el codigo de la memoria");
+								String codigoMemoria = teclado.nextLine();
+								String memoriaAcargar=miTienda.buscarProducto(codigoMemoria);
 								System.out.println("\nElija Fuente");
 								System.out.println(miTienda.mostrarFuentes());
+								System.out.println("\nIngrese el codigo de la Fuente");
+								String codigoFuente = teclado.nextLine();
+								String fuenteAcargar=miTienda.buscarProducto(codigoFuente);
 								System.out.println("\nElija Gabinete");
 								System.out.println(miTienda.mostrarGabinetes());
+								System.out.println("\nIngrese el codigo del Gabinet");
+								String codigoGabinete = teclado.nextLine();
+								String gabineteAcargar=miTienda.buscarProducto(codigoGabinete);
 								System.out.println("\nElija Almacenamiento");
 								System.out.println(miTienda.mostrarAlmacenamiento());
+								System.out.println("\nIngrese el codigo del Almacenamiento");
+								String codigoAlmacenamiento = teclado.nextLine();
+								String almacenamientoAcargar=miTienda.buscarProducto(codigoAlmacenamiento);
+								System.out.println("\nElija Cooler");
+								System.out.println(miTienda.mostrarCooler());
+								System.out.println("\nIngrese el codigo del Cooler o 0 para dejar el de stock");
+								String codigoCooler = teclado.nextLine();
+								System.out.println("\nElija GPU");
+								System.out.println(miTienda.mostrarPlacas());
+								System.out.println("\nIngrese el codigo de GPU");
+								String codigoGPU = teclado.nextLine();
+
+								Computadora nueva = new Computadora("Escritorio, custom",almacenamientoAcargar,memoriaAcargar,procesadorAcargar,motherAcargar,fuenteAcargar,gabineteAcargar,codigoGPU,codigoCooler );
+								//ACA HAY QPREGUNTAR LOS DATOS AL CLIENTE ANTES DE PASAR A LA FACTURA PARA CREAR EL SERVICIO
+								Cliente aux= new Cliente();
+								Servicio armado = new Servicio("armado",aux,0);
+
 								//hay que enchufarle el servicio de armado
 
 								//elegir 1 componente de cada categoria q conforma la pc y construirla + servicio de armado

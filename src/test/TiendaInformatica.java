@@ -151,6 +151,7 @@ public class TiendaInformatica<K> {
 	public String buscarProducto(String codigo){
 		return catalogo.buscar(codigo);
 	}
+
 	public String mostrarAlmacenamiento(){
 		return catalogo.listarAlmacenamiento();
 	}

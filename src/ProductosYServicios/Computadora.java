@@ -4,9 +4,9 @@ import org.json.JSONObject;
 
 public class Computadora extends Producto {
 
-	private String tipoPc;
+	private String tipoPc;//notebook o de escritorio
 	private String disco;
-	private int ram;
+	private String ram;
 	private String cpu;
 	private String mother;
 	private String fuente;
@@ -21,7 +21,7 @@ public class Computadora extends Producto {
 		super();
 		this.tipoPc = "";
 		this.disco = "";
-		this.ram = 1;
+		this.ram = "";
 		this.cpu = "";
 		this.mother = "";
 		this.fuente = "";
@@ -32,7 +32,7 @@ public class Computadora extends Producto {
 	
 	
 	public Computadora(String codigo, String marca, String modelo, int stock, double precio, double peso,
-			String paisOrigen, boolean rgb, String color, String descripcion, String tipoPc, String disco, int ram,
+			String paisOrigen, boolean rgb, String color, String descripcion, String tipoPc, String disco, String ram,
 			String cpu, String mother, String fuente, String gabinete, String gpu, String cooler) {
 		
 		super(codigo, marca, modelo, stock, precio, peso, paisOrigen, rgb, color, descripcion);
@@ -46,6 +46,20 @@ public class Computadora extends Producto {
 		this.gpu = gpu;
 		this.cooler = cooler;
 	}
+	public Computadora( String tipoPc, String disco, String ram,
+					   String cpu, String mother, String fuente, String gabinete, String gpu, String cooler) {
+
+		this.tipoPc = tipoPc;
+		this.disco = disco;
+		this.ram = ram;
+		this.cpu = cpu;
+		this.mother = mother;
+		this.fuente = fuente;
+		this.gabinete = gabinete;
+		this.gpu = gpu;
+		this.cooler = cooler;
+	}
+
 
 
 	public String getTipoPc() {
@@ -58,7 +72,7 @@ public class Computadora extends Producto {
 	}
 
 
-	public int getRam() {
+	public String getRam() {
 		return ram;
 	}
 

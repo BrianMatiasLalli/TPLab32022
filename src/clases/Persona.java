@@ -1,7 +1,5 @@
 package clases;
 
-import java.util.Objects;
-
 public class Persona {
     private String nombre;
     private String apellido;
@@ -18,6 +16,14 @@ public class Persona {
         this.direccion = direccion;
         this.correo = correo;
        
+    }
+    public Persona(){
+        this.nombre = "";
+        this.apellido = "";
+        this.dni = "";
+        this.telefono = "";
+        this.direccion = "";
+        this.correo = "";
     }
 
     public String getNombre() {

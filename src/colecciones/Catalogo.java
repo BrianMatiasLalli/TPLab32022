@@ -1,10 +1,10 @@
 package colecciones;
 
+import ProductosYServicios.*;
+
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-
-import ProductosYServicios.*;
 
 
 public class Catalogo {
