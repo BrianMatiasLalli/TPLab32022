@@ -560,7 +560,7 @@ public class Menu {
 											System.out.println(miTienda.mostrarTodo());
 											break;
 									}
-
+									break;
 									case 4:
 									//Consultar Producto
 									System.out.println("\nDigite el codigo de producto:\n");
@@ -574,7 +574,109 @@ public class Menu {
 						}while(cont == 1);
 						break;
 					case 2:
-						System.out.println("\nVenta/Carrito:");
+						int opcionVentas;
+						System.out.println("\nDigite la opcion o 0 para salir:");
+						System.out.println("\n1.Cargar productos.");
+						System.out.println("\n2.Armado de Pc.");
+						opcionVentas=teclado.nextInt();
+						switch (opcionVentas) {
+							case 1:
+								int opcionCargar;
+								//mostrar catalogo y agregarlos al carrito
+								System.out.println("\nDigite la opcion deseada:");
+								System.out.println("\n1.Almacenamiento.");
+								System.out.println("\n2.Auriculares.");
+								System.out.println("\n3.Computadora:");
+								System.out.println("\n4.Coolers:");
+								System.out.println("\n5.Fuente:");
+								System.out.println("\n6.Gabinete:");
+								System.out.println("\n7.MemoriaRAM:");
+								System.out.println("\n8.Microfono:");
+								System.out.println("\n9.Monitor.");
+								System.out.println("\n10.MotherBoard:");
+								System.out.println("\n11.Mouse:");
+								System.out.println("\n12.Parlante:");
+								System.out.println("\n13.Placa de video:");
+								System.out.println("\n14.Procesador:");
+								System.out.println("\n15.Teclado:");
+								System.out.println("\n16.Webcam:");
+								System.out.println("\n17.Todos.");
+								System.out.println("\n0 para salir.");
+								opcionCargar= teclado.nextInt();
+								switch(opcionCargar) {
+									case 1:
+										System.out.println("\nAlmacenamientos:");
+										System.out.println(miTienda.mostrarAlmacenamiento());
+										break;
+									case 2:
+										System.out.println(miTienda.mostrarAuriculares());
+
+										break;
+									case 3:
+										//revisar
+										break;
+									case 4:
+										System.out.println(miTienda.mostrarCooler());
+										break;
+									case 5:
+										System.out.println(miTienda.mostrarFuentes());
+										break;
+									case 6:
+										System.out.println(miTienda.mostrarGabinetes());
+										break;
+									case 7:
+										System.out.println(miTienda.mostrarMemorias());
+										break;
+									case 8:
+										System.out.println(miTienda.mostrarMicrofonos());
+										break;
+									case 9:
+										System.out.println(miTienda.mostrarMonitores());
+										break;
+									case 10:
+										System.out.println(miTienda.mostrarMothers());
+										break;
+									case 11:
+										System.out.println(miTienda.mostrarMouses());
+										break;
+									case 12:
+										System.out.println(miTienda.mostrarParlantes());
+										break;
+									case 13:
+										System.out.println(miTienda.mostrarPlacas());
+										break;
+									case 14:
+										System.out.println(miTienda.mostrarProcesadores());
+										break;
+									case 15:
+										System.out.println(miTienda.mostrarTeclados());
+										break;
+									case 16:
+										System.out.println(miTienda.mostrarWebcams());
+										break;
+									case 17:
+										System.out.println(miTienda.mostrarTodo());
+										break;
+								}
+								break;
+							case 2:
+								System.out.println("\nElija Motherboard");
+								System.out.println(miTienda.mostrarMothers());
+								System.out.println("\nElija Procesador");
+								System.out.println(miTienda.mostrarProcesadores());
+								System.out.println("\nElija Memoria");
+								System.out.println(miTienda.mostrarMemorias());
+								System.out.println("\nElija Fuente");
+								System.out.println(miTienda.mostrarFuentes());
+								System.out.println("\nElija Gabinete");
+								System.out.println(miTienda.mostrarGabinetes());
+								System.out.println("\nElija Almacenamiento");
+								System.out.println(miTienda.mostrarAlmacenamiento());
+								//hay que enchufarle el servicio de armado
+
+								//elegir 1 componente de cada categoria q conforma la pc y construirla + servicio de armado
+								break;
+						}
 
 						break;
 					case 3:
