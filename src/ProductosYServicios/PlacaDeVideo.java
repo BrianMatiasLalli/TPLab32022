@@ -6,7 +6,7 @@ import org.json.JSONObject;
 public class PlacaDeVideo extends Producto{
 	
 	private String conectividad;
-	private String consumo;
+	private int consumo;
 	private String tipoDeMemoria;
 	private int capacidadDeMemoria;
 	private boolean isbackPlate;
@@ -15,14 +15,14 @@ public class PlacaDeVideo extends Producto{
 	public PlacaDeVideo() {
 		super();
 		this.conectividad = "";
-		this.consumo = "";
+		this.consumo = 0;
 		this.tipoDeMemoria = "";
 		this.capacidadDeMemoria = 0;
 		this.isbackPlate = false;
 	}
 	
 	public PlacaDeVideo(String codigo, String marca, String modelo, int stock, double precio, double peso,
-			String paisOrigen, boolean rgb, String color, String descripcion, String conectividad, String consumo,
+			String paisOrigen, boolean rgb, String color, String descripcion, String conectividad, int consumo,
 			String tipoDeMemoria, int capacidadDeMemoria, boolean isbackPlate) {
 		super(codigo, marca, modelo, stock, precio, peso, paisOrigen, rgb, color, descripcion);
 		this.conectividad = conectividad;
@@ -36,7 +36,7 @@ public class PlacaDeVideo extends Producto{
 		return conectividad;
 	}
 
-	public String getConsumo() {
+	public int getConsumo() {
 		return consumo;
 	}
 
@@ -48,15 +48,19 @@ public class PlacaDeVideo extends Producto{
 		return capacidadDeMemoria;
 	}
 
-	public boolean isBackPlate() {
-		return isbackPlate;
+	public String isBackPlate() {
+		String backPlate="no";
+		if(isbackPlate==true){
+			backPlate= "si";
+		}
+		return backPlate;
 	}
 
 	@Override
 	public String toString() {
-		return super.toString()+"PlacaDeVideo Conectividad: " + getConectividad() + ", Consumo: " + getConsumo()
-				+ ", Tipo de memoria: " + getTipoDeMemoria() + ", Capacidad de memoria: " + getCapacidadDeMemoria()
-				+ ", backPlate: " + isBackPlate() + "]";
+		return "PlacaDeVideo"+ super.toString()+"\nConectividad: " + getConectividad() + "\nConsumo(Wts): " + getConsumo()
+				+ "\nTipo de memoria(gen): " + getTipoDeMemoria() + "\nCapacidad de memoria(GB): " + getCapacidadDeMemoria()
+				+ "\nBackPlate: " + isBackPlate();
 	}
 
 	@Override

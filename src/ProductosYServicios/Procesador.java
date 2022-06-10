@@ -62,15 +62,19 @@ public class Procesador extends Producto{
 		return tdp;
 	}
 
-	public boolean isCooler() {
-		return isCooler;
+	public String isCooler() {
+		String cooler="no";
+		if(isCooler==true){
+			cooler="si";
+		}
+		return cooler;
 	}
 
 	@Override
 	public String toString() {
-		return super.toString()+"Procesador: Socket" + getSocket() + ", Nucleos" + getNucleos() + ", Hilos: "
-				+ getHilos() + ", Frecuencia turbo: " + getFrecuenciaTurbo() + ", Proceso de fabricacion: "
-				+ getProcesoDeFabricacion() + ", Tdp:" + getTdp() + ", tiene Cooler: " + isCooler() + "]";
+		return super.toString()+"Procesador: \nSocket: " + getSocket() + "\nNucleos:" + getNucleos() + "\nHilos: "
+				+ getHilos() + "\nFrecuencia turbo(Mhz): " + getFrecuenciaTurbo() + "\nProceso de fabricacion(nm): "
+				+ getProcesoDeFabricacion() + "\nTdp:" + getTdp() + "Tiene Cooler: " + isCooler();
 	}
 
 	@Override

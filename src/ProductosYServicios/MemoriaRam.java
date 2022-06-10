@@ -68,9 +68,9 @@ public class MemoriaRam extends Producto{
 
 	@Override
 	public String toString() {
-		return super.toString()+"MemoriaRam: Capacidad: " + getCapacidad() + ", Frecuencia: " + getFrecuencia() + ", Tipo: "
-				+ getTipo() + ", Cantidad: " + getCantidad() + ", Latencia: " + getLatencia()
-				+ ", Voltaje: " + getVoltaje() + ", Disipador: " + isDisipador() + "]";
+		return super.toString()+"\nMemoria Ram: \nGBs: " + getCapacidad() + "\nFrecuencia(MHZ): " + getFrecuencia() + "Gen: "
+				+ getTipo() + "\nCantidad de tarjetas dim: " + getCantidad() + "\nLatencia: " + getLatencia()
+				+ "\nVoltaje: " + getVoltaje() + "\nDisipador: " + isDisipador();
 	}
 
 	@Override

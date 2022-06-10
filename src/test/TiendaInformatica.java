@@ -62,7 +62,10 @@ public class TiendaInformatica<K> {
 		Producto nuevo= new CoolerCpu(codigo,marca,modelo,stock,precio,peso, paisOrigen,rgb,color, descripcion,tipo, consumo, tdp, disipador, socket);
 		this.catalogo.agregar(nuevo);
 	}
-	
+	//public void agregarAlCarrito(Producto nuevo){
+	//	carroDeCompras.agregar(nuevo);
+
+	//}
 	
 	public void agregarProducto(String codigo, String marca, String modelo, int stock, double precio, double peso,
 								String paisOrigen, boolean rgb, String color, String descripcion,int wts,String formato, String cerificacion, boolean modular) {
@@ -115,7 +118,7 @@ public class TiendaInformatica<K> {
 	}
 	
 	public void agregarProducto(String codigo, String marca, String modelo, int stock, double precio, double peso,
-			String paisOrigen, boolean rgb, String color, String descripcion, String conectividad, String consumo,
+			String paisOrigen, boolean rgb, String color, String descripcion, String conectividad, int consumo,
 			String tipoDeMemoria, int capacidadDeMemoria, boolean isbackPlate) {
 		Producto nuevo = new PlacaDeVideo(codigo, marca, modelo, stock, precio, peso, paisOrigen, rgb, color, descripcion,conectividad,consumo, tipoDeMemoria,  capacidadDeMemoria,  isbackPlate);
 		this.catalogo.agregar(nuevo);

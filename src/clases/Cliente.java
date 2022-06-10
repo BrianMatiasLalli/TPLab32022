@@ -13,7 +13,7 @@ public class Cliente extends Persona {
         this.misCompras=new ArrayList<>();
     }
 	public Cliente(){
-
+	//vacio
 	}
 
     

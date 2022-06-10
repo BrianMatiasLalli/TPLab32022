@@ -54,7 +54,7 @@ public class Menu {
 									System.out.println("\n5.CoolerCPU:");
 									System.out.println("\n6.Fuente:");
 									System.out.println("\n7.Gabinete:");
-									System.out.println("\n8.MemoriaRAM:");
+									System.out.println("\n8.Memoria RAM:");
 									System.out.println("\n9.Microfono:");
 									System.out.println("\n10.Monitor:");
 									System.out.println("\n11.MotherBoard:");
@@ -86,10 +86,10 @@ public class Menu {
 										System.out.println("Ingrese precio: ");
 										double precio = teclado.nextDouble();
 
-										System.out.println("Ingrese peso: ");
+										System.out.println("Ingrese peso(Grs): ");
 										double peso = teclado.nextDouble();
 
-										System.out.println("Ingrese paisOrigen: ");
+										System.out.println("Ingrese pais de origen: ");
 										teclado.nextLine();
 
 										String paisOrigen = teclado.nextLine();
@@ -117,7 +117,7 @@ public class Menu {
 										System.out.println("Ingrese tipo de disco: ");
 										String tipoDeDisco= teclado.nextLine();
 										
-										System.out.println("Ingrese capacidad del disco: ");
+										System.out.println("Ingrese capacidad del disco(MBs): ");
 										int capacidad=teclado.nextInt();
 										
 										miTienda.agregarProducto(codigo2, marca, modelo, stock, precio, peso, paisOrigen, isRgb, color, descripcion, capacidad, tipoDeDisco);
@@ -223,13 +223,13 @@ public class Menu {
 										System.out.println("Ingrese la cantidad de USB frontales: ");
 										int usbFrontal= teclado.nextInt();
 										
-										System.out.println("Ingrese el alto:");
+										System.out.println("Ingrese el alto(cms):");
 										int alto= teclado.nextInt();
 										
-										System.out.println("Ingrese el ancho:");
+										System.out.println("Ingrese el ancho(cms):");
 										int ancho= teclado.nextInt();
 										
-										System.out.println("Ingrese el profundo:");
+										System.out.println("Ingrese el profundo(cms):");
 										int profundo= teclado.nextInt();
 										
 										miTienda.agregarProducto(codigo2, marca, modelo, stock, precio, peso, paisOrigen, isRgb, color, descripcion,factorM,isVentana,slotsCooler,usbFrontal,alto,ancho,profundo);
@@ -238,19 +238,21 @@ public class Menu {
 									
 									case 8: 
 										System.out.println("\nMEMORIA RAM\n");
-										System.out.println("Ingrese la capacidad: ");
+										System.out.println("Ingrese GBs de capacidad: ");
 										int capacidadRam= teclado.nextInt();
 										
-										System.out.println("Ingrese la frecuencia: ");
+										System.out.println("Ingrese la frecuencia(MHZ): ");
 										int frecuencia= teclado.nextInt();
 										
-										System.out.println("Ingrese el tipo: ");
+										System.out.println("Ingrese Gen(DDR): ");
+										teclado.nextLine();
 										String tipoRam=teclado.nextLine();
 										
-										System.out.println("Ingrese la cantidad: ");
+										System.out.println("Ingrese cantidad de tarjetas: ");
 										int cantidadRam= teclado.nextInt();
 										
 										System.out.println("Ingrese la latencia: ");
+										teclado.nextLine();
 										String latencia=teclado.nextLine();
 										
 										System.out.println("Ingrese el voltaje: ");
@@ -324,13 +326,13 @@ public class Menu {
 										System.out.println("Ingrese factor: ");
 										String factor=teclado.nextLine();
 										
-										System.out.println("Ingrese cantidad de slots para memoria: ");
+										System.out.println("Ingrese cantidad de slots para memoria Ram: ");
 										int canSlotsM=teclado.nextInt();
 										
 										System.out.println("Ingrese cantidad de puertos sata: ");
 										int puertosSata=teclado.nextInt();
 										
-										System.out.println("Ingrese salida de video: ");
+										System.out.println("Ingrese salidas de video: ");
 										teclado.nextLine();
 										String salidaDeVideo=teclado.nextLine();
 										
@@ -387,16 +389,17 @@ public class Menu {
 										System.out.println("Ingrese tipo de conectividad: ");
 										String conectividad=teclado.nextLine();
 										
-										System.out.println("Ingrese tipo de consumo: ");
-										String consumoVideo=teclado.nextLine();
+										System.out.println("Ingrese consumo(Wts): ");
+										int consumoVideo=teclado.nextInt();
 										
-										System.out.println("Ingrese tipo de memoria: ");
+										System.out.println("Ingrese tipo de memoria(Gen): ");
+										teclado.nextLine();
 										String tipoDeMemoria=teclado.nextLine();
 										
-										System.out.println("Ingrese capacidad de memoria: ");
+										System.out.println("Ingrese cantidad de memoria VRAM(GBs): ");
 										int capMemoria= teclado.nextInt();
 										
-										System.out.println("Ingrese 1 si es backPlate: ");
+										System.out.println("Ingrese 1 si posee backPlate: ");
 										int backPlate= teclado.nextInt();
 										boolean isBackPlate=false;
 										if(backPlate==1) {
@@ -417,10 +420,10 @@ public class Menu {
 										System.out.println("Ingrese la cantidad de hilos: ");
 										int hilos= teclado.nextInt();
 										
-										System.out.println("Ingrese la frecuencia turbo: ");
+										System.out.println("Ingrese la frecuencia turbo(MHZ): ");
 										int frecuenciaTurbo= teclado.nextInt();
 										
-										System.out.println("Ingrese proceso de fabricacion(numero): ");
+										System.out.println("Ingrese proceso de fabricacion(numero nm): ");
 										int procesoDeFabricacion= teclado.nextInt();
 										
 										System.out.println("Ingrese TDP: ");
@@ -481,6 +484,7 @@ public class Menu {
 								case 2:
 									//quitar producto
 									System.out.println("\nDigite el codigo de producto:\n");
+									teclado.nextLine();
 									String aBorrar= teclado.nextLine();
 									miTienda.borrarProducto(aBorrar);
 									break;
@@ -613,7 +617,6 @@ public class Menu {
 										break;
 									case 2:
 										System.out.println(miTienda.mostrarAuriculares());
-
 										break;
 									case 3:
 										//revisar
@@ -666,7 +669,7 @@ public class Menu {
 								//aca hay que agregar logica para cuando no hay stock
 								System.out.println("\nMotherboards");
 								System.out.println(miTienda.mostrarMothers());
-								System.out.println("\nIngrese el codigo del motherboard");
+								System.out.println("\nIngrese el codigo de la motherboard");
 								String codigoMother = teclado.nextLine();
 								String motherAcargar=miTienda.buscarProducto(codigoMother);
 								System.out.println("\nElija Procesador");
@@ -698,6 +701,7 @@ public class Menu {
 								System.out.println(miTienda.mostrarCooler());
 								System.out.println("\nIngrese el codigo del Cooler o 0 para dejar el de stock");
 								String codigoCooler = teclado.nextLine();
+								codigoCooler=miTienda.buscarProducto(codigoCooler);
 								System.out.println("\nElija GPU");
 								System.out.println(miTienda.mostrarPlacas());
 								System.out.println("\nIngrese el codigo de GPU");
@@ -707,7 +711,8 @@ public class Menu {
 								//ACA HAY QPREGUNTAR LOS DATOS AL CLIENTE ANTES DE PASAR A LA FACTURA PARA CREAR EL SERVICIO
 								Cliente aux= new Cliente();
 								Servicio armado = new Servicio("armado",aux,0);
-
+								System.out.println(nueva.toString());
+								System.out.println(armado.toString());
 								//hay que enchufarle el servicio de armado
 
 								//elegir 1 componente de cada categoria q conforma la pc y construirla + servicio de armado
@@ -745,10 +750,18 @@ public class Menu {
 
 						switch (opcion) {
 							case 1:
-								//Ver cola de servicios
+								//Cargar un cliente
+								String nombre;
+								String apellido;
+								String dni;
+								String correo;
+								String telefono;
+								String direccion;
+								Cliente nuevo= new Cliente();
 								break;
 							case 2:
-								//Conformar Servicio
+								//Editar cliente(se carga y reemplaza el cliente
+
 								break;
 							case 3:
 								//remover cliente
@@ -791,7 +804,7 @@ public class Menu {
 				}
 			} while (opcion < 6 && opcion > -1);
 
-		System.out.println(nuevoJSON.javaAJSON(miTienda.getCatalogo()));
+		//System.out.println(nuevoJSON.javaAJSON(miTienda.getCatalogo()));
 		}
 
 }

@@ -139,10 +139,10 @@ public abstract class Producto {
 
     @Override
     public String toString() {
-        return "\nProducto: "+"\nCodigo= " + codigo +"\nMarca='" + marca +"\nModelo='" + modelo +"\nStock=" + stock +"\nPrecio= "+precio+"\nPeso= "+peso+"\nPaisOrigen= "+paisOrigen +"\nRgb= "+rgb+"\nColor= "+color+"\nDescripcion= "+descripcion;
+        return "\nProducto: "+"\nCodigo: " + codigo +"\nMarca: " + marca +"\nModelo: " + modelo +"\nStock: " + stock +"\nPrecio: "+precio+"\nPeso: "+peso+"\nPaisOrigen: "+paisOrigen +"\nRgb: "+rgb+"\nColor: "+color+"\nDescripcion: "+descripcion;
     }
     public String detallePedido(){
-        return "\nCodigo: " + codigo +"\nMarca=" + marca +"\nModelo=" + modelo +"\nPrecio unitario= "+precio;
+        return "\nCodigo: " + codigo +"\nMarca=" + marca +"\nModelo:" + modelo +"\nPrecio unitario: "+precio;
     }
 
     @Override

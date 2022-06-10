@@ -35,8 +35,8 @@ public class Almacenamiento extends Producto{
 
 	@Override
 	public String toString() {
-		return super.toString()+"Almacenamiento:, Tipo de disco: " + getTipoDeDisco()
-				+ ", Capacidad: " + getCapacidad() + "]";
+		return super.toString()+"Almacenamiento:\nTipo de disco: " + getTipoDeDisco()
+				+ "\nCapacidad: " + getCapacidad();
 	}
 	
 	@Override
