@@ -154,7 +154,15 @@ public class TiendaInformatica<K> {
 	public String buscarProducto(String codigo){
 		return catalogo.buscar(codigo);
 	}
-
+	public Producto productoAcarrito(String codigo){
+		Producto nuevo=null;
+		if(catalogo.getMapaCatalogo().containsKey(codigo)){
+			nuevo=catalogo.retornarProducto(codigo);
+		}return nuevo;
+	}
+	public boolean checkProducto(String codigo){
+		return catalogo.getMapaCatalogo().containsKey(codigo);
+	}
 	public String mostrarAlmacenamiento(){
 		return catalogo.listarAlmacenamiento();
 	}
@@ -202,5 +210,15 @@ public class TiendaInformatica<K> {
 	}
 	public String mostrarTodo(){
 		return catalogo.listar();
+	}
+	public void agregarAlCarrito(Producto nuevo, int cant){
+		ItemPedido nuevoItem=new ItemPedido(nuevo, cant);
+		this.carroDeCompras.agregar(nuevoItem);
+	}
+	public void agregarAlCarrito(Servicio nuevo){
+		this.carroDeCompras.agregar(nuevo);
+	}
+	public String listarCarrito(){
+		return this.carroDeCompras.mostrarCarrito();
 	}
 }

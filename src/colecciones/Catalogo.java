@@ -49,8 +49,11 @@ public class Catalogo {
 		}
 		return sb.toString();
 	}
-	
-	
+
+	public HashMap<String, Producto> getMapaCatalogo() {
+		return mapaCatalogo;
+	}
+
 	public String listarAuriculares()
 	{
 		StringBuilder sb = new StringBuilder();
@@ -290,6 +293,18 @@ public class Catalogo {
 				retorno = entry.getValue().toString();
 			}
 			}return retorno;
+	}
+	public Producto retornarProducto(String codigo)
+	{
+		Producto aux=null;
+		Iterator<Map.Entry<String, Producto>> it = mapaCatalogo.entrySet().iterator();
+		while (it.hasNext()) {
+			Map.Entry<String, Producto> entry = (Map.Entry<String, Producto>) it.next();
+			if(entry.getKey().equals(codigo)) {
+				aux = entry.getValue();
+			}
+		}
+		return aux;
 	}
 
 	public Iterator devolerIt() 

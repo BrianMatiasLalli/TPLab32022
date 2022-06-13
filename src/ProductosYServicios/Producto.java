@@ -76,13 +76,13 @@ public abstract class Producto {
 
     public void reducirStock(int cant) throws NoHayStockExcepcion{
     	
-    	if(stock>cant)
+    	if(stock>=cant)
     	{
             this.stock=stock-cant;
         }
         else
         {
-        	throw new NoHayStockExcepcion("No Hay Stock disponible");
+        	throw new NoHayStockExcepcion("Este producto no tiene stock...\n");
         }
     }
     public void aumentarStock(int cant){

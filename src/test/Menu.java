@@ -1,8 +1,9 @@
 package test;
 
 import ProductosYServicios.Computadora;
-import ProductosYServicios.Servicio;
+import ProductosYServicios.Producto;
 import clases.Cliente;
+import excepciones.NoHayStockExcepcion;
 import jsonHerramientas.StreamJSON;
 
 import java.util.Scanner;
@@ -148,8 +149,50 @@ public class Menu {
 										miTienda.agregarProducto(codigo2, marca, modelo, stock, precio, peso, paisOrigen, isRgb, color, descripcion,isInalambrico,isMicrofono,largoDelCable);
 										break;
 									
-									case 3: 
-										//revisar
+									case 3:
+										//aca hay que agregar logica para cuando no hay stock
+										System.out.println("\nMotherboards");
+										System.out.println(miTienda.mostrarMothers());
+										System.out.println("\nIngrese el codigo de la motherboard");
+										String codigoMother = teclado.nextLine();
+										String motherAcargar=miTienda.buscarProducto(codigoMother);
+										System.out.println("\nElija Procesador");
+										System.out.println(miTienda.mostrarProcesadores());
+										System.out.println("\nIngrese el codigo del Procesador");
+										String codigoProcesador = teclado.nextLine();
+										String procesadorAcargar=miTienda.buscarProducto(codigoProcesador);
+										System.out.println("\nElija Memoria");
+										System.out.println(miTienda.mostrarMemorias());
+										System.out.println("\nIngrese el codigo de la memoria");
+										String codigoMemoria = teclado.nextLine();
+										String memoriaAcargar=miTienda.buscarProducto(codigoMemoria);
+										System.out.println("\nElija Fuente");
+										System.out.println(miTienda.mostrarFuentes());
+										System.out.println("\nIngrese el codigo de la Fuente");
+										String codigoFuente = teclado.nextLine();
+										String fuenteAcargar=miTienda.buscarProducto(codigoFuente);
+										System.out.println("\nElija Gabinete");
+										System.out.println(miTienda.mostrarGabinetes());
+										System.out.println("\nIngrese el codigo del Gabinet");
+										String codigoGabinete = teclado.nextLine();
+										String gabineteAcargar=miTienda.buscarProducto(codigoGabinete);
+										System.out.println("\nElija Almacenamiento");
+										System.out.println(miTienda.mostrarAlmacenamiento());
+										System.out.println("\nIngrese el codigo del Almacenamiento");
+										String codigoAlmacenamiento = teclado.nextLine();
+										String almacenamientoAcargar=miTienda.buscarProducto(codigoAlmacenamiento);
+										System.out.println("\nElija Cooler");
+										System.out.println(miTienda.mostrarCooler());
+										System.out.println("\nIngrese el codigo del Cooler o 0 para dejar el de stock");
+										String codigoCooler = teclado.nextLine();
+										codigoCooler=miTienda.buscarProducto(codigoCooler);
+										System.out.println("\nElija GPU");
+										System.out.println(miTienda.mostrarPlacas());
+										System.out.println("\nIngrese el codigo de GPU");
+										String codigoGPU = teclado.nextLine();
+
+										Computadora nueva = new Computadora("Escritorio, custom",almacenamientoAcargar,memoriaAcargar,procesadorAcargar,motherAcargar,fuenteAcargar,gabineteAcargar,codigoGPU,codigoCooler );
+										//aca hay que agregar la computadora a la tienda
 										break;
 									case 4: 
 										System.out.println("\nCOOLER DE GABINETE\n");
@@ -581,143 +624,126 @@ public class Menu {
 						}while(cont == 1);
 						break;
 					case 2:
-						int opcionVentas;
-						System.out.println("\nDigite la opcion o 0 para salir:");
-						System.out.println("\n1.Cargar productos.");
-						System.out.println("\n2.Armado de Pc.");
-						opcionVentas=teclado.nextInt();
-						switch (opcionVentas) {
-							case 1:
-								int opcionCargar;
-								//mostrar catalogo y agregarlos al carrito
-								System.out.println("\nDigite la opcion deseada:");
-								System.out.println("\n1.Almacenamiento.");
-								System.out.println("\n2.Auriculares.");
-								System.out.println("\n3.Computadora:");
-								System.out.println("\n4.Coolers:");
-								System.out.println("\n5.Fuente:");
-								System.out.println("\n6.Gabinete:");
-								System.out.println("\n7.MemoriaRAM:");
-								System.out.println("\n8.Microfono:");
-								System.out.println("\n9.Monitor.");
-								System.out.println("\n10.MotherBoard:");
-								System.out.println("\n11.Mouse:");
-								System.out.println("\n12.Parlante:");
-								System.out.println("\n13.Placa de video:");
-								System.out.println("\n14.Procesador:");
-								System.out.println("\n15.Teclado:");
-								System.out.println("\n16.Webcam:");
-								System.out.println("\n17.Todos.");
-								System.out.println("\n0 para salir.");
-								opcionCargar= teclado.nextInt();
-								switch(opcionCargar) {
-									case 1:
-										System.out.println("\nAlmacenamientos:");
-										System.out.println(miTienda.mostrarAlmacenamiento());
-										break;
-									case 2:
-										System.out.println(miTienda.mostrarAuriculares());
-										break;
-									case 3:
-										//revisar
-										break;
-									case 4:
-										System.out.println(miTienda.mostrarCooler());
-										break;
-									case 5:
-										System.out.println(miTienda.mostrarFuentes());
-										break;
-									case 6:
-										System.out.println(miTienda.mostrarGabinetes());
-										break;
-									case 7:
-										System.out.println(miTienda.mostrarMemorias());
-										break;
-									case 8:
-										System.out.println(miTienda.mostrarMicrofonos());
-										break;
-									case 9:
-										System.out.println(miTienda.mostrarMonitores());
-										break;
-									case 10:
-										System.out.println(miTienda.mostrarMothers());
-										break;
-									case 11:
-										System.out.println(miTienda.mostrarMouses());
-										break;
-									case 12:
-										System.out.println(miTienda.mostrarParlantes());
-										break;
-									case 13:
-										System.out.println(miTienda.mostrarPlacas());
-										break;
-									case 14:
-										System.out.println(miTienda.mostrarProcesadores());
-										break;
-									case 15:
-										System.out.println(miTienda.mostrarTeclados());
-										break;
-									case 16:
-										System.out.println(miTienda.mostrarWebcams());
-										break;
-									case 17:
-										System.out.println(miTienda.mostrarTodo());
-										break;
+						int ventas=1;
+						do{
+							System.out.println("\nCargar productos en el carrito.");
+							int opcionCargar;
+							//mostrar catalogo y agregarlos al carrito
+
+							System.out.println("\n1.Almacenamiento.");
+							System.out.println("\n2.Auriculares.");
+							System.out.println("\n3.Computadora:");
+							System.out.println("\n4.Coolers:");
+							System.out.println("\n5.Fuente:");
+							System.out.println("\n6.Gabinete:");
+							System.out.println("\n7.MemoriaRAM:");
+							System.out.println("\n8.Microfono:");
+							System.out.println("\n9.Monitor.");
+							System.out.println("\n10.MotherBoard:");
+							System.out.println("\n11.Mouse:");
+							System.out.println("\n12.Parlante:");
+							System.out.println("\n13.Placa de video:");
+							System.out.println("\n14.Procesador:");
+							System.out.println("\n15.Teclado:");
+							System.out.println("\n16.Webcam:");
+							System.out.println("\n17.Todos.");
+							System.out.println("\n0 para salir.");
+							System.out.println("\nDigite la opcion deseada:");
+							opcionCargar= teclado.nextInt();
+							switch(opcionCargar) {
+								case 1:
+									System.out.println("\nAlmacenamientos:");
+									System.out.println(miTienda.mostrarAlmacenamiento());
+									break;
+								case 2:
+									System.out.println("\nAuriculares:\n");
+									System.out.println(miTienda.mostrarAuriculares());
+									break;
+								case 3:
+									//revisar
+									break;
+								case 4:
+									System.out.println("\nAlmacenamientos:");
+									System.out.println(miTienda.mostrarCooler());
+									break;
+								case 5:
+									System.out.println("\nFuente:\n");
+									System.out.println(miTienda.mostrarFuentes());
+									break;
+								case 6:
+									System.out.println("\nGabinetes:\n");
+									System.out.println(miTienda.mostrarGabinetes());
+									break;
+								case 7:
+									System.out.println("\nMemorias Ram:\n");
+									System.out.println(miTienda.mostrarMemorias());
+									break;
+								case 8:
+									System.out.println("\nMicrofonos:\n");
+									System.out.println(miTienda.mostrarMicrofonos());
+									break;
+								case 9:
+									System.out.println("\nMonitores:\n");
+									System.out.println(miTienda.mostrarMonitores());
+									break;
+								case 10:
+									System.out.println("\nMotherboards:\n");
+									System.out.println(miTienda.mostrarMothers());
+									break;
+								case 11:
+									System.out.println("\nMouses:\n");
+									System.out.println(miTienda.mostrarMouses());
+									break;
+								case 12:
+									System.out.println("\nAudio:\n");
+									System.out.println(miTienda.mostrarParlantes());
+									break;
+								case 13:
+									System.out.println("\nPlacas de video:\n");
+									System.out.println(miTienda.mostrarPlacas());
+									break;
+								case 14:
+									System.out.println("\nProcesadores:\n");
+									System.out.println(miTienda.mostrarProcesadores());
+									break;
+								case 15:
+									System.out.println("\nTeclados:\n");
+									System.out.println(miTienda.mostrarTeclados());
+									break;
+								case 16:
+									System.out.println("\nWebcams\n:");
+									System.out.println(miTienda.mostrarWebcams());
+									break;
+								case 17:
+									System.out.println("\nCatalogo completo:");
+									System.out.println(miTienda.mostrarTodo());
+									break;
+							}
+
+							System.out.println("ingrese el codigo del disco a agregar\n");
+							teclado.nextLine();
+							String codigo= teclado.nextLine();
+							System.out.println("Ingrese Cantidad\n");
+							int cant=teclado.nextInt();
+							if(miTienda.checkProducto(codigo)){
+								Producto nuevo=miTienda.productoAcarrito(codigo);
+								try{
+									nuevo.reducirStock(cant);
+									miTienda.agregarAlCarrito(nuevo,cant);
+								} catch (NoHayStockExcepcion e) {
+									e.printStackTrace();
 								}
-								break;
-							case 2:
-								//aca hay que agregar logica para cuando no hay stock
-								System.out.println("\nMotherboards");
-								System.out.println(miTienda.mostrarMothers());
-								System.out.println("\nIngrese el codigo de la motherboard");
-								String codigoMother = teclado.nextLine();
-								String motherAcargar=miTienda.buscarProducto(codigoMother);
-								System.out.println("\nElija Procesador");
-								System.out.println(miTienda.mostrarProcesadores());
-								System.out.println("\nIngrese el codigo del Procesador");
-								String codigoProcesador = teclado.nextLine();
-								String procesadorAcargar=miTienda.buscarProducto(codigoProcesador);
-								System.out.println("\nElija Memoria");
-								System.out.println(miTienda.mostrarMemorias());
-								System.out.println("\nIngrese el codigo de la memoria");
-								String codigoMemoria = teclado.nextLine();
-								String memoriaAcargar=miTienda.buscarProducto(codigoMemoria);
-								System.out.println("\nElija Fuente");
-								System.out.println(miTienda.mostrarFuentes());
-								System.out.println("\nIngrese el codigo de la Fuente");
-								String codigoFuente = teclado.nextLine();
-								String fuenteAcargar=miTienda.buscarProducto(codigoFuente);
-								System.out.println("\nElija Gabinete");
-								System.out.println(miTienda.mostrarGabinetes());
-								System.out.println("\nIngrese el codigo del Gabinet");
-								String codigoGabinete = teclado.nextLine();
-								String gabineteAcargar=miTienda.buscarProducto(codigoGabinete);
-								System.out.println("\nElija Almacenamiento");
-								System.out.println(miTienda.mostrarAlmacenamiento());
-								System.out.println("\nIngrese el codigo del Almacenamiento");
-								String codigoAlmacenamiento = teclado.nextLine();
-								String almacenamientoAcargar=miTienda.buscarProducto(codigoAlmacenamiento);
-								System.out.println("\nElija Cooler");
-								System.out.println(miTienda.mostrarCooler());
-								System.out.println("\nIngrese el codigo del Cooler o 0 para dejar el de stock");
-								String codigoCooler = teclado.nextLine();
-								codigoCooler=miTienda.buscarProducto(codigoCooler);
-								System.out.println("\nElija GPU");
-								System.out.println(miTienda.mostrarPlacas());
-								System.out.println("\nIngrese el codigo de GPU");
-								String codigoGPU = teclado.nextLine();
 
-								Computadora nueva = new Computadora("Escritorio, custom",almacenamientoAcargar,memoriaAcargar,procesadorAcargar,motherAcargar,fuenteAcargar,gabineteAcargar,codigoGPU,codigoCooler );
-								//ACA HAY QPREGUNTAR LOS DATOS AL CLIENTE ANTES DE PASAR A LA FACTURA PARA CREAR EL SERVICIO
-								Cliente aux= new Cliente();
-								Servicio armado = new Servicio("armado",aux,0);
-								System.out.println(nueva.toString());
-								System.out.println(armado.toString());
-								//hay que enchufarle el servicio de armado
-
-								//elegir 1 componente de cada categoria q conforma la pc y construirla + servicio de armado
-								break;
-						}
+							}
+							else
+							{
+								System.out.println("codigo equivocado");
+							}
+							System.out.println("Desea continuar? digite 1, otro valor para salir");
+							ventas=teclado.nextInt();
+						}while(ventas==1);
+						System.out.println("CArrito de compras:\n");
+						System.out.println(miTienda.listarCarrito());
 
 						break;
 					case 3:
