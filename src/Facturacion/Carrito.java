@@ -57,6 +57,9 @@ public class Carrito {
     }
     
     
-    
+    public int tamañoCarrito() 
+    {
+    	return misServicios.size()+items.size();
+    }
     
 }

@@ -221,4 +221,8 @@ public class TiendaInformatica<K> {
 	public String listarCarrito(){
 		return this.carroDeCompras.mostrarCarrito();
 	}
+	public int tamañoDeCarro() 
+	{
+		return carroDeCompras.tamañoCarrito();
+	}
 }

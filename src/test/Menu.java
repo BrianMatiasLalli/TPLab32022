@@ -1,6 +1,10 @@
 package test;
 
+import ProductosYServicios.Almacenamiento;
+import ProductosYServicios.Auriculares;
 import ProductosYServicios.Computadora;
+import ProductosYServicios.Cooler;
+import ProductosYServicios.CoolerCpu;
 import ProductosYServicios.Producto;
 import clases.Cliente;
 import excepciones.NoHayStockExcepcion;
@@ -17,13 +21,23 @@ public class Menu {
 		this.nombre=nombre;
 	}
 	TiendaInformatica miTienda= new TiendaInformatica<>(nombre);
-
-
+    
+    
 	public void opciones(){
+		miTienda.agregarProducto("10001","Seagate","STEB6000403",5,30000,950,"Estados Unidos",false,"negro","disco almacenamiento1",6000,"SSD");
+		miTienda.agregarProducto("10002","Seagate","ST2000DM005",6,8700,415,"Estados Unidos",false,"gris","disco almacenamiento2",2000,"HDD");
+		miTienda.agregarProducto("10003","Kingston","SA400S37/960G",10,17106,410,"Estados Unidos",false,"negro","disco almacenamiento3",960,"SSD");
+		miTienda.agregarProducto("10004","HyperX","CloudX Stinger",7,6945,150,"Estados Unidos",false, "negro y verde","Auriculares 1",false,true,1);
+		miTienda.agregarProducto("10005","Logitech","Series G332",3,7810,200,"Suiza",false,"negro y rojo","Auriculares 2",false,true,2);
+		miTienda.agregarProducto("10006","Logitech","G435",2,10700,250,"Suiza",false,"negro","Auriculares2",true,true,0);
+		miTienda.agregarProducto("10007","Sate","RGB-73K",4,6100,300,"Taiwan",true,"negro y rgb multicolor","cooler PC","cooler para Gabinete",6);
+		miTienda.agregarProducto("10008","Asus","Strix XF120",7,6400,100,"Taiwan",false,"negro","cooler PC","cooler para Gabinete",3);
+		miTienda.agregarProducto("10009","Xigmatek","WP964 RGB",8,4700,100,"China",true,"negro","cooler para CPU","Cooler para CPU",3,140,"Ventilador","Intel: LGA 2066/2011-v3 / 2011/1366/115 ï¿½ / 1200 AMD: AM4 / AM3 + / AM3 / AM2 + / AM2 / FM2 + / FM2 / FM1");
 		int opcion,opcionCatalogo;
 		Scanner teclado = new Scanner(System.in);
 		miTienda.getCatalogo();
 		StreamJSON nuevoJSON = new StreamJSON();
+		
 		do {
 			System.out.println("\nMenu Principal.\nDiginte la opcion deseada o 9 para salir\n");
 			System.out.println("\n1.Catalogo.");
@@ -626,6 +640,11 @@ public class Menu {
 					case 2:
 						int ventas=1;
 						do{
+							
+							//agregar opcion para mostrar carrito 
+							//agregar opcion para agregar servicios al carrtio
+							//agregar opcion para proceder a facturar
+							//hacer agregar productos una opcion
 							System.out.println("\nCargar productos en el carrito.");
 							int opcionCargar;
 							//mostrar catalogo y agregarlos al carrito
@@ -718,8 +737,9 @@ public class Menu {
 									System.out.println("\nCatalogo completo:");
 									System.out.println(miTienda.mostrarTodo());
 									break;
+									
 							}
-
+							if(opcionCargar!=0) {
 							System.out.println("ingrese el codigo del disco a agregar\n");
 							teclado.nextLine();
 							String codigo= teclado.nextLine();
@@ -727,13 +747,13 @@ public class Menu {
 							int cant=teclado.nextInt();
 							if(miTienda.checkProducto(codigo)){
 								Producto nuevo=miTienda.productoAcarrito(codigo);
+								
 								try{
 									nuevo.reducirStock(cant);
 									miTienda.agregarAlCarrito(nuevo,cant);
 								} catch (NoHayStockExcepcion e) {
 									e.printStackTrace();
 								}
-
 							}
 							else
 							{
@@ -741,10 +761,17 @@ public class Menu {
 							}
 							System.out.println("Desea continuar? digite 1, otro valor para salir");
 							ventas=teclado.nextInt();
+							}else 
+							{
+								ventas=0;
+							}
 						}while(ventas==1);
-						System.out.println("CArrito de compras:\n");
+						
+						if(miTienda.tamañoDeCarro()>0) {
+						System.out.println("Carrito de compras:\n");
 						System.out.println(miTienda.listarCarrito());
-
+						}
+						
 						break;
 					case 3:
 						do{
