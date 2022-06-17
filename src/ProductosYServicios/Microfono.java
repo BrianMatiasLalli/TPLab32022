@@ -16,7 +16,7 @@ public class Microfono extends Producto{
 	}
 	public Microfono(String codigo, String marca, String modelo, int stock, double precio, double peso,
 			String paisOrigen, boolean rgb, String color, String descripcion, String tipoDePie, String conexion) {
-		super(codigo, marca, modelo, stock, precio, peso, paisOrigen, rgb, color, descripcion);
+		super("MI-"+codigo, marca, modelo, stock, precio, peso, paisOrigen, rgb, color, descripcion);
 		this.tipoDePie = tipoDePie;
 		this.conexion = conexion;
 	}

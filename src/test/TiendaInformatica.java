@@ -144,6 +144,10 @@ public class TiendaInformatica<K> {
 		this.catalogo.agregar(nuevo);
 	}
 
+	public void setCatalogo(Catalogo catalogo) {
+		this.catalogo = catalogo;
+	}
+
 	public Catalogo getCatalogo() {
 		return catalogo;
 	}
@@ -221,8 +225,8 @@ public class TiendaInformatica<K> {
 	public String listarCarrito(){
 		return this.carroDeCompras.mostrarCarrito();
 	}
-	public int tamañoDeCarro() 
+	public int tamanioDeCarro()
 	{
-		return carroDeCompras.tamañoCarrito();
+		return carroDeCompras.tamanioCarrito();
 	}
 }

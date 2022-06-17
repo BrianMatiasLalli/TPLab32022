@@ -24,7 +24,7 @@ public class PlacaDeVideo extends Producto{
 	public PlacaDeVideo(String codigo, String marca, String modelo, int stock, double precio, double peso,
 			String paisOrigen, boolean rgb, String color, String descripcion, String conectividad, int consumo,
 			String tipoDeMemoria, int capacidadDeMemoria, boolean isbackPlate) {
-		super(codigo, marca, modelo, stock, precio, peso, paisOrigen, rgb, color, descripcion);
+		super("PV-"+ codigo, marca, modelo, stock, precio, peso, paisOrigen, rgb, color, descripcion);
 		this.conectividad = conectividad;
 		this.consumo = consumo;
 		this.tipoDeMemoria = tipoDeMemoria;

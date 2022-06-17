@@ -19,7 +19,7 @@ public class Teclado extends Producto{
 	
 	public Teclado(String codigo, String marca, String modelo, int stock, double precio, double peso, String paisOrigen,
 			boolean rgb, String color, String descripcion, String tipo, String formfactor, String switcH) {
-		super(codigo, marca, modelo, stock, precio, peso, paisOrigen, rgb, color, descripcion);
+		super("KB-"+codigo, marca, modelo, stock, precio, peso, paisOrigen, rgb, color, descripcion);
 		this.tipo = tipo;
 		this.formfactor = formfactor;
 		this.switcH = switcH;

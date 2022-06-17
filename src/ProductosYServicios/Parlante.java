@@ -20,7 +20,7 @@ public class Parlante extends Producto{
 	public Parlante(String codigo, String marca, String modelo, int stock, double precio, double peso,
 					String paisOrigen, boolean rgb, String color, String descripcion, String potencia, String tipoDeConectores,
 					String alimentacion) {
-		super(codigo, marca, modelo, stock, precio, peso, paisOrigen, rgb, color, descripcion);
+		super("PA-"+codigo, marca, modelo, stock, precio, peso, paisOrigen, rgb, color, descripcion);
 		this.potencia = potencia;
 		this.tipoDeConectores = tipoDeConectores;
 		this.alimentacion = alimentacion;

@@ -22,7 +22,7 @@ public class Fuente extends Producto{
 	public Fuente(String codigo, String marca, String modelo, int stock, double precio, double peso, String paisOrigen,
 			boolean rgb, String color, String descripcion, int watts, String formato, String certificacion,
 			boolean isModular) {
-		super(codigo, marca, modelo, stock, precio, peso, paisOrigen, rgb, color, descripcion);
+		super("FU-"+ codigo, marca, modelo, stock, precio, peso, paisOrigen, rgb, color, descripcion);
 		this.watts = watts;
 		this.formato = formato;
 		this.certificacion = certificacion;

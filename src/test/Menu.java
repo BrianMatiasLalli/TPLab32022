@@ -1,13 +1,10 @@
 package test;
 
-import ProductosYServicios.Almacenamiento;
-import ProductosYServicios.Auriculares;
 import ProductosYServicios.Computadora;
-import ProductosYServicios.Cooler;
-import ProductosYServicios.CoolerCpu;
 import ProductosYServicios.Producto;
 import clases.Cliente;
 import excepciones.NoHayStockExcepcion;
+import jsonHerramientas.JsonUtiles;
 import jsonHerramientas.StreamJSON;
 
 import java.util.Scanner;
@@ -24,6 +21,10 @@ public class Menu {
     
     
 	public void opciones(){
+		String fuente= JsonUtiles.leer();
+		StreamJSON aux= new StreamJSON();
+		miTienda.setCatalogo(aux.JsonAJava(fuente));
+
 		miTienda.agregarProducto("10001","Seagate","STEB6000403",5,30000,950,"Estados Unidos",false,"negro","disco almacenamiento1",6000,"SSD");
 		miTienda.agregarProducto("10002","Seagate","ST2000DM005",6,8700,415,"Estados Unidos",false,"gris","disco almacenamiento2",2000,"HDD");
 		miTienda.agregarProducto("10003","Kingston","SA400S37/960G",10,17106,410,"Estados Unidos",false,"negro","disco almacenamiento3",960,"SSD");
@@ -81,6 +82,7 @@ public class Menu {
 									System.out.println("\n17.Webcam:");
 									System.out.println("\n0 para salir.");
 									opcionCatalogo= teclado.nextInt();
+
 									if(opcionCatalogo!=0) {
 										System.out.println("Ingrese codigo: ");
 										teclado.nextLine();
@@ -767,7 +769,7 @@ public class Menu {
 							}
 						}while(ventas==1);
 						
-						if(miTienda.tamañoDeCarro()>0) {
+						if(miTienda.tamanioDeCarro()>0) {
 						System.out.println("Carrito de compras:\n");
 						System.out.println(miTienda.listarCarrito());
 						}
@@ -858,6 +860,7 @@ public class Menu {
 			} while (opcion < 6 && opcion > -1);
 
 		//System.out.println(nuevoJSON.javaAJSON(miTienda.getCatalogo()));
+		//aux.javaAJSON(miTienda.getCatalogo());
 		}
 
 }

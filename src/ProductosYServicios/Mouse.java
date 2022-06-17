@@ -25,7 +25,7 @@ public class Mouse extends Producto{
 	public Mouse(String codigo, String marca, String modelo, int stock, double precio, double peso, String paisOrigen,
 			boolean rgb, String color, String descripcion, int cantidadDeBotones, String switcH, String sensor,
 			boolean isInalambrica, int dpiMax) {
-		super(codigo, marca, modelo, stock, precio, peso, paisOrigen, rgb, color, descripcion);
+		super("MS-"+codigo, marca, modelo, stock, precio, peso, paisOrigen, rgb, color, descripcion);
 		this.cantidadDeBotones = cantidadDeBotones;
 		this.switcH = switcH;
 		this.sensor = sensor;

@@ -28,7 +28,7 @@ public class MemoriaRam extends Producto{
 	public MemoriaRam(String codigo, String marca, String modelo, int stock, double precio, double peso,
 			String paisOrigen, boolean rgb, String color, String descripcion, int capacidad, int frecuencia,
 			String tipo, int cantidad, String latencia, float voltaje, boolean isDisipador) {
-		super(codigo, marca, modelo, stock, precio, peso, paisOrigen, rgb, color, descripcion);
+		super("MR-"+ codigo, marca, modelo, stock, precio, peso, paisOrigen, rgb, color, descripcion);
 		this.capacidad = capacidad;
 		this.frecuencia = frecuencia;
 		this.tipo = tipo;

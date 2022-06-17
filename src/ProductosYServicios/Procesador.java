@@ -28,7 +28,7 @@ public class Procesador extends Producto{
 	public Procesador(String codigo, String marca, String modelo, int stock, double precio, double peso,
 			String paisOrigen, boolean rgb, String color, String descripcion, String socket, int nucleos, int hilos,
 			int frecuenciaTurbo, int procesoDeFabricacion, int tdp, boolean isCooler) {
-		super(codigo, marca, modelo, stock, precio, peso, paisOrigen, rgb, color, descripcion);
+		super("CP-"+codigo, marca, modelo, stock, precio, peso, paisOrigen, rgb, color, descripcion);
 		this.socket = socket;
 		this.nucleos = nucleos;
 		this.hilos = hilos;

@@ -27,7 +27,7 @@ public class Monitor extends Producto {
 	public Monitor(String codigo, String marca, String modelo, int stock, double precio, double peso, String paisOrigen,
 			boolean rgb, String color, String descripcion, String tipoDePanel, boolean isCurvo, String conexion,
 			String tipoDeFuente, int pulgadas, String resolucion, String frecuencia) {
-		super(codigo, marca, modelo, stock, precio, peso, paisOrigen, rgb, color, descripcion);
+		super("MO-"+codigo, marca, modelo, stock, precio, peso, paisOrigen, rgb, color, descripcion);
 		this.tipoDePanel = tipoDePanel;
 		this.isCurvo = isCurvo;
 		this.conexion = conexion;

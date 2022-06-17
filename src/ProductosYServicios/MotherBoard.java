@@ -30,7 +30,7 @@ public class MotherBoard extends Producto{
 			String paisOrigen, boolean rgb, String color, String descripcion, String plataforma, String socket,
 			String factor, int cantidadDeSlotsDeMemoria, int puertosSata, String salidasDeVideo, int cantidadDeSlotsM2,
 			int puertosUSB) {
-		super(codigo, marca, modelo, stock, precio, peso, paisOrigen, rgb, color, descripcion);
+		super("MB-"+codigo, marca, modelo, stock, precio, peso, paisOrigen, rgb, color, descripcion);
 		this.plataforma = plataforma;
 		this.socket = socket;
 		this.factor = factor;

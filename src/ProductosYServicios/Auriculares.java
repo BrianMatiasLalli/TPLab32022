@@ -22,7 +22,7 @@ public class Auriculares extends Producto {
 	public Auriculares(String codigo, String marca, String modelo, int stock, double precio, double peso,
 			String paisOrigen, boolean rgb, String color, String descripcion, boolean isInalambrico,
 			boolean isMicrofono, int largoDelCable) {
-		super(codigo, marca, modelo, stock, precio, peso, paisOrigen, rgb, color, descripcion);
+		super("AU-"+codigo, marca, modelo, stock, precio, peso, paisOrigen, rgb, color, descripcion);
 		this.isInalambrico = isInalambrico;
 		this.isMicrofono = isMicrofono;
 		this.largoDelCable = largoDelCable;
@@ -44,8 +44,8 @@ public class Auriculares extends Producto {
 
 	@Override
 	public String toString() {
-		return super.toString()+"Auriculares:  Inalambrico: " + isInalambrico() + ",Microfono: " + isMicrofono()
-				+ ", LargoDelCable: " + getLargoDelCable() + "]";
+		return super.toString()+"Auriculares:\nInalambrico: " + isInalambrico() + "\nMicrofono: " + isMicrofono()
+				+ "\nLargoDelCable: " + getLargoDelCable() + "]";
 	}
 	
 	@Override

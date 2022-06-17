@@ -36,7 +36,7 @@ public class Computadora extends Producto {
 			String paisOrigen, boolean rgb, String color, String descripcion, String tipoPc, String disco, String ram,
 			String cpu, String mother, String fuente, String gabinete, String gpu, String cooler) {
 		
-		super(codigo, marca, modelo, stock, precio, peso, paisOrigen, rgb, color, descripcion);
+		super("PC-"+codigo, marca, modelo, stock, precio, peso, paisOrigen, rgb, color, descripcion);
 		this.tipoPc = tipoPc;
 		this.disco = disco;
 		this.ram = ram;
@@ -166,7 +166,6 @@ public class Computadora extends Producto {
 
 	@Override
 	public JSONObject productoAJson() {
-		// TODO Auto-generated method stub
 		JSONObject retorno = new JSONObject();
 		
 		try {
@@ -191,7 +190,6 @@ public class Computadora extends Producto {
 			retorno.put("Cooler", getCooler());
 			
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

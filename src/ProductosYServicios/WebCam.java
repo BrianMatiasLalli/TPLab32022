@@ -22,7 +22,7 @@ public class WebCam extends Producto{
 	public WebCam(String codigo, String marca, String modelo, int stock, double precio, double peso, String paisOrigen,
 			boolean rgb, String color, String descripcion, String resolucionMaximaDevideo, String tipoDeLente,
 			String tipoDeResolucion, boolean isMicrofono) {
-		super(codigo, marca, modelo, stock, precio, peso, paisOrigen, rgb, color, descripcion);
+		super("WC-"+codigo, marca, modelo, stock, precio, peso, paisOrigen, rgb, color, descripcion);
 		this.resolucionMaximaDevideo = resolucionMaximaDevideo;
 		this.tipoDeLente = tipoDeLente;
 		this.tipoDeResolucion = tipoDeResolucion;

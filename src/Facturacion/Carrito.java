@@ -1,9 +1,7 @@
 package Facturacion;
 
 import ProductosYServicios.ItemPedido;
-import ProductosYServicios.Producto;
 import ProductosYServicios.Servicio;
-
 
 import java.util.ArrayList;
 
@@ -57,7 +55,7 @@ public class Carrito {
     }
     
     
-    public int tamañoCarrito() 
+    public int tamanioCarrito()
     {
     	return misServicios.size()+items.size();
     }

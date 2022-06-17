@@ -17,7 +17,7 @@ public class Almacenamiento extends Producto{
 	
 	public Almacenamiento(String codigo, String marca, String modelo, int stock, double precio, double peso,
 			String paisOrigen, boolean rgb, String color, String descripcion,int capacidad,String tipoDeDisco) {
-		super(codigo, marca, modelo, stock, precio, peso, paisOrigen, rgb, color, descripcion);
+		super("AL-"+codigo, marca, modelo, stock, precio, peso, paisOrigen, rgb, color, descripcion);
 		
 		this.tipoDeDisco = tipoDeDisco;
 		this.capacidad = capacidad;

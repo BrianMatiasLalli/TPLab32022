@@ -21,7 +21,7 @@ public class CoolerCpu extends Cooler{
 	public CoolerCpu(String codigo, String marca, String modelo, int stock, double precio, double peso,
 			String paisOrigen, boolean rgb, String color, String descripcion, String tipo, int consumo, int tdp,
 			String tipoDeDisipacion, String socketCompatible) {
-		super(codigo, marca, modelo, stock, precio, peso, paisOrigen, rgb, color, descripcion, tipo, consumo);
+		super("CC"+codigo, marca, modelo, stock, precio, peso, paisOrigen, rgb, color, descripcion, tipo, consumo);
 		this.tdp = tdp;
 		this.tipoDeDisipacion = tipoDeDisipacion;
 		this.socketCompatible = socketCompatible;
@@ -60,8 +60,8 @@ public class CoolerCpu extends Cooler{
 
 	@Override
 	public String toString() {
-		return super.toString()+"CoolerCpu: Tdp:" + getTdp() + ", Tipo de disipacion: " + getTipoDeDisipacion()
-				+ ", Socket compatible:" + getSocketCompatible() + "]";
+		return super.toString()+"\nTdp:" + getTdp() + "\nTipo de disipacion: " + getTipoDeDisipacion()
+				+ "\nSocket compatible:" + getSocketCompatible();
 	}
 	@Override
 	public JSONObject productoAJson() {

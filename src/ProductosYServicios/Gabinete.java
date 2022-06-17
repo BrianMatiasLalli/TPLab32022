@@ -27,7 +27,7 @@ public class Gabinete extends Producto {
 	
 	public Gabinete(String codigo, String marca, String modelo, int stock, double precio, double peso,
 			String paisOrigen, boolean rgb, String color, String descripcion, String facttorMother, boolean isVentana, int cantidadDeSlotsParaCooler, int usbFrontal, int alto, int ancho, int profundo) {
-		super(codigo, marca, modelo, stock, precio, peso, paisOrigen, rgb, color, descripcion);
+		super("GA"+codigo, marca, modelo, stock, precio, peso, paisOrigen, rgb, color, descripcion);
 		this.factorMother = facttorMother;
 		this.isVentana = isVentana;
 		this.cantidadDeSlotsParaCooler = cantidadDeSlotsParaCooler;
