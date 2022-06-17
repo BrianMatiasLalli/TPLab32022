@@ -64,6 +64,36 @@ public class Monitor extends Producto {
 	public String getFrecuencia() {
 		return frecuencia;
 	}
+	
+	
+
+	public void setTipoDePanel(String tipoDePanel) {
+		this.tipoDePanel = tipoDePanel;
+	}
+
+	public void setCurvo(boolean isCurvo) {
+		this.isCurvo = isCurvo;
+	}
+
+	public void setConexion(String conexion) {
+		this.conexion = conexion;
+	}
+
+	public void setTipoDeFuente(String tipoDeFuente) {
+		this.tipoDeFuente = tipoDeFuente;
+	}
+
+	public void setPulgadas(int pulgadas) {
+		this.pulgadas = pulgadas;
+	}
+
+	public void setResolucion(String resolucion) {
+		this.resolucion = resolucion;
+	}
+
+	public void setFrecuencia(String frecuencia) {
+		this.frecuencia = frecuencia;
+	}
 
 	@Override
 	public String toString() {

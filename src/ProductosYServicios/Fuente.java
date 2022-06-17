@@ -49,6 +49,27 @@ public class Fuente extends Producto{
 		return isModular;
 	}
 
+	
+
+	public void setWatts(int watts) {
+		this.watts = watts;
+	}
+
+
+	public void setFormato(String formato) {
+		this.formato = formato;
+	}
+
+
+	public void setCertificacion(String certificacion) {
+		this.certificacion = certificacion;
+	}
+
+
+	public void setModular(boolean isModular) {
+		this.isModular = isModular;
+	}
+
 
 	@Override
 	public String toString() {

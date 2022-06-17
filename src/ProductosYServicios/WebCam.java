@@ -45,6 +45,23 @@ public class WebCam extends Producto{
 		return isMicrofono;
 	}
 
+	
+	public void setResolucionMaximaDevideo(String resolucionMaximaDevideo) {
+		this.resolucionMaximaDevideo = resolucionMaximaDevideo;
+	}
+
+	public void setTipoDeLente(String tipoDeLente) {
+		this.tipoDeLente = tipoDeLente;
+	}
+
+	public void setTipoDeResolucion(String tipoDeResolucion) {
+		this.tipoDeResolucion = tipoDeResolucion;
+	}
+
+	public void setMicrofono(boolean isMicrofono) {
+		this.isMicrofono = isMicrofono;
+	}
+
 	@Override
 	public String toString() {
 		return super.toString()+"WebCam Resolucion maxima de video: " + getResolucionMaximaDevideo() + ", Tipo de lente: "

@@ -41,6 +41,22 @@ public class Teclado extends Producto{
 	}
 
 
+	
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+
+	public void setFormfactor(String formfactor) {
+		this.formfactor = formfactor;
+	}
+
+
+	public void setSwitcH(String switcH) {
+		this.switcH = switcH;
+	}
+
+
 	@Override
 	public String toString() {
 		return super.toString()+"Teclado:  Tipo: " + getTipo() + ", Form factor: " + getFormfactor() + ", Switch: "
@@ -48,6 +64,7 @@ public class Teclado extends Producto{
 	}
 
 
+	
 	@Override
 	public JSONObject productoAJson() {
 

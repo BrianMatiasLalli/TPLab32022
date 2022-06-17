@@ -38,6 +38,19 @@ public class Parlante extends Producto{
 		return alimentacion;
 	}
 
+	
+	public void setPotencia(String potencia) {
+		this.potencia = potencia;
+	}
+
+	public void setTipoDeConectores(String tipoDeConectores) {
+		this.tipoDeConectores = tipoDeConectores;
+	}
+
+	public void setAlimentacion(String alimentacion) {
+		this.alimentacion = alimentacion;
+	}
+
 	@Override
 	public String toString() {
 		return super.toString()+"Parlantes Potencia: " + getPotencia() + ", Tipo de conectores: " + getTipoDeConectores()

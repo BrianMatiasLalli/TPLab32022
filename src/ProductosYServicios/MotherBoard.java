@@ -72,6 +72,40 @@ public class MotherBoard extends Producto{
 	public int getPuertosUSB() {
 		return puertosUSB;
 	}
+	
+	
+
+	public void setPlataforma(String plataforma) {
+		this.plataforma = plataforma;
+	}
+
+	public void setSocket(String socket) {
+		this.socket = socket;
+	}
+
+	public void setFactor(String factor) {
+		this.factor = factor;
+	}
+
+	public void setCantidadDeSlotsDeMemoria(int cantidadDeSlotsDeMemoria) {
+		this.cantidadDeSlotsDeMemoria = cantidadDeSlotsDeMemoria;
+	}
+
+	public void setPuertosSata(int puertosSata) {
+		this.puertosSata = puertosSata;
+	}
+
+	public void setSalidasDeVideo(String salidasDeVideo) {
+		this.salidasDeVideo = salidasDeVideo;
+	}
+
+	public void setCantidadDeSlotsM2(int cantidadDeSlotsM2) {
+		this.cantidadDeSlotsM2 = cantidadDeSlotsM2;
+	}
+
+	public void setPuertosUSB(int puertosUSB) {
+		this.puertosUSB = puertosUSB;
+	}
 
 	@Override
 	public String toString() {

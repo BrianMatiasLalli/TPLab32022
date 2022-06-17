@@ -66,6 +66,35 @@ public class Gabinete extends Producto {
 		return profundo;
 	}
 
+	
+	public void setFactorMother(String factorMother) {
+		this.factorMother = factorMother;
+	}
+
+	public void setVentana(boolean isVentana) {
+		this.isVentana = isVentana;
+	}
+
+	public void setCantidadDeSlotsParaCooler(int cantidadDeSlotsParaCooler) {
+		this.cantidadDeSlotsParaCooler = cantidadDeSlotsParaCooler;
+	}
+
+	public void setUsbFrontal(int usbFrontal) {
+		this.usbFrontal = usbFrontal;
+	}
+
+	public void setAlto(int alto) {
+		this.alto = alto;
+	}
+
+	public void setAncho(int ancho) {
+		this.ancho = ancho;
+	}
+
+	public void setProfundo(int profundo) {
+		this.profundo = profundo;
+	}
+
 	@Override
 	public String toString() {
 		return super.toString()+"Gabinete FactorMother: " + getFactorMother() + ", Ventana:" + isVentana() + ", Cantidad de Slots para cooler: " + getCantidadDeSlotsParaCooler()

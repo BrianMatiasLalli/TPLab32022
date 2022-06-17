@@ -66,6 +66,35 @@ public class MemoriaRam extends Producto{
 		return isDisipador;
 	}
 
+	
+	public void setCapacidad(int capacidad) {
+		this.capacidad = capacidad;
+	}
+
+	public void setFrecuencia(int frecuencia) {
+		this.frecuencia = frecuencia;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public void setCantidad(int cantidad) {
+		this.cantidad = cantidad;
+	}
+
+	public void setLatencia(String latencia) {
+		this.latencia = latencia;
+	}
+
+	public void setVoltaje(float voltaje) {
+		this.voltaje = voltaje;
+	}
+
+	public void setDisipador(boolean isDisipador) {
+		this.isDisipador = isDisipador;
+	}
+
 	@Override
 	public String toString() {
 		return super.toString()+"\nMemoria Ram: \nGBs: " + getCapacidad() + "\nFrecuencia(MHZ): " + getFrecuencia() + "Gen: "

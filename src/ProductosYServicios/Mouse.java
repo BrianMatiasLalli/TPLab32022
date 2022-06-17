@@ -53,6 +53,27 @@ public class Mouse extends Producto{
 		return dpiMax;
 	}
 
+	
+	public void setCantidadDeBotones(int cantidadDeBotones) {
+		this.cantidadDeBotones = cantidadDeBotones;
+	}
+
+	public void setSwitcH(String switcH) {
+		this.switcH = switcH;
+	}
+
+	public void setSensor(String sensor) {
+		this.sensor = sensor;
+	}
+
+	public void setInalambrica(boolean isInalambrica) {
+		this.isInalambrica = isInalambrica;
+	}
+
+	public void setDpiMax(int dpiMax) {
+		this.dpiMax = dpiMax;
+	}
+
 	@Override
 	public String toString() {
 		return super.toString()+"Mouse: Cantidad de botones: " + getCantidadDeBotones() + ", Switch: " + getSwitcH()

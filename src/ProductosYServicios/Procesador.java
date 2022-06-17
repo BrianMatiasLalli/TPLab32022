@@ -70,6 +70,35 @@ public class Procesador extends Producto{
 		return cooler;
 	}
 
+	
+	public void setSocket(String socket) {
+		this.socket = socket;
+	}
+
+	public void setNucleos(int nucleos) {
+		this.nucleos = nucleos;
+	}
+
+	public void setHilos(int hilos) {
+		this.hilos = hilos;
+	}
+
+	public void setFrecuenciaTurbo(int frecuenciaTurbo) {
+		this.frecuenciaTurbo = frecuenciaTurbo;
+	}
+
+	public void setProcesoDeFabricacion(int procesoDeFabricacion) {
+		this.procesoDeFabricacion = procesoDeFabricacion;
+	}
+
+	public void setTdp(int tdp) {
+		this.tdp = tdp;
+	}
+
+	public void setCooler(boolean isCooler) {
+		this.isCooler = isCooler;
+	}
+
 	@Override
 	public String toString() {
 		return super.toString()+"Procesador: \nSocket: " + getSocket() + "\nNucleos:" + getNucleos() + "\nHilos: "

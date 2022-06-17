@@ -56,6 +56,31 @@ public class PlacaDeVideo extends Producto{
 		return backPlate;
 	}
 
+	
+	public boolean isIsbackPlate() {
+		return isbackPlate;
+	}
+
+	public void setIsbackPlate(boolean isbackPlate) {
+		this.isbackPlate = isbackPlate;
+	}
+
+	public void setConectividad(String conectividad) {
+		this.conectividad = conectividad;
+	}
+
+	public void setConsumo(int consumo) {
+		this.consumo = consumo;
+	}
+
+	public void setTipoDeMemoria(String tipoDeMemoria) {
+		this.tipoDeMemoria = tipoDeMemoria;
+	}
+
+	public void setCapacidadDeMemoria(int capacidadDeMemoria) {
+		this.capacidadDeMemoria = capacidadDeMemoria;
+	}
+
 	@Override
 	public String toString() {
 		return "PlacaDeVideo"+ super.toString()+"\nConectividad: " + getConectividad() + "\nConsumo(Wts): " + getConsumo()

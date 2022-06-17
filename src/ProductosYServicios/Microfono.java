@@ -27,6 +27,13 @@ public class Microfono extends Producto{
 		return conexion;
 	}
 	
+	
+	public void setTipoDePie(String tipoDePie) {
+		this.tipoDePie = tipoDePie;
+	}
+	public void setConexion(String conexion) {
+		this.conexion = conexion;
+	}
 	@Override
 	public String toString() {
 		return super.toString()+"Microfono Tipo de pie: " + getTipoDePie() + ", Conexion: " + getConexion() + "]";
