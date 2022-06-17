@@ -74,5 +74,25 @@ public class Auriculares extends Producto {
 		}
 		return retorno;
 	}
+
+
+
+	public void setInalambrico(boolean isInalambrico) {
+		this.isInalambrico = isInalambrico;
+	}
+
+
+
+	public void setMicrofono(boolean isMicrofono) {
+		this.isMicrofono = isMicrofono;
+	}
+
+
+
+	public void setLargoDelCable(int largoDelCable) {
+		this.largoDelCable = largoDelCable;
+	}
+	
+	
 	
 }

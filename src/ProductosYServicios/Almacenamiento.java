@@ -64,4 +64,14 @@ public class Almacenamiento extends Producto{
 		
 		return retorno;
 	}
+
+	public void setTipoDeDisco(String tipoDeDisco) {
+		this.tipoDeDisco = tipoDeDisco;
+	}
+
+	public void setCapacidad(int capacidad) {
+		this.capacidad = capacidad;
+	}
+	
+	
 }

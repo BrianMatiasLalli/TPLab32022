@@ -36,6 +36,18 @@ public class Cooler extends Producto{
 	}
 
 
+	
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+
+
+	public void setConsumo(int consumo) {
+		this.consumo = consumo;
+	}
+
+
 
 	@Override
 	public String toString() {
