@@ -45,7 +45,7 @@ public class Auriculares extends Producto {
 	@Override
 	public String toString() {
 		return super.toString()+"Auriculares:\nInalambrico: " + isInalambrico() + "\nMicrofono: " + isMicrofono()
-				+ "\nLargoDelCable: " + getLargoDelCable() + "]";
+				+ "\nLargoDelCable: " + getLargoDelCable();
 	}
 	
 	@Override

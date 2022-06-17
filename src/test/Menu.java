@@ -22,6 +22,9 @@ public class Menu {
     
 	public void opciones(){
 		String fuente= JsonUtiles.leer();
+		if(fuente.isEmpty()){
+			System.out.println("Este archivo no contiene nada\n\n");
+		}
 		StreamJSON aux= new StreamJSON();
 		miTienda.setCatalogo(aux.JsonAJava(fuente));
 
@@ -34,7 +37,9 @@ public class Menu {
 		miTienda.agregarProducto("10007","Sate","RGB-73K",4,6100,300,"Taiwan",true,"negro y rgb multicolor","cooler PC","cooler para Gabinete",6);
 		miTienda.agregarProducto("10008","Asus","Strix XF120",7,6400,100,"Taiwan",false,"negro","cooler PC","cooler para Gabinete",3);
 		miTienda.agregarProducto("10009","Xigmatek","WP964 RGB",8,4700,100,"China",true,"negro","cooler para CPU","Cooler para CPU",3,140,"Ventilador","Intel: LGA 2066/2011-v3 / 2011/1366/115 � / 1200 AMD: AM4 / AM3 + / AM3 / AM2 + / AM2 / FM2 + / FM2 / FM1");
+
 		int opcion,opcionCatalogo;
+
 		Scanner teclado = new Scanner(System.in);
 		miTienda.getCatalogo();
 		StreamJSON nuevoJSON = new StreamJSON();
@@ -642,11 +647,23 @@ public class Menu {
 					case 2:
 						int ventas=1;
 						do{
-							
-							//agregar opcion para mostrar carrito 
-							//agregar opcion para agregar servicios al carrtio
-							//agregar opcion para proceder a facturar
-							//hacer agregar productos una opcion
+							int opcionVentas=0;
+							switch (opcionVentas){
+								case 1:
+									//cargar productos
+									break;
+								case 2:
+									//cargar servicios
+									break;
+								case 3:
+									//mostrar Carrito
+									break;
+								case 4:
+									//check out
+									break;
+
+							}
+
 							System.out.println("\nCargar productos en el carrito.");
 							int opcionCargar;
 							//mostrar catalogo y agregarlos al carrito
@@ -739,7 +756,7 @@ public class Menu {
 									System.out.println("\nCatalogo completo:");
 									System.out.println(miTienda.mostrarTodo());
 									break;
-									
+
 							}
 							if(opcionCargar!=0) {
 							System.out.println("ingrese el codigo del disco a agregar\n");
@@ -749,7 +766,7 @@ public class Menu {
 							int cant=teclado.nextInt();
 							if(miTienda.checkProducto(codigo)){
 								Producto nuevo=miTienda.productoAcarrito(codigo);
-								
+
 								try{
 									nuevo.reducirStock(cant);
 									miTienda.agregarAlCarrito(nuevo,cant);
@@ -763,12 +780,12 @@ public class Menu {
 							}
 							System.out.println("Desea continuar? digite 1, otro valor para salir");
 							ventas=teclado.nextInt();
-							}else 
+							}else
 							{
 								ventas=0;
 							}
 						}while(ventas==1);
-						
+
 						if(miTienda.tamanioDeCarro()>0) {
 						System.out.println("Carrito de compras:\n");
 						System.out.println(miTienda.listarCarrito());
@@ -859,7 +876,7 @@ public class Menu {
 				}
 			} while (opcion < 6 && opcion > -1);
 
-		//System.out.println(nuevoJSON.javaAJSON(miTienda.getCatalogo()));
+		System.out.println(nuevoJSON.javaAJSON(miTienda.getCatalogo()));
 		//aux.javaAJSON(miTienda.getCatalogo());
 		}
 

@@ -48,7 +48,10 @@ public class PlacaDeVideo extends Producto{
 		return capacidadDeMemoria;
 	}
 
-	public String isBackPlate() {
+	public boolean isBackPlate() {
+		return isbackPlate;
+	}
+	public String showBackPlate() {
 		String backPlate="no";
 		if(isbackPlate==true){
 			backPlate= "si";
@@ -85,7 +88,7 @@ public class PlacaDeVideo extends Producto{
 	public String toString() {
 		return "PlacaDeVideo"+ super.toString()+"\nConectividad: " + getConectividad() + "\nConsumo(Wts): " + getConsumo()
 				+ "\nTipo de memoria(gen): " + getTipoDeMemoria() + "\nCapacidad de memoria(GB): " + getCapacidadDeMemoria()
-				+ "\nBackPlate: " + isBackPlate();
+				+ "\nBackPlate: " + showBackPlate();
 	}
 
 	@Override

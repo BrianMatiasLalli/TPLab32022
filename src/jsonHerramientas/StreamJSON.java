@@ -1,32 +1,14 @@
 package jsonHerramientas;
 
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Map.Entry;
-
+import ProductosYServicios.*;
+import colecciones.Catalogo;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import ProductosYServicios.Almacenamiento;
-import ProductosYServicios.Auriculares;
-import ProductosYServicios.Computadora;
-import ProductosYServicios.Cooler;
-import ProductosYServicios.CoolerCpu;
-import ProductosYServicios.Fuente;
-import ProductosYServicios.Gabinete;
-import ProductosYServicios.MemoriaRam;
-import ProductosYServicios.Microfono;
-import ProductosYServicios.Monitor;
-import ProductosYServicios.MotherBoard;
-import ProductosYServicios.Mouse;
-import ProductosYServicios.Parlante;
-import ProductosYServicios.PlacaDeVideo;
-import ProductosYServicios.Procesador;
-import ProductosYServicios.Producto;
-import ProductosYServicios.Teclado;
-import ProductosYServicios.WebCam;
-import colecciones.Catalogo;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
 
 public class StreamJSON {
 private String nombre;
@@ -63,28 +45,12 @@ private String nombre;
 			JSONArray catalogoJson_Teclado=new JSONArray();
 			JSONArray catalogoJson_WebCam=new JSONArray();
 			
-			json.put("Catalogo_Auriculares",catalogoJson_auriculares);
-			json.put("Catalogo_Almacenamiento",catalogoJson_almacenamiento);
-			json.put("Catalogo_Computadora",catalogoJson_Computadora);
-			json.put("Catalogo_Cooler",catalogoJson_cooler);
-			json.put("Catalogo_CoolerCPU", catalogoJson_coolerCPU);
-			json.put("Catalogo_Fuente",catalogoJson_Fuente);
-			json.put("Catalogo_Gabinete",catalogoJson_Gabinete);
-			json.put("Catalogo_MemoriaRam",catalogoJson_MemoriaRam);
-			json.put("Catalogo_Microfono",catalogoJson_Microfono);
-			json.put("Catalogo_Monitor",catalogoJson_Monitor);
-			json.put("Catalogo_MotherBoard",catalogoJson_MotherBoard);
-			json.put("Catalogo_Mouse",catalogoJson_Mouse);
-			json.put("Catalogo_Parlante",catalogoJson_Parlante);
-			json.put("Catalogo_PlacaDeVideo",catalogoJson_PlacaDeVideo);
-			json.put("Catalogo_Procesador",catalogoJson_Procesador);
-			json.put("Catalogo_Teclado",catalogoJson_Teclado);
-			json.put("Catalogo_WebCam",catalogoJson_WebCam);
+
 			
 			
 			
 			Producto auxProducto;
-			
+
 
 			while(it.hasNext()) 
 			{
@@ -177,6 +143,23 @@ private String nombre;
 				}
 				
 			}
+			json.put("Catalogo_Auriculares",catalogoJson_auriculares);
+			json.put("Catalogo_Almacenamiento",catalogoJson_almacenamiento);
+			json.put("Catalogo_Computadora",catalogoJson_Computadora);
+			json.put("Catalogo_Cooler",catalogoJson_cooler);
+			json.put("Catalogo_CoolerCPU", catalogoJson_coolerCPU);
+			json.put("Catalogo_Fuente",catalogoJson_Fuente);
+			json.put("Catalogo_Gabinete",catalogoJson_Gabinete);
+			json.put("Catalogo_MemoriaRam",catalogoJson_MemoriaRam);
+			json.put("Catalogo_Microfono",catalogoJson_Microfono);
+			json.put("Catalogo_Monitor",catalogoJson_Monitor);
+			json.put("Catalogo_MotherBoard",catalogoJson_MotherBoard);
+			json.put("Catalogo_Mouse",catalogoJson_Mouse);
+			json.put("Catalogo_Parlante",catalogoJson_Parlante);
+			json.put("Catalogo_PlacaDeVideo",catalogoJson_PlacaDeVideo);
+			json.put("Catalogo_Procesador",catalogoJson_Procesador);
+			json.put("Catalogo_Teclado",catalogoJson_Teclado);
+			json.put("Catalogo_WebCam",catalogoJson_WebCam);
 			
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
@@ -202,18 +185,18 @@ private String nombre;
 			JSONArray array_Coolers=jsonCatalogo.getJSONArray("Catalogo_Cooler");
 			JSONArray array_CoolerCPU=jsonCatalogo.getJSONArray("Catalogo_CoolerCPU");
 			JSONArray array_Computadoras=jsonCatalogo.getJSONArray("Catalogo_Computadora");
-			JSONArray array_Fuente=jsonCatalogo.getJSONArray("catalogoJson_Fuente");
-			JSONArray array_Gabinete=jsonCatalogo.getJSONArray("catalogoJson_Gabinete");
-			JSONArray array_MemoriaRam=jsonCatalogo.getJSONArray("catalogoJson_MemoriaRam");
-			JSONArray array_Microfono=jsonCatalogo.getJSONArray("catalogoJson_Microfono");
-			JSONArray array_Monitor=jsonCatalogo.getJSONArray("catalogoJson_Monitor");
-			JSONArray array_MotherBoard=jsonCatalogo.getJSONArray("catalogoJson_MotherBoard");
-			JSONArray array_Mouse=jsonCatalogo.getJSONArray("catalogoJson_Mouse");
-			JSONArray array_Parlante=jsonCatalogo.getJSONArray("catalogoJson_Parlante");
-			JSONArray array_PlacaDeVideo=jsonCatalogo.getJSONArray("catalogoJson_PlacaDeVideo");
-			JSONArray array_Procesador=jsonCatalogo.getJSONArray("catalogoJson_Procesador");
-			JSONArray array_Teclado=jsonCatalogo.getJSONArray("catalogoJson_Teclado");
-			JSONArray array_WebCam=jsonCatalogo.getJSONArray("catalogoJson_WebCam");
+			JSONArray array_Fuente=jsonCatalogo.getJSONArray("Catalogo_Fuente");
+			JSONArray array_Gabinete=jsonCatalogo.getJSONArray("Catalogo_Gabinete");
+			JSONArray array_MemoriaRam=jsonCatalogo.getJSONArray("Catalogo_MemoriaRam");
+			JSONArray array_Microfono=jsonCatalogo.getJSONArray("Catalogo_Microfono");
+			JSONArray array_Monitor=jsonCatalogo.getJSONArray("Catalogo_Monitor");
+			JSONArray array_MotherBoard=jsonCatalogo.getJSONArray("Catalogo_MotherBoard");
+			JSONArray array_Mouse=jsonCatalogo.getJSONArray("Catalogo_Mouse");
+			JSONArray array_Parlante=jsonCatalogo.getJSONArray("Catalogo_Parlante");
+			JSONArray array_PlacaDeVideo=jsonCatalogo.getJSONArray("Catalogo_PlacaDeVideo");
+			JSONArray array_Procesador=jsonCatalogo.getJSONArray("Catalogo_Procesador");
+			JSONArray array_Teclado=jsonCatalogo.getJSONArray("Catalogo_Teclado");
+			JSONArray array_WebCam=jsonCatalogo.getJSONArray("Catalogo_WebCam");
 			
 			
 			for(int i=0;i<array_Auriculares.length();i++) 
