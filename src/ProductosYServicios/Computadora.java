@@ -1,5 +1,6 @@
 package ProductosYServicios;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Computadora extends Producto {
@@ -107,6 +108,52 @@ public class Computadora extends Producto {
 	}
 
 
+	
+	public void setTipoPc(String tipoPc) {
+		this.tipoPc = tipoPc;
+	}
+
+
+	public void setDisco(String disco) {
+		this.disco = disco;
+	}
+
+
+	public void setRam(String ram) {
+		this.ram = ram;
+	}
+
+
+	public void setCpu(String cpu) {
+		this.cpu = cpu;
+	}
+
+
+	public void setMother(String mother) {
+		this.mother = mother;
+	}
+
+
+	public void setFuente(String fuente) {
+		this.fuente = fuente;
+	}
+
+
+	public void setGabinete(String gabinete) {
+		this.gabinete = gabinete;
+	}
+
+
+	public void setGpu(String gpu) {
+		this.gpu = gpu;
+	}
+
+
+	public void setCooler(String cooler) {
+		this.cooler = cooler;
+	}
+
+
 	@Override
 	public String toString() {
 		return super.toString()+"Computadora: Tipo de Pc=" + tipoPc + ", disco:" + disco + ", ram: " + ram + ", cpu: " + cpu + ", mother: "
@@ -120,8 +167,34 @@ public class Computadora extends Producto {
 	@Override
 	public JSONObject productoAJson() {
 		// TODO Auto-generated method stub
+		JSONObject retorno = new JSONObject();
+		
+		try {
+			retorno.put("codigo",getCodigo());
+			retorno.put("marca",getMarca());
+			retorno.put("modelo",getModelo());
+			retorno.put("stock",getStock());
+			retorno.put("precio",getPrecio());
+			retorno.put("peso",getPeso());
+			retorno.put("paisOrigen",getPaisOrigen());
+			retorno.put("rgb",isRgb());
+			retorno.put("color",getColor());
+			retorno.put("descripcion",getDescripcion());
+			retorno.put("TipoDePC", getTipoPc());
+			retorno.put("disco", getDisco());
+			retorno.put("RAM", getRam());
+			retorno.put("CPU", getCpu());
+			retorno.put("Mother", getMother());
+			retorno.put("Fuente", getFuente());
+			retorno.put("Gabinete", getGabinete());
+			retorno.put("GPU", getGpu());
+			retorno.put("Cooler", getCooler());
+			
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		return null;
 	}
-	
-	
 }

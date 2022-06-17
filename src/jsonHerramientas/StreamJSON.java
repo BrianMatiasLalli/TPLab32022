@@ -10,7 +10,9 @@ import org.json.JSONObject;
 
 import ProductosYServicios.Almacenamiento;
 import ProductosYServicios.Auriculares;
+import ProductosYServicios.Computadora;
 import ProductosYServicios.Cooler;
+import ProductosYServicios.CoolerCpu;
 import ProductosYServicios.Fuente;
 import ProductosYServicios.Gabinete;
 import ProductosYServicios.MemoriaRam;
@@ -45,7 +47,9 @@ private String nombre;
 		try {
 			JSONArray catalogoJson_auriculares=new JSONArray();
 			JSONArray catalogoJson_almacenamiento=new JSONArray();
+			JSONArray catalogoJson_Computadora= new JSONArray();
 			JSONArray catalogoJson_cooler=new JSONArray();
+			JSONArray catalogoJson_coolerCPU= new JSONArray();
 			JSONArray catalogoJson_Fuente=new JSONArray();
 			JSONArray catalogoJson_Gabinete=new JSONArray();
 			JSONArray catalogoJson_MemoriaRam=new JSONArray();
@@ -61,7 +65,9 @@ private String nombre;
 			
 			json.put("Catalogo_Auriculares",catalogoJson_auriculares);
 			json.put("Catalogo_Almacenamiento",catalogoJson_almacenamiento);
+			json.put("Catalogo_Computadora",catalogoJson_Computadora);
 			json.put("Catalogo_Cooler",catalogoJson_cooler);
+			json.put("Catalogo_CoolerCPU", catalogoJson_coolerCPU);
 			json.put("Catalogo_Fuente",catalogoJson_Fuente);
 			json.put("Catalogo_Gabinete",catalogoJson_Gabinete);
 			json.put("Catalogo_MemoriaRam",catalogoJson_MemoriaRam);
@@ -76,8 +82,6 @@ private String nombre;
 			json.put("Catalogo_WebCam",catalogoJson_WebCam);
 			
 			
-			//falta el cooler cpu
-			//falta pc
 			
 			Producto auxProducto;
 			
@@ -98,11 +102,20 @@ private String nombre;
 					catalogoJson_almacenamiento.put(auxJson);
 				}
 				
+				if(auxProducto instanceof Computadora) 
+				{
+					catalogoJson_Computadora.put(auxJson);
+				}
+				
 				if(auxProducto instanceof Cooler) 
 				{
 					catalogoJson_cooler.put(auxJson);
 				}
 				
+				if(auxProducto instanceof CoolerCpu) 
+				{
+					catalogoJson_coolerCPU.put(auxJson);
+				}
 				if(auxProducto instanceof Fuente) 
 				{
 					catalogoJson_Fuente.put(auxJson);
@@ -187,8 +200,8 @@ private String nombre;
 			JSONArray array_Auriculares=jsonCatalogo.getJSONArray("Catalogo_Auriculares");
 			JSONArray array_Almacenamiento=jsonCatalogo.getJSONArray("Catalogo_Almacenamiento");
 			JSONArray array_Coolers=jsonCatalogo.getJSONArray("Catalogo_Cooler");
-			//falta cooler cpu
-			//falta pc
+			JSONArray array_CoolerCPU=jsonCatalogo.getJSONArray("Catalogo_CoolerCPU");
+			JSONArray array_Computadoras=jsonCatalogo.getJSONArray("Catalogo_Computadora");
 			JSONArray array_Fuente=jsonCatalogo.getJSONArray("catalogoJson_Fuente");
 			JSONArray array_Gabinete=jsonCatalogo.getJSONArray("catalogoJson_Gabinete");
 			JSONArray array_MemoriaRam=jsonCatalogo.getJSONArray("catalogoJson_MemoriaRam");
@@ -248,6 +261,35 @@ private String nombre;
 				
 			}
 			
+			for(int i=0;i<array_Computadoras.length();i++) 
+			{
+				Computadora aCargar= new Computadora();
+				JSONObject productoJson=array_Computadoras.getJSONObject(i);
+				
+				aCargar.setCodigo(productoJson.getString("codigo"));
+				aCargar.setMarca(productoJson.getString("marca"));
+				aCargar.setModelo(productoJson.getString("modelo"));
+				aCargar.setStock(productoJson.getInt("stock"));
+				aCargar.setPrecio(productoJson.getDouble("precio"));
+				aCargar.setPeso(productoJson.getDouble("peso"));
+				aCargar.setPaisOrigen(productoJson.getString("paisOrigen"));
+				aCargar.setRgb(productoJson.getBoolean("rgb"));
+				aCargar.setColor(productoJson.getString("color"));
+				aCargar.setDescripcion(productoJson.getString("descripcion"));
+				aCargar.setTipoPc(productoJson.getString("TipoDePC"));
+				aCargar.setDisco(productoJson.getString("disco"));
+				aCargar.setRam(productoJson.getString("RAM"));
+				aCargar.setCpu(productoJson.getString("CPU"));
+				aCargar.setMother(productoJson.getString("Mother"));
+				aCargar.setFuente(productoJson.getString("Fuente"));
+				aCargar.setGabinete(productoJson.getString("Gabinete"));
+				aCargar.setGpu(productoJson.getString("GPU"));
+				aCargar.setCooler(productoJson.getString("Cooler"));
+				
+				catalogo.agregar(aCargar);
+				
+			}
+			
 			for(int i=0;i<array_Coolers.length();i++) 
 			{
 				Cooler aCargar= new Cooler();
@@ -266,6 +308,31 @@ private String nombre;
 				aCargar.setTipo(productoJson.getString("Tipo"));                   
 				aCargar.setConsumo(productoJson.getInt("Consumo"));
 				
+				catalogo.agregar(aCargar);
+				
+			}
+			
+			for(int i=0;i<array_CoolerCPU.length();i++) 
+			{
+				CoolerCpu aCargar= new CoolerCpu();
+				JSONObject productoJson=array_CoolerCPU.getJSONObject(i);
+				
+				aCargar.setCodigo(productoJson.getString("codigo"));
+				aCargar.setMarca(productoJson.getString("marca"));
+				aCargar.setModelo(productoJson.getString("modelo"));
+				aCargar.setStock(productoJson.getInt("stock"));
+				aCargar.setPrecio(productoJson.getDouble("precio"));
+				aCargar.setPeso(productoJson.getDouble("peso"));
+				aCargar.setPaisOrigen(productoJson.getString("paisOrigen"));
+				aCargar.setRgb(productoJson.getBoolean("rgb"));
+				aCargar.setColor(productoJson.getString("color"));
+				aCargar.setDescripcion(productoJson.getString("descripcion"));
+				aCargar.setTipo(productoJson.getString("Tipo"));                   
+				aCargar.setConsumo(productoJson.getInt("Consumo"));
+				aCargar.setTdp(productoJson.getInt("TDP"));
+				aCargar.setTipoDeDisipacion(productoJson.getString("Tipo disipacion"));
+				aCargar.setSocketCompatible(productoJson.getString("Socket"));
+
 				catalogo.agregar(aCargar);
 				
 			}

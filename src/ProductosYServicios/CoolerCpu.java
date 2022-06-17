@@ -42,6 +42,21 @@ public class CoolerCpu extends Cooler{
 		return socketCompatible;
 	}
 
+	
+	public void setTdp(int tdp) {
+		this.tdp = tdp;
+	}
+
+
+	public void setTipoDeDisipacion(String tipoDeDisipacion) {
+		this.tipoDeDisipacion = tipoDeDisipacion;
+	}
+
+
+	public void setSocketCompatible(String socketCompatible) {
+		this.socketCompatible = socketCompatible;
+	}
+
 
 	@Override
 	public String toString() {
