@@ -10,10 +10,13 @@ import colecciones.Catalogo;
 import colecciones.Contenedora;
 import colecciones.ContenedoraDeFacturas;
 
+import java.util.ArrayList;
+
 public class TiendaInformatica<K> {
 	private String nombre;
 	private Catalogo catalogo;
 	private Taller taller;
+	private ArrayList<service>services;
 	private ContenedoraDeFacturas<K, Factura> facturas;
 	private Contenedora<K,Cliente> listaDeClientes;
 	private Contenedora<K,Vendedor> listaDeVendedores;
@@ -27,6 +30,7 @@ public class TiendaInformatica<K> {
 		this.nombre=nombre;
 		this.catalogo = new Catalogo();
 		this.taller = new Taller();
+		this.services=new ArrayList<>();
 		this.facturas = new ContenedoraDeFacturas<>();
 		this.listaDeClientes = new Contenedora<>();
 		this.listaDeVendedores = new Contenedora<>();
@@ -38,6 +42,15 @@ public class TiendaInformatica<K> {
 		
 		this.catalogo=catalogo;
 		
+	}
+	public void agregarService(service nuevo){
+		this.services.add(nuevo);
+	}
+	public String listarServices(){
+		StringBuilder sb=new StringBuilder();
+		for(int i=0;i<services.size();i++){
+			sb.append(services.get(i).toString());
+		}return sb.toString();
 	}
 	
 	public void agregarProducto(String codigo, String marca, String modelo, int stock, double precio, double peso,
@@ -62,10 +75,6 @@ public class TiendaInformatica<K> {
 		Producto nuevo= new CoolerCpu(codigo,marca,modelo,stock,precio,peso, paisOrigen,rgb,color, descripcion,tipo, consumo, tdp, disipador, socket);
 		this.catalogo.agregar(nuevo);
 	}
-	//public void agregarAlCarrito(Producto nuevo){
-	//	carroDeCompras.agregar(nuevo);
-
-	//}
 	
 	public void agregarProducto(String codigo, String marca, String modelo, int stock, double precio, double peso,
 								String paisOrigen, boolean rgb, String color, String descripcion,int wts,String formato, String cerificacion, boolean modular) {
@@ -219,8 +228,12 @@ public class TiendaInformatica<K> {
 		ItemPedido nuevoItem=new ItemPedido(nuevo, cant);
 		this.carroDeCompras.agregar(nuevoItem);
 	}
-	public void agregarAlCarrito(Servicio nuevo){
-		this.carroDeCompras.agregar(nuevo);
+
+	public void agregarServiceAlCarrito(int opcion){
+		if(opcion>0 && opcion<services.size()){
+			this.carroDeCompras.agregar(services.get(opcion-1));
+		}
+
 	}
 	public String listarCarrito(){
 		return this.carroDeCompras.mostrarCarrito();
@@ -228,5 +241,13 @@ public class TiendaInformatica<K> {
 	public int tamanioDeCarro()
 	{
 		return carroDeCompras.tamanioCarrito();
+	}
+	public Factura ticket(Cliente comprador,Carrito aFacturar,String vendedor){
+		Factura nueva= new Factura(comprador,aFacturar,vendedor);
+		return nueva;
+	}
+
+	public Carrito getCarroDeCompras() {
+		return carroDeCompras;
 	}
 }

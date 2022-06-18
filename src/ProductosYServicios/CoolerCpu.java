@@ -21,7 +21,7 @@ public class CoolerCpu extends Cooler{
 	public CoolerCpu(String codigo, String marca, String modelo, int stock, double precio, double peso,
 			String paisOrigen, boolean rgb, String color, String descripcion, String tipo, int consumo, int tdp,
 			String tipoDeDisipacion, String socketCompatible) {
-		super("CC"+codigo, marca, modelo, stock, precio, peso, paisOrigen, rgb, color, descripcion, tipo, consumo);
+		super("CPU"+codigo, marca, modelo, stock, precio, peso, paisOrigen, rgb, color, descripcion, tipo, consumo);
 		this.tdp = tdp;
 		this.tipoDeDisipacion = tipoDeDisipacion;
 		this.socketCompatible = socketCompatible;

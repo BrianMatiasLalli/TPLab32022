@@ -1,14 +1,14 @@
 package Facturacion;
 
 import ProductosYServicios.ItemPedido;
-import ProductosYServicios.Servicio;
+import ProductosYServicios.service;
 
 import java.util.ArrayList;
 
 public class Carrito {
 	
     private ArrayList<ItemPedido> items;
-    private ArrayList<Servicio>misServicios;
+    private ArrayList<service>misServicios;
 
     public Carrito() {
         this.items=new ArrayList<>();
@@ -24,7 +24,7 @@ public class Carrito {
         }
         for(int i=0;i<misServicios.size();i++)
         {
-            sb.append(misServicios.get(i).mostrarEnFactura()+"\n");
+            sb.append(misServicios.get(i).toString()+"\n");
         }
         return sb.toString();
     }
@@ -33,7 +33,7 @@ public class Carrito {
         this.items.add(nuevo);
     }
     
-    public void agregar(Servicio nuevo){
+    public void agregar(service nuevo){
         this.misServicios.add(nuevo);
     }
     
@@ -53,8 +53,15 @@ public class Carrito {
     	
     	return total;
     }
-    
-    
+
+    public ArrayList<ItemPedido> getItems() {
+        return items;
+    }
+
+    public ArrayList<service> getMisServicios() {
+        return misServicios;
+    }
+
     public int tamanioCarrito()
     {
     	return misServicios.size()+items.size();

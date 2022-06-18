@@ -31,6 +31,6 @@ public class ItemPedido {
 
     @Override
     public String toString() {
-        return "Item" + "\n" + descripcionPedido() +"\nCantidad=" + cantidad + "\nPrecio Total=" + precioTotal; //
+        return "\n" + descripcionPedido() +"\nCantidad=" + cantidad + "\nSubTotal=" + precioTotal; //
     }
 }

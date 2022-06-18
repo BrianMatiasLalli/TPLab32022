@@ -2,6 +2,8 @@ package test;
 
 import ProductosYServicios.Computadora;
 import ProductosYServicios.Producto;
+import ProductosYServicios.Servicio;
+import ProductosYServicios.service;
 import clases.Cliente;
 import excepciones.NoHayStockExcepcion;
 import jsonHerramientas.JsonUtiles;
@@ -28,15 +30,61 @@ public class Menu {
 		StreamJSON aux= new StreamJSON();
 		miTienda.setCatalogo(aux.JsonAJava(fuente));
 
-		miTienda.agregarProducto("10001","Seagate","STEB6000403",5,30000,950,"Estados Unidos",false,"negro","disco almacenamiento1",6000,"SSD");
-		miTienda.agregarProducto("10002","Seagate","ST2000DM005",6,8700,415,"Estados Unidos",false,"gris","disco almacenamiento2",2000,"HDD");
-		miTienda.agregarProducto("10003","Kingston","SA400S37/960G",10,17106,410,"Estados Unidos",false,"negro","disco almacenamiento3",960,"SSD");
+		//Almacenamiento
+		miTienda.agregarProducto("10001","Seagate","STEB6000403",5,30000,950,"Estados Unidos",false,"Negro","disco almacenamiento1",6000,"SSD");
+		miTienda.agregarProducto("10002","Seagate","ST2000DM005",6,8700,415,"Estados Unidos",false,"Gris","disco almacenamiento2",2000,"HDD");
+		miTienda.agregarProducto("10003","Kingston","SA400S37/960G",10,17106,410,"Estados Unidos",false,"Negro","disco almacenamiento3",960,"SSD");
+		miTienda.agregarProducto("5427","Western Digital","WD 240GB Green",80,4399,500,"Malasia",false,"Negro","bajo consumo 545 mb/s",240,"SSD SATA");
+		miTienda.agregarProducto("7917","Western Digital","WD 480GB Green",40,7999,500,"Malasia",false,"Negro","bajo consumo, 545 mb/s",480,"SSD SATA");
+		miTienda.agregarProducto("8277","Kingston","M.2 240GB A400",20,4699,500,"Malasia",false,"Negro","SSD M.2 500mbs/s",240,"SSD M.2");
+		miTienda.agregarProducto("10487","ADATA","FALCON",20,16999,460,"China",false,"Negro","3100MB/s NVMe PCI-E x4 ",960,"SSD M.2 NVME gen 4");
+		miTienda.agregarProducto("13612","ADATA","XPG SX6000 Pro",10,5500,400,"China",false,"Negro","2100MB/s NVMe PCI-E x4",256,"SSD M.2 NVMe PCI-E x4");
+		miTienda.agregarProducto("13335","Patriot","P310",30,7000,500,"China",false,"Negro","1700MB/s Gen3 x4",480,"SSD M.2 NVMe PCI-E x4");
+		miTienda.agregarProducto("8679","ADATA ","Spectrix S40G RGB",25,11000,500,"China",false,"Negro","3500MB/s NVMe PCI-E X4",512,"SSD M.2 NVMe PCI-E x4");
+
+		//auriculares
 		miTienda.agregarProducto("10004","HyperX","CloudX Stinger",7,6945,150,"Estados Unidos",false, "negro y verde","Auriculares 1",false,true,1);
 		miTienda.agregarProducto("10005","Logitech","Series G332",3,7810,200,"Suiza",false,"negro y rojo","Auriculares 2",false,true,2);
-		miTienda.agregarProducto("10006","Logitech","G435",2,10700,250,"Suiza",false,"negro","Auriculares2",true,true,0);
-		miTienda.agregarProducto("10007","Sate","RGB-73K",4,6100,300,"Taiwan",true,"negro y rgb multicolor","cooler PC","cooler para Gabinete",6);
-		miTienda.agregarProducto("10008","Asus","Strix XF120",7,6400,100,"Taiwan",false,"negro","cooler PC","cooler para Gabinete",3);
-		miTienda.agregarProducto("10009","Xigmatek","WP964 RGB",8,4700,100,"China",true,"negro","cooler para CPU","Cooler para CPU",3,140,"Ventilador","Intel: LGA 2066/2011-v3 / 2011/1366/115 � / 1200 AMD: AM4 / AM3 + / AM3 / AM2 + / AM2 / FM2 + / FM2 / FM1");
+		miTienda.agregarProducto("11340","Nisuta","Ovansu OS-AUG580",18,2800,1000,"China",false,"negro,verde","PC/PS4",false,true,3);
+		miTienda.agregarProducto("10683","Marvo","Skylab G1 HG8960",15,2750,700,"China",false,"negro,rojo","PRO PS4 Xbox PC",false,true,2);
+		miTienda.agregarProducto("11320","Nisuta","Ovansu OS-AUG580C ",12,3000,900,"China",false,"camuflado","PC/PS4",true,true,3);
+		miTienda.agregarProducto("10924","Redragon","Zeus",10,8700,1000,"China",false,"blanco, rosa","Audio virtual,Surround 7.1",false,true,2);
+		miTienda.agregarProducto("12958","MSI","Immerse",2,8000,850,"China",false,"negro","Usb",true,true,2);
+		/*miTienda.agregarProducto("11762","Cougar","Immersa Ti",7,9000,750,"China",false,"negro,naranja","audio 2.0",true,true,2);
+		miTienda.agregarProducto("","","",2,10700,250,"",false,"negro","",true,true,0);
+		miTienda.agregarProducto("","","",2,10700,250,"",false,"negro","",true,true,0);
+		miTienda.agregarProducto("","","",2,10700,250,"",false,"negro","",true,true,0);
+		miTienda.agregarProducto("","","",2,10700,250,"",false,"negro","",true,true,0);
+		miTienda.agregarProducto("","","",2,10700,250,"",false,"negro","",true,true,0);*/
+
+
+		//CoolerGabinete
+		miTienda.agregarProducto("10007","Sate","RGB-73K",4,6100,300,"Taiwan",true,"negro y rgb multicolor","120mm","cooler para Gabinete",6);
+		miTienda.agregarProducto("12372","ID-Cooling","NO-8025-SD",20,400,100,"Taiwan",false,"negro","120mm","cooler para Gabinete",3);
+		miTienda.agregarProducto("8014","ID-Cooling","WF-12025-SD-W",7,6400,100,"Taiwan",false,"negro","80mm","cooler para Gabinete",3);
+		miTienda.agregarProducto("13009","Be quiet!","PURE WINGS 2",9,1200,150,"China",false,"blanco","120mm high speed PWM","cooler para Gabinete",3);
+		miTienda.agregarProducto("10008","Asus","Strix XF120",7,6400,100,"Taiwan",false,"negro","cooler Gabinete","cooler para Gabinete",3);
+		miTienda.agregarProducto("10008","Asus","Strix XF120",7,6400,100,"Taiwan",false,"negro","cooler Gabinete","cooler para Gabinete",3);
+		miTienda.agregarProducto("10008","Asus","Strix XF120",7,6400,100,"Taiwan",false,"negro","cooler Gabinete","cooler para Gabinete",3);
+		miTienda.agregarProducto("10008","Asus","Strix XF120",7,6400,100,"Taiwan",false,"negro","cooler Gabinete","cooler para Gabinete",3);
+		miTienda.agregarProducto("10008","Asus","Strix XF120",7,6400,100,"Taiwan",false,"negro","cooler Gabinete","cooler para Gabinete",3);
+		miTienda.agregarProducto("10008","Asus","Strix XF120",7,6400,100,"Taiwan",false,"negro","cooler Gabinete","cooler para Gabinete",3);
+
+		//cooler cpu
+		miTienda.agregarProducto("10009","Xigmatek","WP964 RGB",8,4700,350,"China",true,"negro","cooler de aire","Cooler CPU",3,140,"Ventilador","Intel: LGA 2066/2011-v3 / 2011/1366/115 � / 1200 AMD: AM4 / AM3 + / AM3 / AM2 + / AM2 / FM2 + / FM2 / FM1");
+		miTienda.agregarProducto("10023","ID-Cooling","SE-902-SD",20,2199,400,"China",false,"negro","cooler de aire","Cooler CPU",5,100,"Ventilador","1151,1150,1151 Kaby Lake,1151 Coffe Lake,1155,1156,AM2,AM2+,1200 Comet Lake,AM3,AM3+,AM4 A-Series,AM4 APU 1th Gen,AM4 APU 2th Gen,AM4 Ryzen 1th Gen,AM4 Ryzen 2th Gen,AM4 Ryzen 3th Gen,FM1,FM2,FM2+,AM4 APU 5");
+		miTienda.agregarProducto("00021","Cooler Master","Hyper T20",15,2699,400,"China",false,"negro","cooler de aire","Cooler CPU",5,110,"Ventilador","1200 Comet Lake,1151,1151 Coffe Lake,1151 Kaby Lake,1155,1156,115X,1200,1200 Rocket Lake-S,AM2,AM2+,AM3,AM3+,AM4,AM4 APU 1th Gen,AM4 APU 2th Gen,AM4 APU 3th Gen,AM4 APU 5000,AM4 Ryzen 1th Gen,AM4 Ryzen 2th Gen,AM4 Ryzen 3th Gen,AM4 Ryzen 4th Gen,FM1,FM2,F");
+		miTienda.agregarProducto("10033","ID-Cooling","SE-903-XT",30,3230,600,"China",true,"negro","cooler de aire","Cooler CPU",5,130,"Ventilador","1200 Comet Lake,1150,1151 Coffe Lake,1151 Kaby Lake,1155,1156,1200 Rocket Lake-S,AM4 APU 1th Gen,AM4 APU 2th Gen,AM4 APU 3th Gen,AM4 APU 5000,AM4 Ryzen 1th Gen,AM4 Ryzen 2th Gen,AM4 Ryzen 3th Gen,AM4 Ryzen 4th Gen,1700 Alder Lake-S,1700");
+		miTienda.agregarProducto("202071","DeepCool","Gammaxx 400 V2 RED",14,3899,450,"Taiwan",true,"Negro","cooler de aire","Cooler CPU", 5,130,"Ventilador","1200 Comet Lake,1150,1151,1151 Coffe Lake,1151 Kaby Lake,1155,1156,AM2,AM2+,AM3,AM3+,AM4 A-Series,AM4 APU 1th Gen,AM4 APU 2th Gen,AM4 Ryzen 1th Gen,AM4 Ryzen 2th Gen,AM4 Ryzen 3th Gen,FM1,FM2,FM2+,AM4 APU 5000");
+		miTienda.agregarProducto("202021","DeepCool","Gammaxx 400 V2 RED",14,3899,450,"Taiwan",true,"Negro","cooler de aire","Cooler CPU", 5,130,"Ventilador","1200 Comet Lake,1150,1151,1151 Coffe Lake,1151 Kaby Lake,1155,1156,AM2,AM2+,AM3,AM3+,AM4 A-Series,AM4 APU 1th Gen,AM4 APU 2th Gen,AM4 Ryzen 1th Gen,AM4 Ryzen 2th Gen,AM4 Ryzen 3th Gen,FM1,FM2,FM2+,AM4 APU 5000");
+		miTienda.agregarProducto("131238","Be Quiet!","Pure Rock 2 Black",10,7130,750,"China",false,"Negro","cooler de aire","Cooler cpu",2,150,"Ventilador","1200 Comet Lake,1150,1151 Coffe Lake,1151 Kaby Lake,1155,1156,2011_v3,2066,AM4 A-Series,AM4 APU 1th Gen,AM4 APU 2th Gen,AM4 APU 3th Gen,AM4 APU 5000,AM4 Ryzen 1th Gen,AM4 Ryzen 2th Gen,AM4 Ryzen 3th Gen,AM4 Ryzen 4th Gen");
+		miTienda.agregarProducto("118426","ID-Cooling","FROSTFLOW X 240",25,9979,1200,"Taiwan", true,"Negro", "water cooling","Cooler cpu",10,250,"Radiador","775,1150,1151,1151 Coffe Lake,1155,1155_3,1156,1366,2011,2011_v3,2066,AM2,AM2+,AM3,AM3+,AM4,AM4 A-Series,FM1,FM2,FM2+,AM4 3ra Gen,1151 Kaby Lake,AM4 Ryzen 3th Gen,AM4 Ryzen 2th Gen,AM4 Ryzen 1th Gen,AM4 APU 2th Gen,AM4 APU 1th Gen,AM4 Ryzen 2th Gen,AM4 AP");
+		miTienda.agregarProducto("23451","Tecware","Mirage 240",9,14099,1250,"Taiwan",true,"Negro","Water cooling","cooler cpu",5,200,"Radiador","1200 Comet Lake,1150,1151,1151 Coffe Lake,1151 Kaby Lake,1155,1156,1200 Rocket Lake-S,AM4 A-Series,AM4 APU 1th Gen,AM4 APU 2th Gen,AM4 APU 3th Gen,AM4 APU 5000,AM4 Ryzen 1th Gen,AM4 Ryzen 2th Gen,AM4 Ryzen 3th Gen,AM4 Ryzen 4th Gen");
+		miTienda.agregarProducto("111787","Azza","Blizzard LCAZZ 240r",5,19640,1500,"China", true,"Negro","Water Cooling","cooler cpu", 10,150,"cooler cpu","1200 Comet Lake,1150,1151,1151 Coffe Lake,1151 Kaby Lake,1155,1156,1200 Rocket Lake-S,1366,2011,2011_v3,2066,AM2,AM2+,AM3,AM3+,AM4 A-Series,AM4 APU 1th Gen,AM4 APU 2th Gen,AM4 APU 3th Gen,AM4 Ryzen 1th Gen,AM4 Ryzen 2th Gen,AM4 Ryzen 3th Gen,AM4 APU 5000");
+		miTienda.agregarProducto("890289","DeepCool","Castle v2 240 arg",20,19999,2000,"Vietnam",true,"Negro","Water Cooling ARGB", "cooler cpu","1200 Comet Lake,1150,1151,1155,1156,1200 Rocket Lake-S,2011_v3,2066,AM4 A-Series,AM4 APU 1th Gen,AM4 APU 2th Gen,AM4 APU 3th Gen,AM4 APU 5000,AM4 Ryzen 1th Gen,AM4 Ryzen 2th Gen,AM4 Ryzen 3th Gen,AM4 Ryzen 4th Gen");
+		miTienda.agregarService(new service("Armado PC", 1000));
+		miTienda.agregarService(new service("Instalacion SO", 500));
+		miTienda.agregarService(new service("Reparacion PC", 1500));
 
 		int opcion,opcionCatalogo;
 
@@ -645,145 +693,161 @@ public class Menu {
 						}while(cont == 1);
 						break;
 					case 2:
+						System.out.println("1.Agregar productos al carrito");
+						System.out.println("2.Agregar Servicio al carrito");
+						System.out.println("3.Ver carrito");
+						System.out.println("4.Proceder a checkout");
 						int ventas=1;
 						do{
-							int opcionVentas=0;
+							int opcionVentas= teclado.nextInt();
 							switch (opcionVentas){
 								case 1:
-									//cargar productos
+									System.out.println("\nCargar productos en el carrito.");
+									int opcionCargar;
+									System.out.println("\n1.Almacenamiento.");
+									System.out.println("\n2.Auriculares.");
+									System.out.println("\n3.Computadora:");
+									System.out.println("\n4.Coolers:");
+									System.out.println("\n5.Fuente:");
+									System.out.println("\n6.Gabinete:");
+									System.out.println("\n7.MemoriaRAM:");
+									System.out.println("\n8.Microfono:");
+									System.out.println("\n9.Monitor.");
+									System.out.println("\n10.MotherBoard:");
+									System.out.println("\n11.Mouse:");
+									System.out.println("\n12.Parlante:");
+									System.out.println("\n13.Placa de video:");
+									System.out.println("\n14.Procesador:");
+									System.out.println("\n15.Teclado:");
+									System.out.println("\n16.Webcam:");
+									System.out.println("\n17.Todos.");
+									System.out.println("\n0 para salir.");
+									System.out.println("\nDigite la opcion deseada:");
+									opcionCargar= teclado.nextInt();
+									switch(opcionCargar) {
+										case 1:
+											System.out.println("\nAlmacenamientos:");
+											System.out.println(miTienda.mostrarAlmacenamiento());
+											break;
+										case 2:
+											System.out.println("\nAuriculares:\n");
+											System.out.println(miTienda.mostrarAuriculares());
+											break;
+										case 3:
+											//revisar
+											break;
+										case 4:
+											System.out.println("\nAlmacenamientos:");
+											System.out.println(miTienda.mostrarCooler());
+											break;
+										case 5:
+											System.out.println("\nFuente:\n");
+											System.out.println(miTienda.mostrarFuentes());
+											break;
+										case 6:
+											System.out.println("\nGabinetes:\n");
+											System.out.println(miTienda.mostrarGabinetes());
+											break;
+										case 7:
+											System.out.println("\nMemorias Ram:\n");
+											System.out.println(miTienda.mostrarMemorias());
+											break;
+										case 8:
+											System.out.println("\nMicrofonos:\n");
+											System.out.println(miTienda.mostrarMicrofonos());
+											break;
+										case 9:
+											System.out.println("\nMonitores:\n");
+											System.out.println(miTienda.mostrarMonitores());
+											break;
+										case 10:
+											System.out.println("\nMotherboards:\n");
+											System.out.println(miTienda.mostrarMothers());
+											break;
+										case 11:
+											System.out.println("\nMouses:\n");
+											System.out.println(miTienda.mostrarMouses());
+											break;
+										case 12:
+											System.out.println("\nAudio:\n");
+											System.out.println(miTienda.mostrarParlantes());
+											break;
+										case 13:
+											System.out.println("\nPlacas de video:\n");
+											System.out.println(miTienda.mostrarPlacas());
+											break;
+										case 14:
+											System.out.println("\nProcesadores:\n");
+											System.out.println(miTienda.mostrarProcesadores());
+											break;
+										case 15:
+											System.out.println("\nTeclados:\n");
+											System.out.println(miTienda.mostrarTeclados());
+											break;
+										case 16:
+											System.out.println("\nWebcams\n:");
+											System.out.println(miTienda.mostrarWebcams());
+											break;
+										case 17:
+											System.out.println("\nCatalogo completo:");
+											System.out.println(miTienda.mostrarTodo());
+											break;
+
+									}
+									if(opcionCargar!=0) {
+										System.out.println("ingrese el codigo del disco a agregar\n");
+										teclado.nextLine();
+										String codigo= teclado.nextLine();
+										System.out.println("Ingrese Cantidad\n");
+										int cant=teclado.nextInt();
+										if(miTienda.checkProducto(codigo)){
+											Producto nuevo=miTienda.productoAcarrito(codigo);
+
+											try{
+												nuevo.reducirStock(cant);
+												miTienda.agregarAlCarrito(nuevo,cant);
+											} catch (NoHayStockExcepcion e) {
+												e.printStackTrace();
+											}
+										}
+										else
+										{
+											System.out.println("codigo equivocado");
+										}
+										System.out.println("Desea continuar? digite 1, otro valor para salir");
+										ventas=teclado.nextInt();
+									}else
+									{
+										ventas=0;
+									}
+
+
 									break;
 								case 2:
-									//cargar servicios
+									System.out.println("1.Armado de PC.");
+									System.out.println("2.Instalacion de SO.");
+									System.out.println("3.Limpieza de pc.");
+									System.out.println("\nDigite la opcion deseada...");
+									int opcionService= teclado.nextInt();
+									miTienda.agregarServiceAlCarrito(opcionService);
 									break;
 								case 3:
-									//mostrar Carrito
+									System.out.println(miTienda.listarCarrito());
 									break;
 								case 4:
-									//check out
+									System.out.println("\n¿Desea generar una factura?\n");
+									System.out.println("Ingrese ID cliente:\n");
+									Cliente comprador=new Cliente();
+
+									if(miTienda.getCarroDeCompras().getMisServicios().size()>0) {
+										Servicio nuevo = new Servicio(miTienda.getCarroDeCompras().getMisServicios().get(0).getDescripcion(),comprador,miTienda.getCarroDeCompras().getMisServicios().get(0).getPrecio());
+									}
+									System.out.println(miTienda.ticket(comprador,miTienda.getCarroDeCompras(),"Pablo Cugini"));
 									break;
 
 							}
 
-							System.out.println("\nCargar productos en el carrito.");
-							int opcionCargar;
-							//mostrar catalogo y agregarlos al carrito
 
-							System.out.println("\n1.Almacenamiento.");
-							System.out.println("\n2.Auriculares.");
-							System.out.println("\n3.Computadora:");
-							System.out.println("\n4.Coolers:");
-							System.out.println("\n5.Fuente:");
-							System.out.println("\n6.Gabinete:");
-							System.out.println("\n7.MemoriaRAM:");
-							System.out.println("\n8.Microfono:");
-							System.out.println("\n9.Monitor.");
-							System.out.println("\n10.MotherBoard:");
-							System.out.println("\n11.Mouse:");
-							System.out.println("\n12.Parlante:");
-							System.out.println("\n13.Placa de video:");
-							System.out.println("\n14.Procesador:");
-							System.out.println("\n15.Teclado:");
-							System.out.println("\n16.Webcam:");
-							System.out.println("\n17.Todos.");
-							System.out.println("\n0 para salir.");
-							System.out.println("\nDigite la opcion deseada:");
-							opcionCargar= teclado.nextInt();
-							switch(opcionCargar) {
-								case 1:
-									System.out.println("\nAlmacenamientos:");
-									System.out.println(miTienda.mostrarAlmacenamiento());
-									break;
-								case 2:
-									System.out.println("\nAuriculares:\n");
-									System.out.println(miTienda.mostrarAuriculares());
-									break;
-								case 3:
-									//revisar
-									break;
-								case 4:
-									System.out.println("\nAlmacenamientos:");
-									System.out.println(miTienda.mostrarCooler());
-									break;
-								case 5:
-									System.out.println("\nFuente:\n");
-									System.out.println(miTienda.mostrarFuentes());
-									break;
-								case 6:
-									System.out.println("\nGabinetes:\n");
-									System.out.println(miTienda.mostrarGabinetes());
-									break;
-								case 7:
-									System.out.println("\nMemorias Ram:\n");
-									System.out.println(miTienda.mostrarMemorias());
-									break;
-								case 8:
-									System.out.println("\nMicrofonos:\n");
-									System.out.println(miTienda.mostrarMicrofonos());
-									break;
-								case 9:
-									System.out.println("\nMonitores:\n");
-									System.out.println(miTienda.mostrarMonitores());
-									break;
-								case 10:
-									System.out.println("\nMotherboards:\n");
-									System.out.println(miTienda.mostrarMothers());
-									break;
-								case 11:
-									System.out.println("\nMouses:\n");
-									System.out.println(miTienda.mostrarMouses());
-									break;
-								case 12:
-									System.out.println("\nAudio:\n");
-									System.out.println(miTienda.mostrarParlantes());
-									break;
-								case 13:
-									System.out.println("\nPlacas de video:\n");
-									System.out.println(miTienda.mostrarPlacas());
-									break;
-								case 14:
-									System.out.println("\nProcesadores:\n");
-									System.out.println(miTienda.mostrarProcesadores());
-									break;
-								case 15:
-									System.out.println("\nTeclados:\n");
-									System.out.println(miTienda.mostrarTeclados());
-									break;
-								case 16:
-									System.out.println("\nWebcams\n:");
-									System.out.println(miTienda.mostrarWebcams());
-									break;
-								case 17:
-									System.out.println("\nCatalogo completo:");
-									System.out.println(miTienda.mostrarTodo());
-									break;
-
-							}
-							if(opcionCargar!=0) {
-							System.out.println("ingrese el codigo del disco a agregar\n");
-							teclado.nextLine();
-							String codigo= teclado.nextLine();
-							System.out.println("Ingrese Cantidad\n");
-							int cant=teclado.nextInt();
-							if(miTienda.checkProducto(codigo)){
-								Producto nuevo=miTienda.productoAcarrito(codigo);
-
-								try{
-									nuevo.reducirStock(cant);
-									miTienda.agregarAlCarrito(nuevo,cant);
-								} catch (NoHayStockExcepcion e) {
-									e.printStackTrace();
-								}
-							}
-							else
-							{
-								System.out.println("codigo equivocado");
-							}
-							System.out.println("Desea continuar? digite 1, otro valor para salir");
-							ventas=teclado.nextInt();
-							}else
-							{
-								ventas=0;
-							}
 						}while(ventas==1);
 
 						if(miTienda.tamanioDeCarro()>0) {
