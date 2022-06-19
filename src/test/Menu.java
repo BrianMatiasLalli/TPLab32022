@@ -2,8 +2,8 @@ package test;
 
 import ProductosYServicios.Computadora;
 import ProductosYServicios.Producto;
+import ProductosYServicios.ServicioTaller;
 import ProductosYServicios.Servicio;
-import ProductosYServicios.service;
 import clases.Cliente;
 import excepciones.NoHayStockExcepcion;
 import jsonHerramientas.JsonUtiles;
@@ -82,9 +82,9 @@ public class Menu {
 		miTienda.agregarProducto("23451","Tecware","Mirage 240",9,14099,1250,"Taiwan",true,"Negro","Water cooling","cooler cpu",5,200,"Radiador","1200 Comet Lake,1150,1151,1151 Coffe Lake,1151 Kaby Lake,1155,1156,1200 Rocket Lake-S,AM4 A-Series,AM4 APU 1th Gen,AM4 APU 2th Gen,AM4 APU 3th Gen,AM4 APU 5000,AM4 Ryzen 1th Gen,AM4 Ryzen 2th Gen,AM4 Ryzen 3th Gen,AM4 Ryzen 4th Gen");
 		miTienda.agregarProducto("111787","Azza","Blizzard LCAZZ 240r",5,19640,1500,"China", true,"Negro","Water Cooling","cooler cpu", 10,150,"cooler cpu","1200 Comet Lake,1150,1151,1151 Coffe Lake,1151 Kaby Lake,1155,1156,1200 Rocket Lake-S,1366,2011,2011_v3,2066,AM2,AM2+,AM3,AM3+,AM4 A-Series,AM4 APU 1th Gen,AM4 APU 2th Gen,AM4 APU 3th Gen,AM4 Ryzen 1th Gen,AM4 Ryzen 2th Gen,AM4 Ryzen 3th Gen,AM4 APU 5000");
 		miTienda.agregarProducto("890289","DeepCool","Castle v2 240 arg",20,19999,2000,"Vietnam",true,"Negro","Water Cooling ARGB", "cooler cpu","1200 Comet Lake,1150,1151,1155,1156,1200 Rocket Lake-S,2011_v3,2066,AM4 A-Series,AM4 APU 1th Gen,AM4 APU 2th Gen,AM4 APU 3th Gen,AM4 APU 5000,AM4 Ryzen 1th Gen,AM4 Ryzen 2th Gen,AM4 Ryzen 3th Gen,AM4 Ryzen 4th Gen");
-		miTienda.agregarService(new service("Armado PC", 1000));
-		miTienda.agregarService(new service("Instalacion SO", 500));
-		miTienda.agregarService(new service("Reparacion PC", 1500));
+		miTienda.agregarService(new Servicio("Armado PC", 1000));
+		miTienda.agregarService(new Servicio("Instalacion SO", 500));
+		miTienda.agregarService(new Servicio("Reparacion PC", 1500));
 
 		int opcion,opcionCatalogo;
 
@@ -840,7 +840,7 @@ public class Menu {
 									Cliente comprador=new Cliente();
 
 									if(miTienda.getCarroDeCompras().getMisServicios().size()>0) {
-										Servicio nuevo = new Servicio(miTienda.getCarroDeCompras().getMisServicios().get(0).getDescripcion(),comprador,miTienda.getCarroDeCompras().getMisServicios().get(0).getPrecio());
+										ServicioTaller nuevo = new ServicioTaller(miTienda.getCarroDeCompras().getMisServicios().get(0).getDescripcion(),comprador,miTienda.getCarroDeCompras().getMisServicios().get(0).getPrecio());
 									}
 									System.out.println(miTienda.ticket(comprador,miTienda.getCarroDeCompras(),"Pablo Cugini"));
 									break;

@@ -1,21 +1,11 @@
 package ProductosYServicios;
 
-import clases.Cliente;
-
-import java.util.Date;
-
 public class Servicio {
-	
-    private String descripcion;//instalacionSO, Armado Pc, reparacion.
-    private Date fechaEmision;
-    private Cliente cliente;
+    private String descripcion;
     private double precio;
 
-
-    public Servicio(String descripcion, Cliente cliente,double precio) {
+    public Servicio(String descripcion, double precio) {
         this.descripcion = descripcion;
-        this.fechaEmision = new Date();
-        this.cliente = cliente;
         this.precio = precio;
     }
 
@@ -27,44 +17,16 @@ public class Servicio {
         this.descripcion = descripcion;
     }
 
-    public Date getFechaEmision() {
-        return fechaEmision;
-    }
-
-    public void setFechaEmision(Date fechaEmision) {
-        this.fechaEmision = fechaEmision;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-    public enum nuevaDescripcion{
-        armado_de_Pc,instalacion_SO,Reparacion;
-    }
-    
-    
     public double getPrecio() {
-		return precio;
-	}
-
-	public void setPrecio(double precio) {
-		this.precio = precio;
-	}
-
-	public String mostrarEnFactura() 
-    {
-    	return "\nServicio" + "\nDescripcion=" + descripcion+ "\nPrecio: " + precio;
+        return precio;
     }
-    
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
     @Override
     public String toString() {
-        return "\nServicio" + "\nDescripcion=" + descripcion + "\nFecha de Emision=" + fechaEmision + "\nCliente=" + cliente;
+        return "\nServicio: " + descripcion + "\nPrecio=" + precio;
     }
-
-
-
 }

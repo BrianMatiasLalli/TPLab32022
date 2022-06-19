@@ -2,7 +2,7 @@ package ProductosYServicios;
 
 import clases.Cliente;
 
-public class ArmadoPc extends Servicio{
+public class ArmadoPc extends ServicioTaller {
     private Computadora aArmar;
     public ArmadoPc(String descripcion, Cliente cliente,Computadora aArmar,double precio) {
         super(descripcion, cliente,precio);

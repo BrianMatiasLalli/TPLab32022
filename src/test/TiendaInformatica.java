@@ -16,7 +16,7 @@ public class TiendaInformatica<K> {
 	private String nombre;
 	private Catalogo catalogo;
 	private Taller taller;
-	private ArrayList<service>services;
+	private ArrayList<Servicio>services;
 	private ContenedoraDeFacturas<K, Factura> facturas;
 	private Contenedora<K,Cliente> listaDeClientes;
 	private Contenedora<K,Vendedor> listaDeVendedores;
@@ -43,7 +43,7 @@ public class TiendaInformatica<K> {
 		this.catalogo=catalogo;
 		
 	}
-	public void agregarService(service nuevo){
+	public void agregarService(Servicio nuevo){
 		this.services.add(nuevo);
 	}
 	public String listarServices(){
