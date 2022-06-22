@@ -298,4 +298,25 @@ public class TiendaInformatica<K> {
 		listaDeVendedores=archivo.cargarVendedoresDesdeArchivo();
 		facturas=archivo.cargarFacturasDesdeArchivo();
 	}
+	public void agregarCliente(String nombre,String apellido,String dni,String telefono,String direccion,String correo){
+		Cliente nuevo= new Cliente(nombre, apellido,dni,telefono,direccion,correo);
+		if(!listaDeClientes.existe((K)dni)) {
+			listaDeClientes.agregarObjetoColeccion((K) dni, nuevo);
+		}
+	}
+	public String listarClientes(){
+		return listaDeClientes.listar();
+	}
+	public String buscarCliente(String id){
+		return listaDeClientes.mostrarElementoDeLaColeccion((K)id);
+	}
+	public Cliente retornarCliente(String id){
+
+		return listaDeClientes.devolverCliente((K)id);
+	}
+	public void editarCliente(String id,String dato,int opcion){
+		if(opcion>0 && opcion<4){
+			listaDeClientes.devolverCliente((K)id).editarCliente(dato,opcion);
+		}
+	}
 }

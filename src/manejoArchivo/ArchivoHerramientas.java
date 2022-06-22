@@ -1,19 +1,14 @@
 package manejoArchivo;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.util.Iterator;
-import java.util.Map.Entry;
-
 import Facturacion.Factura;
 import clases.Cliente;
 import clases.Vendedor;
 import colecciones.Contenedora;
 import colecciones.ContenedoraDeFacturas;
+
+import java.io.*;
+import java.util.Iterator;
+import java.util.Map.Entry;
 
 public class ArchivoHerramientas<K> {
 
@@ -67,7 +62,7 @@ public class ArchivoHerramientas<K> {
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -132,7 +127,7 @@ public class ArchivoHerramientas<K> {
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -196,7 +191,7 @@ public class ArchivoHerramientas<K> {
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

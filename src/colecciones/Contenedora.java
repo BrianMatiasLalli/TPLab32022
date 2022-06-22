@@ -1,13 +1,12 @@
 package colecciones;
 
 
+import clases.Persona;
+import interfaces.I_Colecciones;
+
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-
-import ProductosYServicios.Producto;
-import clases.Persona;
-import interfaces.I_Colecciones;
 
 public class Contenedora<K,T extends Persona> implements I_Colecciones<K,T> {
 
@@ -24,6 +23,13 @@ public class Contenedora<K,T extends Persona> implements I_Colecciones<K,T> {
 	public void agregarObjetoColeccion(K clave,T elemento) {
 		// TODO Auto-generated method stub
 		contenedoraGenerica.put(clave,elemento);
+	}
+	public boolean existe(K clave){
+		boolean econtrado=false;
+		if(contenedoraGenerica.containsKey(clave)){
+			econtrado=true;
+		}
+		return econtrado;
 	}
 
 	@Override
@@ -60,7 +66,9 @@ public class Contenedora<K,T extends Persona> implements I_Colecciones<K,T> {
 		}
 		return sb.toString();
 	}
-	
+	public T devolverCliente(K clave){
+		return contenedoraGenerica.get(clave);
+	}
 	public Iterator devolverIterator() 
 	{
 		return contenedoraGenerica.entrySet().iterator();

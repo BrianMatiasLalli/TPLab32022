@@ -1,9 +1,10 @@
 package test;
 
+import Facturacion.Factura;
 import ProductosYServicios.Computadora;
 import ProductosYServicios.Producto;
-import ProductosYServicios.ServicioTaller;
 import ProductosYServicios.Servicio;
+import ProductosYServicios.ServicioTaller;
 import clases.Cliente;
 import clases.Vendedor;
 import excepciones.NoHayStockExcepcion;
@@ -11,8 +12,6 @@ import jsonHerramientas.JsonUtiles;
 import jsonHerramientas.StreamJSON;
 
 import java.util.Scanner;
-
-import Facturacion.Factura;
 
 public class Menu {
 
@@ -34,7 +33,7 @@ public class Menu {
 		miTienda.getListaDeVendedores().agregarObjetoColeccion(vendedorAux.getId(),vendedorAux);
 		miTienda.getFacturas().agregarObjetoColeccion(facturaAux.getId(), facturaAux);
 		
-		//miTienda.archivoATiendaInformatica();
+		miTienda.archivoATiendaInformatica();
 		String fuente= JsonUtiles.leer();
 		if(fuente.isEmpty()){
 			System.out.println("Este archivo no contiene nada\n\n");
@@ -819,7 +818,7 @@ public class Menu {
 												nuevo.reducirStock(cant);
 												miTienda.agregarAlCarrito(nuevo,cant);
 											} catch (NoHayStockExcepcion e) {
-												e.printStackTrace();
+												System.out.println(e.getMessage());
 											}
 										}
 										else
@@ -847,7 +846,7 @@ public class Menu {
 									System.out.println(miTienda.listarCarrito());
 									break;
 								case 4:
-									System.out.println("\nÂ¿Desea generar una factura?\n");
+									System.out.println("\n¿Desea generar una factura?\n");
 									System.out.println("Ingrese ID cliente:\n");
 									Cliente comprador=new Cliente();
 
@@ -892,27 +891,59 @@ public class Menu {
 						System.out.println("\nMenu Clientes\nDiginte la opcion deseada:\n");
 						System.out.println("1.Cargar Clientes");
 						System.out.println("2.Editar Clientes");
-						System.out.println("3.Remover Clientes");
+						System.out.println("3.Buscar Cliente");
+						System.out.println("4.Listar Clientes");
 						opcion = teclado.nextInt();
 
 
 						switch (opcion) {
 							case 1:
 								//Cargar un cliente
-								String nombre;
-								String apellido;
-								String dni;
-								String correo;
-								String telefono;
-								String direccion;
-								Cliente nuevo= new Cliente();
-								break;
-							case 2:
-								//Editar cliente(se carga y reemplaza el cliente
+								System.out.println("\nIngrese nombre");
+								teclado.nextLine();
+								String nombre= teclado.nextLine();
+								System.out.println("\nIngrese Apellido");
+								String apellido= teclado.nextLine();
+								System.out.println("\nIngrese dni");
+								String dni= teclado.nextLine();
+								System.out.println("\nIngrese correo");
+								String correo= teclado.nextLine();
+								System.out.println("\nIngrese telefono");
+								String telefono= teclado.nextLine();
+								System.out.println("\nIngrese direccion");
+								String direccion= teclado.nextLine();
+
+								miTienda.agregarCliente(nombre,apellido,dni, telefono, direccion,correo);
 
 								break;
+							case 2:
+								System.out.println("\nIngrese ID del cliente a buscar:\n");
+								teclado.nextLine();
+								String id= teclado.nextLine();
+								System.out.println(miTienda.buscarCliente(id));
+								System.out.println("\nCliente correcto?\n1.Ok\n2.Incorrecto\n");
+								int correcto= teclado.nextInt();
+								if(correcto==1) {
+									System.out.println("\nQue desea cambiar?");
+									System.out.println("\n1.Direccion.");
+									System.out.println("\n2.Telefono.");
+									System.out.println("\n3.Correo Electronico.");
+									int opcionEdit= teclado.nextInt();
+									System.out.println("\nIngrese el nuevo dato a reemplazar:\n");
+									teclado.nextLine();
+									String nuevoDato= teclado.nextLine();
+									miTienda.editarCliente(id,nuevoDato,opcionEdit);
+									System.out.println(miTienda.buscarCliente(id));
+								}
+								break;
 							case 3:
-								//remover cliente
+								System.out.println("\nIngrese ID del cliente:\n");
+								teclado.nextLine();
+								String idAbuscar= teclado.nextLine();
+								System.out.println(miTienda.buscarCliente(idAbuscar));
+								break;
+							case 4:
+								System.out.println(miTienda.listarClientes());
 								break;
 						}
 							System.out.println("\n1 para continuar, otro digito para salir\n");
@@ -931,16 +962,16 @@ public class Menu {
 
 							switch (opcion) {
 								case 1:
-									//Ver cola de servicios
+									//
 									break;
 								case 2:
-									//Conformar Servicio
+									//
 									break;
 								case 3:
-									//remover cliente
+									//
 									break;
 								case 4:
-									//remover cliente
+									//
 									break;
 							}
 
