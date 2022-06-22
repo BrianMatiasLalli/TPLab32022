@@ -9,6 +9,7 @@ import clases.Vendedor;
 import colecciones.Catalogo;
 import colecciones.Contenedora;
 import colecciones.ContenedoraDeFacturas;
+import manejoArchivo.ArchivoHerramientas;
 
 import java.util.ArrayList;
 
@@ -37,6 +38,37 @@ public class TiendaInformatica<K> {
 		this.carroDeCompras = new Carrito();
 	}
 	
+	
+	public ContenedoraDeFacturas<K, Factura> getFacturas() {
+		return facturas;
+	}
+
+
+	public void setFacturas(ContenedoraDeFacturas<K, Factura> facturas) {
+		this.facturas = facturas;
+	}
+
+
+	public Contenedora<K, Cliente> getListaDeClientes() {
+		return listaDeClientes;
+	}
+
+
+	public void setListaDeClientes(Contenedora<K, Cliente> listaDeClientes) {
+		this.listaDeClientes = listaDeClientes;
+	}
+
+
+	public Contenedora<K, Vendedor> getListaDeVendedores() {
+		return listaDeVendedores;
+	}
+
+
+	public void setListaDeVendedores(Contenedora<K, Vendedor> listaDeVendedores) {
+		this.listaDeVendedores = listaDeVendedores;
+	}
+
+
 	//temporario no se invoca desde el main
 	public void cargarCatalogoAlaTienda(Catalogo catalogo) {
 		
@@ -249,5 +281,21 @@ public class TiendaInformatica<K> {
 
 	public Carrito getCarroDeCompras() {
 		return carroDeCompras;
+	}
+	
+	public void pasarTiendaAArchivo() 
+	{
+		ArchivoHerramientas archivo= new ArchivoHerramientas<>();
+		archivo.guardarClienteEnArchivo(listaDeClientes);
+		archivo.guardarVendedorEnArchivo(listaDeVendedores);
+		archivo.guardarFacturasEnArchivo(facturas);
+	}
+	
+	public void archivoATiendaInformatica() 
+	{
+		ArchivoHerramientas archivo= new ArchivoHerramientas<>();
+		listaDeClientes=archivo.cargarClientesDesdeArchivo();
+		listaDeVendedores=archivo.cargarVendedoresDesdeArchivo();
+		facturas=archivo.cargarFacturasDesdeArchivo();
 	}
 }

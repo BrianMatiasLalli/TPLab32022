@@ -2,9 +2,10 @@ package ProductosYServicios;
 
 import clases.Cliente;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class ServicioTaller {
+public class ServicioTaller implements Serializable{
 	
     private String descripcion;//instalacionSO, Armado Pc, reparacion.
     private Date fechaEmision;

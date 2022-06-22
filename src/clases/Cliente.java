@@ -2,9 +2,10 @@ package clases;
 
 import Facturacion.Factura;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Cliente extends Persona {
+public class Cliente extends Persona implements Serializable{
     //coleccion Arraylist de facturas
     private ArrayList<Factura> misCompras;
     

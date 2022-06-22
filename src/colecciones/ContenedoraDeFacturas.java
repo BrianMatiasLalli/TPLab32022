@@ -61,7 +61,10 @@ public class ContenedoraDeFacturas<K,T extends Factura> implements I_Colecciones
 		return sb.toString();
 	}
 
-
+	public Iterator devolverIterator() 
+	{
+		return  listaFacturas.entrySet().iterator();
+	}
 
 
 

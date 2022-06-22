@@ -1,10 +1,17 @@
 package clases;
 
-public class Vendedor extends Persona{
+import java.io.Serializable;
+
+public class Vendedor extends Persona implements Serializable{
     private String id;//puede ser las iniciales de nombre y apellido
     private String contrasenia;//alfanumerica;
     private double totalVentas;
 
+    public Vendedor() {
+        this.id = "0";
+        this.contrasenia = "0";
+        this.totalVentas=0;
+    }
     public Vendedor(String nombre, String apellido, String dni, String telefono, String direccion, String correo, String id, String contrasenia) {
         super(nombre,apellido,dni,telefono,direccion,correo);
         this.id = id;

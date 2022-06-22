@@ -5,11 +5,14 @@ import ProductosYServicios.Producto;
 import ProductosYServicios.ServicioTaller;
 import ProductosYServicios.Servicio;
 import clases.Cliente;
+import clases.Vendedor;
 import excepciones.NoHayStockExcepcion;
 import jsonHerramientas.JsonUtiles;
 import jsonHerramientas.StreamJSON;
 
 import java.util.Scanner;
+
+import Facturacion.Factura;
 
 public class Menu {
 
@@ -20,9 +23,18 @@ public class Menu {
 		this.nombre=nombre;
 	}
 	TiendaInformatica miTienda= new TiendaInformatica<>(nombre);
-    
+    Cliente clienteAux= new Cliente("Brian","Lalli","38165168","22683434554","direccion1","correo1");
+    //String nombre, String apellido, String dni, String telefono, String direccion, String correo
+    Vendedor vendedorAux= new Vendedor("Gonzalo","Benoffi","3512355","223542587","direccion2","correo2","id1","contraseña");
+    //String nombre, String apellido, String dni, String telefono, String direccion, String correo, String id, String contrasenia
+    Factura facturaAux= new Factura();
     
 	public void opciones(){
+		miTienda.getListaDeClientes().agregarObjetoColeccion(clienteAux.getDni(),clienteAux);
+		miTienda.getListaDeVendedores().agregarObjetoColeccion(vendedorAux.getId(),vendedorAux);
+		miTienda.getFacturas().agregarObjetoColeccion(facturaAux.getId(), facturaAux);
+		
+		//miTienda.archivoATiendaInformatica();
 		String fuente= JsonUtiles.leer();
 		if(fuente.isEmpty()){
 			System.out.println("Este archivo no contiene nada\n\n");
@@ -941,6 +953,7 @@ public class Menu {
 			} while (opcion < 6 && opcion > -1);
 
 		System.out.println(nuevoJSON.javaAJSON(miTienda.getCatalogo()));
+		miTienda.pasarTiendaAArchivo();
 		//aux.javaAJSON(miTienda.getCatalogo());
 		}
 

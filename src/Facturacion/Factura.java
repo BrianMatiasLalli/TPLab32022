@@ -2,9 +2,10 @@ package Facturacion;
 
 import clases.Cliente;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Factura {
+public class Factura implements Serializable{
     private int id;
     private Date fecha;
     private Cliente comprador;
@@ -13,6 +14,14 @@ public class Factura {
     private String vendedor;//getNombre de vendedor
     public static int cantTotalFacturas=0;
 
+    public Factura() {
+        nuevoID();
+        this.fecha = new Date();
+        this.comprador = new Cliente();
+        this.listaDeProductos = "p";
+        this.precio = 0;
+        this.vendedor = "v";
+    }
     public Factura(Cliente comprador, Carrito listaDeProductos, String vendedor) {
         nuevoID();
         this.fecha = new Date();
