@@ -66,7 +66,7 @@ public class Contenedora<K,T extends Persona> implements I_Colecciones<K,T> {
 		}
 		return sb.toString();
 	}
-	public T devolverCliente(K clave){
+	public T devolverPersona(K clave){
 		return contenedoraGenerica.get(clave);
 	}
 	public Iterator devolverIterator() 

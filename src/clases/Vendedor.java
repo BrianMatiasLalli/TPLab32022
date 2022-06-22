@@ -46,4 +46,16 @@ public class Vendedor extends Persona implements Serializable{
     public String toString() {
         return "\nVendedor=" + "\nId= " + id + super.toString() + "Total de ventas acumuladas" + totalVentas;
     }
+    
+	@Override
+    public void editarPersona(String dato, int opcion){
+		if(opcion==1){
+			setDireccion(dato);
+		}
+		else if(opcion==2){
+			setTelefono(dato);
+		}else{
+			setCorreo(dato);
+		}
+	}
 }

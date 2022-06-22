@@ -304,19 +304,58 @@ public class TiendaInformatica<K> {
 			listaDeClientes.agregarObjetoColeccion((K) dni, nuevo);
 		}
 	}
+	
 	public String listarClientes(){
 		return listaDeClientes.listar();
 	}
 	public String buscarCliente(String id){
 		return listaDeClientes.mostrarElementoDeLaColeccion((K)id);
 	}
+	
 	public Cliente retornarCliente(String id){
 
-		return listaDeClientes.devolverCliente((K)id);
+		return listaDeClientes.devolverPersona((K)id);
 	}
+	
 	public void editarCliente(String id,String dato,int opcion){
 		if(opcion>0 && opcion<4){
-			listaDeClientes.devolverCliente((K)id).editarCliente(dato,opcion);
+			listaDeClientes.devolverPersona((K)id).editarPersona(dato, opcion);
+		}
+			
+	}
+	
+	public void agregarVendedor(String nombre,String apellido,String dni,String telefono,String direccion,String correo,String id,String contraseña) 
+	{
+		Vendedor nuevo= new Vendedor(nombre, apellido,dni,telefono,direccion,correo,id,contraseña);
+		if(!listaDeVendedores.existe((K)dni)) {
+			listaDeVendedores.agregarObjetoColeccion((K) dni, nuevo);
 		}
 	}
+	
+	public String listarVendedores() 
+	{
+		return listaDeVendedores.listar();
+	}
+	
+	public String buscarVendedor(String id){
+		return listaDeVendedores.mostrarElementoDeLaColeccion((K)id);
+	}
+	
+	public Vendedor retornarVendedor(String id) 
+	{
+		return listaDeVendedores.devolverPersona((K) id);
+	}
+
+	public void editarVendedor(String id,String dato,int opcion){
+		if(opcion>0 && opcion<4){
+			listaDeVendedores.devolverPersona((K)id).editarPersona(dato, opcion);
+		}
+			
+	}
+	
+	public void removerVendedor(String id) 
+	{
+		listaDeVendedores.eliminarObjDeLaColeccion((K) id);
+	}
+	
 }

@@ -943,7 +943,7 @@ public class Menu {
 								System.out.println(miTienda.buscarCliente(idAbuscar));
 								break;
 							case 4:
-								System.out.println(miTienda.listarClientes());
+								System.out.println("\nCLIENTES: \n"+miTienda.listarClientes());
 								break;
 						}
 							System.out.println("\n1 para continuar, otro digito para salir\n");
@@ -958,20 +958,77 @@ public class Menu {
 							System.out.println("\n2.Editar Vendedor");
 							System.out.println("\n3.Remover Vendedor");
 							System.out.println("\n4.Ver vendedor");
+							System.out.println("\n5.Listar vendedores");
 							opcion = teclado.nextInt();
 
 							switch (opcion) {
 								case 1:
-									//
+									////Cargar un vendedor
+									System.out.println("\nIngrese nombre");
+									teclado.nextLine();
+									String nombre= teclado.nextLine();
+									System.out.println("\nIngrese Apellido");
+									String apellido= teclado.nextLine();
+									System.out.println("\nIngrese dni");
+									String dni= teclado.nextLine();
+									System.out.println("\nIngrese correo");
+									String correo= teclado.nextLine();
+									System.out.println("\nIngrese telefono");
+									String telefono= teclado.nextLine();
+									System.out.println("\nIngrese direccion");
+									String direccion= teclado.nextLine();
+									
+									System.out.println("\nIngrese id: ");
+									String id= teclado.nextLine();
+									System.out.println("\nIngrese contraseña: ");
+									String contrasenia= teclado.nextLine();
+									
+									miTienda.agregarVendedor(nombre, apellido, dni, telefono, direccion, correo,id,contrasenia);
+
 									break;
 								case 2:
-									//
+									System.out.println("\nIngrese ID del vendedor a buscar:\n");
+									teclado.nextLine();
+									String idVendedor= teclado.nextLine();
+									System.out.println(miTienda.buscarVendedor(idVendedor));
+									System.out.println("\nVendedor correcto?\n1.Ok\n2.Incorrecto\n");
+									int correcto= teclado.nextInt();
+									if(correcto==1) {
+										System.out.println("\nQue desea cambiar?");
+										System.out.println("\n1.Direccion.");
+										System.out.println("\n2.Telefono.");
+										System.out.println("\n3.Correo Electronico.");
+										int opcionEdit= teclado.nextInt();
+										System.out.println("\nIngrese el nuevo dato a reemplazar:\n");
+										teclado.nextLine();
+										String nuevoDato= teclado.nextLine();
+										miTienda.editarVendedor(idVendedor,nuevoDato,opcionEdit);
+										System.out.println(miTienda.buscarVendedor(idVendedor));
+									}
 									break;
 								case 3:
-									//
+									//remover vendedor
+									System.out.println("\nIngrese ID del vendedor a remover:\n");
+									teclado.nextLine();
+									String idEliminar= teclado.nextLine();
+									System.out.println(miTienda.buscarVendedor(idEliminar));
+									System.out.println("\nVendedor a eliminar correcto?\n1.Ok\n2.Incorrecto\n");
+									int correctoElminar= teclado.nextInt();
+									if(correctoElminar==1) 
+									{
+										miTienda.removerVendedor(idEliminar);
+									}
 									break;
 								case 4:
-									//
+									//ver vendedor
+									System.out.println("\nIngrese ID del vendedor:\n");
+									teclado.nextLine();
+									String idAbuscar= teclado.nextLine();
+									System.out.println(miTienda.buscarVendedor(idAbuscar));
+									break;
+								case 5:
+									//listar vendedores
+									System.out.println("\nVENDEDORES: \n"+miTienda.listarVendedores());
 									break;
 							}
 

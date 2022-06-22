@@ -34,7 +34,9 @@ public class Cliente extends Persona implements Serializable{
 	public String toString() {
 		return "Cliente: "+super.toString();
 	}
-    public void editarCliente(String dato, int opcion){
+	
+	@Override
+    public void editarPersona(String dato, int opcion){
 		if(opcion==1){
 			setDireccion(dato);
 		}

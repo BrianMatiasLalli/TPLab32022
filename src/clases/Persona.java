@@ -2,7 +2,7 @@ package clases;
 
 import java.io.Serializable;
 
-public class Persona implements Serializable{
+public abstract class Persona implements Serializable{
     private String nombre;
     private String apellido;
     private String dni;
@@ -77,7 +77,7 @@ public class Persona implements Serializable{
     }
     
   
-
+    public abstract void editarPersona(String dato, int opcion);
 	@Override
     public String toString() {
         return "\nNombre= "+ nombre+"\nApellido= "+apellido +"\nDni= "+dni+"\nTelefono= "+telefono +"\nDireccion= "+direccion +"\nCorreo= "+correo+"\n";
