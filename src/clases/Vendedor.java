@@ -2,6 +2,9 @@ package clases;
 
 import java.io.Serializable;
 
+import excepciones.ContraseñaIncorrectaExcepcion;
+import excepciones.IDIncorrectoExcepcion;
+
 public class Vendedor extends Persona implements Serializable{
     private String id;//puede ser las iniciales de nombre y apellido
     private String contrasenia;//alfanumerica;
@@ -57,5 +60,31 @@ public class Vendedor extends Persona implements Serializable{
 		}else{
 			setCorreo(dato);
 		}
+	}
+	
+	public boolean comprobarContraseña(String contrasenia) throws ContraseñaIncorrectaExcepcion 
+	{
+		boolean correcto=false;
+		if(this.contrasenia.equals(contrasenia)) 
+		{
+			correcto=true;
+		}else 
+		{
+			throw new ContraseñaIncorrectaExcepcion("CONTRASEÑA INCORRECTA");
+		}
+		return correcto;
+	}
+	
+	public boolean comprobarID(String id) throws IDIncorrectoExcepcion 
+	{
+		boolean correcto=false;
+		if(this.id.equals(id)) 
+		{
+			correcto=true;
+		}else
+		{
+			throw new IDIncorrectoExcepcion("ID INCORRECTO");
+		}
+		return correcto;
 	}
 }

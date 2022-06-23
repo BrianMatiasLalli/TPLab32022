@@ -9,9 +9,13 @@ import clases.Vendedor;
 import colecciones.Catalogo;
 import colecciones.Contenedora;
 import colecciones.ContenedoraDeFacturas;
+import excepciones.ContraseñaIncorrectaExcepcion;
+import excepciones.IDIncorrectoExcepcion;
 import manejoArchivo.ArchivoHerramientas;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Map;
 
 public class TiendaInformatica<K> {
 	private String nombre;
@@ -358,4 +362,27 @@ public class TiendaInformatica<K> {
 		listaDeVendedores.eliminarObjDeLaColeccion((K) id);
 	}
 	
+	public boolean comprobarLoginVendedor(String dni,String id, String contrasenia) throws ContraseñaIncorrectaExcepcion, IDIncorrectoExcepcion 
+	{
+		//Iterator it= listaDeVendedores.devolverIterator();
+		boolean correcto=false;
+		if(listaDeVendedores.existe((K)dni)) {
+			Vendedor aux= listaDeVendedores.devolverPersona((K) dni);
+			if(((aux.comprobarID(id))==true && aux.comprobarContraseña(contrasenia))==true  ) 
+			{
+				correcto=true;
+			}
+		}
+		/**
+		while (it.hasNext() && correcto==false) 
+		{
+			Map.Entry<K, Vendedor> entry =  (Map.Entry<K,Vendedor>)it.next();
+			if((entry.getValue().comprobarContraseña(contrasenia)==true) && (entry.getValue().comprobarID(id))) 
+			{ 
+				correcto=true;
+			}
+		}
+		*/
+		return correcto;
+	}
 }

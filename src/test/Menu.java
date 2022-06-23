@@ -7,6 +7,8 @@ import ProductosYServicios.Servicio;
 import ProductosYServicios.ServicioTaller;
 import clases.Cliente;
 import clases.Vendedor;
+import excepciones.ContraseñaIncorrectaExcepcion;
+import excepciones.IDIncorrectoExcepcion;
 import excepciones.NoHayStockExcepcion;
 import jsonHerramientas.JsonUtiles;
 import jsonHerramientas.StreamJSON;
@@ -22,18 +24,20 @@ public class Menu {
 		this.nombre=nombre;
 	}
 	TiendaInformatica miTienda= new TiendaInformatica<>(nombre);
-    Cliente clienteAux= new Cliente("Brian","Lalli","38165168","22683434554","direccion1","correo1");
     //String nombre, String apellido, String dni, String telefono, String direccion, String correo
-    Vendedor vendedorAux= new Vendedor("Gonzalo","Benoffi","3512355","223542587","direccion2","correo2","id1","contraseña");
     //String nombre, String apellido, String dni, String telefono, String direccion, String correo, String id, String contrasenia
     Factura facturaAux= new Factura();
     
 	public void opciones(){
-		miTienda.getListaDeClientes().agregarObjetoColeccion(clienteAux.getDni(),clienteAux);
-		miTienda.getListaDeVendedores().agregarObjetoColeccion(vendedorAux.getId(),vendedorAux);
-		miTienda.getFacturas().agregarObjetoColeccion(facturaAux.getId(), facturaAux);
+		
 		
 		miTienda.archivoATiendaInformatica();
+		/**
+		miTienda.agregarCliente("Brian","Lalli","38165168","22683434554","direccion1","correo1");	
+		miTienda.getFacturas().agregarObjetoColeccion(facturaAux.getId(), facturaAux);
+		miTienda.agregarVendedor("Gonzalo","Benoffi","3512355","223542587","direccion2","correo2","id1","contraseña");
+		miTienda.agregarVendedor("Pablo","Cuyo","34654651","2235965","direccion3","correo3","id2","contrasenia2");
+		*/
 		String fuente= JsonUtiles.leer();
 		if(fuente.isEmpty()){
 			System.out.println("Este archivo no contiene nada\n\n");
@@ -104,6 +108,27 @@ public class Menu {
 		StreamJSON nuevoJSON = new StreamJSON();
 		
 		do {
+			//falta ubicar el login
+			System.out.println("\nIngrese su dni para ingresar: ");
+			String dniLogin= teclado.nextLine();
+			System.out.println("\nIngrese usuario: \n");
+			//teclado.nextLine();
+			String usuarioLogin= teclado.nextLine();
+			System.out.println("\nIngrese contraseña: \n");
+			String contraseñaLogin=teclado.nextLine();
+			try {
+				if(miTienda.comprobarLoginVendedor(dniLogin,usuarioLogin, contraseñaLogin)==true) 
+				{
+					System.out.println("ANDA");
+				}
+			} catch (ContraseñaIncorrectaExcepcion e1) {
+				// TODO Auto-generated catch block
+				System.out.println(e1.getMessage()); 
+			} catch (IDIncorrectoExcepcion e1) {
+				// TODO Auto-generated catch block
+				System.out.println(e1.getMessage()); 
+			}
+			
 			System.out.println("\nMenu Principal.\nDiginte la opcion deseada o 9 para salir\n");
 			System.out.println("\n1.Catalogo.");
 			System.out.println("\n2.Ventas.");
