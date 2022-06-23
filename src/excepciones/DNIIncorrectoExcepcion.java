@@ -1,8 +1,8 @@
 package excepciones;
 
-public class IDIncorrectoExcepcion extends Exception {
+public class DNIIncorrectoExcepcion extends Exception {
 	
-	public IDIncorrectoExcepcion (String mensaje) 
+	public DNIIncorrectoExcepcion (String mensaje) 
 	{
 		super(mensaje);
 	}

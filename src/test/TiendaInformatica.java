@@ -10,7 +10,7 @@ import colecciones.Catalogo;
 import colecciones.Contenedora;
 import colecciones.ContenedoraDeFacturas;
 import excepciones.ContraseñaIncorrectaExcepcion;
-import excepciones.IDIncorrectoExcepcion;
+import excepciones.DNIIncorrectoExcepcion;
 import manejoArchivo.ArchivoHerramientas;
 
 import java.util.ArrayList;
@@ -218,6 +218,11 @@ public class TiendaInformatica<K> {
 	public String mostrarAuriculares(){
 		return catalogo.listarAuriculares();
 	}
+	
+	public String mostrarComputadora() 
+	{
+		return catalogo.listarComputadoras();
+	}
 	public String mostrarCooler(){
 		return catalogo.listarCoolers();
 	}
@@ -266,7 +271,7 @@ public class TiendaInformatica<K> {
 	}
 
 	public void agregarServiceAlCarrito(int opcion){
-		if(opcion>0 && opcion<services.size()){
+		if(opcion>0 && opcion<=services.size()){
 			this.carroDeCompras.agregar(services.get(opcion-1));
 		}
 
@@ -280,9 +285,17 @@ public class TiendaInformatica<K> {
 	}
 	public Factura ticket(Cliente comprador,Carrito aFacturar,String vendedor){
 		Factura nueva= new Factura(comprador,aFacturar,vendedor);
+		
+		
 		return nueva;
 	}
 
+	public void agregarFactura(Factura nueva) 
+	{
+		Integer aux=nueva.getId();
+		facturas.agregarObjetoColeccion((K)aux, nueva);
+	}
+	
 	public Carrito getCarroDeCompras() {
 		return carroDeCompras;
 	}
@@ -328,9 +341,14 @@ public class TiendaInformatica<K> {
 			
 	}
 	
-	public void agregarVendedor(String nombre,String apellido,String dni,String telefono,String direccion,String correo,String id,String contraseña) 
+	public boolean existeCliente(K clave) 
 	{
-		Vendedor nuevo= new Vendedor(nombre, apellido,dni,telefono,direccion,correo,id,contraseña);
+		return listaDeClientes.existe(clave);
+	}
+	
+	public void agregarVendedor(String nombre,String apellido,String dni,String telefono,String direccion,String correo,String contraseña) 
+	{
+		Vendedor nuevo= new Vendedor(nombre, apellido,dni,telefono,direccion,correo,contraseña);
 		if(!listaDeVendedores.existe((K)dni)) {
 			listaDeVendedores.agregarObjetoColeccion((K) dni, nuevo);
 		}
@@ -362,16 +380,20 @@ public class TiendaInformatica<K> {
 		listaDeVendedores.eliminarObjDeLaColeccion((K) id);
 	}
 	
-	public boolean comprobarLoginVendedor(String dni,String id, String contrasenia) throws ContraseñaIncorrectaExcepcion, IDIncorrectoExcepcion 
+	public boolean comprobarLoginVendedor(String dni, String contrasenia) throws ContraseñaIncorrectaExcepcion, DNIIncorrectoExcepcion 
 	{
 		//Iterator it= listaDeVendedores.devolverIterator();
 		boolean correcto=false;
 		if(listaDeVendedores.existe((K)dni)) {
 			Vendedor aux= listaDeVendedores.devolverPersona((K) dni);
-			if(((aux.comprobarID(id))==true && aux.comprobarContraseña(contrasenia))==true  ) 
+			if(((aux.comprobarDNI(dni))==true && aux.comprobarContraseña(contrasenia))==true) 
 			{
 				correcto=true;
 			}
+		}
+		else 
+		{
+			throw new DNIIncorrectoExcepcion("NO EXISTE ESTE DNI");
 		}
 		/**
 		while (it.hasNext() && correcto==false) 

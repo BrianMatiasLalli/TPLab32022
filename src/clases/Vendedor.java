@@ -3,32 +3,26 @@ package clases;
 import java.io.Serializable;
 
 import excepciones.ContraseñaIncorrectaExcepcion;
-import excepciones.IDIncorrectoExcepcion;
+import excepciones.DNIIncorrectoExcepcion;
 
 public class Vendedor extends Persona implements Serializable{
-    private String id;//puede ser las iniciales de nombre y apellido
+ 
     private String contrasenia;//alfanumerica;
     private double totalVentas;
 
     public Vendedor() {
-        this.id = "0";
+     
         this.contrasenia = "0";
         this.totalVentas=0;
     }
-    public Vendedor(String nombre, String apellido, String dni, String telefono, String direccion, String correo, String id, String contrasenia) {
+    public Vendedor(String nombre, String apellido, String dni, String telefono, String direccion, String correo, String contrasenia) {
         super(nombre,apellido,dni,telefono,direccion,correo);
-        this.id = id;
+      
         this.contrasenia = contrasenia;
         this.totalVentas=0;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
+ 
 
     public String getContrasenia() {
         return contrasenia;
@@ -45,10 +39,12 @@ public class Vendedor extends Persona implements Serializable{
         this.totalVentas=totalVentas+venta;
     }
 
+    
     @Override
     public String toString() {
-        return "\nVendedor=" + "\nId= " + id + super.toString() + "Total de ventas acumuladas" + totalVentas;
+        return "\nVendedor="  + super.toString() + "Total de ventas acumuladas" + totalVentas;
     }
+    
     
 	@Override
     public void editarPersona(String dato, int opcion){
@@ -75,15 +71,15 @@ public class Vendedor extends Persona implements Serializable{
 		return correcto;
 	}
 	
-	public boolean comprobarID(String id) throws IDIncorrectoExcepcion 
+	public boolean comprobarDNI(String dni_Id) throws DNIIncorrectoExcepcion 
 	{
 		boolean correcto=false;
-		if(this.id.equals(id)) 
+		if(getDni().equals(dni_Id)) 
 		{
 			correcto=true;
 		}else
 		{
-			throw new IDIncorrectoExcepcion("ID INCORRECTO");
+			throw new DNIIncorrectoExcepcion("DNI INCORRECTO");
 		}
 		return correcto;
 	}

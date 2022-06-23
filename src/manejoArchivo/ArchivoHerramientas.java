@@ -183,7 +183,7 @@ public class ArchivoHerramientas<K> {
 			
 			while((facturaAux=(Factura)facturaArchi.readObject())!=null)
 			{
-				contenedoraFacturas.agregarObjetoColeccion(facturaAux.getId(), facturaAux);
+				contenedoraFacturas.agregarObjetoColeccion((Integer)facturaAux.getId(), facturaAux);
 			}
 			facturaArchi.close();
 		} catch (FileNotFoundException e) {
