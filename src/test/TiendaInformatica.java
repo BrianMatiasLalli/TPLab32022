@@ -79,6 +79,7 @@ public class TiendaInformatica<K> {
 		this.catalogo=catalogo;
 		
 	}
+	
 	public void agregarService(Servicio nuevo){
 		this.services.add(nuevo);
 	}
@@ -284,8 +285,10 @@ public class TiendaInformatica<K> {
 		return carroDeCompras.tamanioCarrito();
 	}
 	public Factura ticket(Cliente comprador,Carrito aFacturar,String vendedor){
-		Factura nueva= new Factura(comprador,aFacturar,vendedor);
 		
+		Factura nueva= new Factura(comprador,aFacturar,vendedor);
+		comprador.agregarFacturaCliente(nueva);
+		agregarFactura(nueva);
 		
 		return nueva;
 	}
@@ -382,7 +385,6 @@ public class TiendaInformatica<K> {
 	
 	public boolean comprobarLoginVendedor(String dni, String contrasenia) throws ContraseñaIncorrectaExcepcion, DNIIncorrectoExcepcion 
 	{
-		//Iterator it= listaDeVendedores.devolverIterator();
 		boolean correcto=false;
 		if(listaDeVendedores.existe((K)dni)) {
 			Vendedor aux= listaDeVendedores.devolverPersona((K) dni);
@@ -395,16 +397,17 @@ public class TiendaInformatica<K> {
 		{
 			throw new DNIIncorrectoExcepcion("NO EXISTE ESTE DNI");
 		}
-		/**
-		while (it.hasNext() && correcto==false) 
-		{
-			Map.Entry<K, Vendedor> entry =  (Map.Entry<K,Vendedor>)it.next();
-			if((entry.getValue().comprobarContraseña(contrasenia)==true) && (entry.getValue().comprobarID(id))) 
-			{ 
-				correcto=true;
-			}
-		}
-		*/
+		
 		return correcto;
+	}
+	
+	public String listarTaller() 
+	{
+		return taller.mostrar();
+	}
+	
+	public void conformarServicio() 
+	{
+		taller.remover();
 	}
 }

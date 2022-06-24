@@ -15,6 +15,8 @@ public class Cliente extends Persona implements Serializable{
     }
 	public Cliente(){
 	//vacio
+		super();
+		this.misCompras=new ArrayList<>();
 	}
 
     
@@ -29,10 +31,13 @@ public class Cliente extends Persona implements Serializable{
     	
     	return sb.toString();
     }
-    
+    public void agregarFacturaCliente(Factura nuevaFactura) 
+    {
+    	misCompras.add(nuevaFactura);
+    }
 	@Override
 	public String toString() {
-		return "Cliente: "+super.toString();
+		return "Cliente: "+super.toString()+"Facturas: "+listarCompras();
 	}
 	
 	@Override
@@ -46,6 +51,6 @@ public class Cliente extends Persona implements Serializable{
 			setCorreo(dato);
 		}
 	}
-	
+
     
 }

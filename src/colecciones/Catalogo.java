@@ -24,6 +24,10 @@ public class Catalogo {
 		this.mapaCatalogo.remove(id);
 	}
 	
+	public HashMap<String, Producto> getMapaCatalogo() {
+		return mapaCatalogo;
+	}
+	
 	public String listar(){
 		StringBuilder sb = new StringBuilder();
 		Iterator<Map.Entry<String, Producto>> it = mapaCatalogo.entrySet().iterator();
@@ -43,16 +47,14 @@ public class Catalogo {
 		{
 			Map.Entry<String, Producto> entry =  (Map.Entry<String,Producto>)it.next();
 			if(entry.getValue() instanceof Almacenamiento){
-				sb.append(entry.getKey()+" / "+ entry.getValue().toString()+"\n");
+				sb.append(entry.getValue().toString()+"\n");
 			}
 
 		}
 		return sb.toString();
 	}
 
-	public HashMap<String, Producto> getMapaCatalogo() {
-		return mapaCatalogo;
-	}
+	
 
 	public String listarAuriculares()
 	{
@@ -62,7 +64,7 @@ public class Catalogo {
 		{
 			Map.Entry<String, Producto> entry =  (Map.Entry<String,Producto>)it.next();
 			if(entry.getValue() instanceof Auriculares){
-				sb.append(entry.getKey()+" / "+ entry.getValue().toString()+"\n");
+				sb.append(entry.getValue().toString()+"\n");
 			}
 		}
 		return sb.toString();
@@ -76,7 +78,7 @@ public class Catalogo {
 		{
 			Map.Entry<String, Producto> entry =  (Map.Entry<String,Producto>)it.next();
 			if(entry.getValue() instanceof Computadora){
-				sb.append(entry.getKey()+" / "+ entry.getValue().toString()+"\n");
+				sb.append(entry.getValue().toString()+"\n");
 			}
 		}
 		return sb.toString();
@@ -91,7 +93,7 @@ public class Catalogo {
 		{
 			Map.Entry<String, Producto> entry =  (Map.Entry<String,Producto>)it.next();
 			if(entry.getValue() instanceof Cooler){
-				sb.append(entry.getKey()+" / "+ entry.getValue().toString()+"\n");
+				sb.append(entry.getValue().toString()+"\n");
 			}
 		}
 		return sb.toString();
@@ -106,7 +108,7 @@ public class Catalogo {
 		{
 			Map.Entry<String, Producto> entry =  (Map.Entry<String,Producto>)it.next();
 			if(entry.getValue() instanceof Fuente){
-				sb.append(entry.getKey()+" / "+ entry.getValue().toString()+"\n");
+				sb.append(entry.getValue().toString()+"\n");
 			}
 		}
 		return sb.toString();
@@ -120,7 +122,7 @@ public class Catalogo {
 		{
 			Map.Entry<String, Producto> entry =  (Map.Entry<String,Producto>)it.next();
 			if(entry.getValue() instanceof Gabinete){
-				sb.append(entry.getKey()+" / "+ entry.getValue().toString()+"\n");
+				sb.append(entry.getValue().toString()+"\n");
 			}
 		}
 		return sb.toString();
@@ -135,7 +137,7 @@ public class Catalogo {
 		{
 			Map.Entry<String, Producto> entry =  (Map.Entry<String,Producto>)it.next();
 			if(entry.getValue() instanceof MemoriaRam){
-				sb.append(entry.getKey()+" / "+ entry.getValue().toString()+"\n");
+				sb.append(entry.getValue().toString()+"\n");
 			}
 		}
 		return sb.toString();
@@ -150,7 +152,7 @@ public class Catalogo {
 		{
 			Map.Entry<String, Producto> entry =  (Map.Entry<String,Producto>)it.next();
 			if(entry.getValue() instanceof Microfono){
-				sb.append(entry.getKey()+" / "+ entry.getValue().toString()+"\n");
+				sb.append(entry.getValue().toString()+"\n");
 			}
 		}
 		return sb.toString();
@@ -165,7 +167,7 @@ public class Catalogo {
 		{
 			Map.Entry<String, Producto> entry =  (Map.Entry<String,Producto>)it.next();
 			if(entry.getValue() instanceof Monitor){
-				sb.append(entry.getKey()+" / "+ entry.getValue().toString()+"\n");
+				sb.append(entry.getValue().toString()+"\n");
 			}
 		}
 		return sb.toString();
@@ -180,7 +182,7 @@ public class Catalogo {
 		{
 			Map.Entry<String, Producto> entry =  (Map.Entry<String,Producto>)it.next();
 			if(entry.getValue() instanceof MotherBoard){
-				sb.append(entry.getKey()+" / "+ entry.getValue().toString()+"\n");
+				sb.append(entry.getValue().toString()+"\n");
 			}
 		}
 		return sb.toString();
@@ -195,7 +197,7 @@ public class Catalogo {
 		{
 			Map.Entry<String, Producto> entry =  (Map.Entry<String,Producto>)it.next();
 			if(entry.getValue() instanceof Mouse){
-				sb.append(entry.getKey()+" / "+ entry.getValue().toString()+"\n");
+				sb.append(entry.getValue().toString()+"\n");
 			}
 		}
 		return sb.toString();
@@ -210,7 +212,7 @@ public class Catalogo {
 		{
 			Map.Entry<String, Producto> entry =  (Map.Entry<String,Producto>)it.next();
 			if(entry.getValue() instanceof Parlante){
-				sb.append(entry.getKey()+" / "+ entry.getValue().toString()+"\n");
+				sb.append(entry.getValue().toString()+"\n");
 			}
 		}
 		return sb.toString();
@@ -225,7 +227,7 @@ public class Catalogo {
 		{
 			Map.Entry<String, Producto> entry =  (Map.Entry<String,Producto>)it.next();
 			if(entry.getValue() instanceof PlacaDeVideo){
-				sb.append(entry.getKey()+" / "+ entry.getValue().toString()+"\n");
+				sb.append(entry.getValue().toString()+"\n");
 			}
 		}
 		return sb.toString();
@@ -240,7 +242,7 @@ public class Catalogo {
 		{
 			Map.Entry<String, Producto> entry =  (Map.Entry<String,Producto>)it.next();
 			if(entry.getValue() instanceof Procesador){
-				sb.append(entry.getKey()+" / "+ entry.getValue().toString()+"\n");
+				sb.append(entry.getValue().toString()+"\n");
 			}
 		}
 		return sb.toString();
@@ -255,7 +257,7 @@ public class Catalogo {
 		{
 			Map.Entry<String, Producto> entry =  (Map.Entry<String,Producto>)it.next();
 			if(entry.getValue() instanceof Teclado){
-				sb.append(entry.getKey()+" / "+ entry.getValue().toString()+"\n");
+				sb.append(entry.getValue().toString()+"\n");
 			}
 		}
 		return sb.toString();
@@ -270,7 +272,7 @@ public class Catalogo {
 		{
 			Map.Entry<String, Producto> entry =  (Map.Entry<String,Producto>)it.next();
 			if(entry.getValue() instanceof WebCam){
-				sb.append(entry.getKey()+" / "+ entry.getValue().toString()+"\n");
+				sb.append(entry.getValue().toString()+"\n");
 			}
 		}
 		return sb.toString();
