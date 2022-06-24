@@ -959,7 +959,7 @@ public class Menu {
 							System.out.println("\n1 para continuar, otro digito para salir\n");
 							cont = teclado.nextInt();
 						}while(cont == 1);
-						
+
 						break;
 					case 4:
 						do{
