@@ -42,7 +42,7 @@ public class Taller {
 		while(!serviciosTomados.isEmpty()) 
 		{
 			aux.add(serviciosTomados.pollLast());
-			sb.append(aux.peekLast() +"\n");
+			sb.append(aux.peekLast().toString() +"\n");
 		}
 		
 		while(!aux.isEmpty()) 

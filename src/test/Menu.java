@@ -7,7 +7,7 @@ import ProductosYServicios.Servicio;
 import ProductosYServicios.ServicioTaller;
 import clases.Cliente;
 import clases.Vendedor;
-import excepciones.ContraseñaIncorrectaExcepcion;
+import excepciones.ContraseniaIncorrectaExcepcion;
 import excepciones.DNIIncorrectoExcepcion;
 import excepciones.NoHayStockExcepcion;
 import jsonHerramientas.JsonUtiles;
@@ -32,7 +32,7 @@ public class Menu {
 		
 		
 		miTienda.archivoATiendaInformatica();
-		/**
+		/*
 		miTienda.agregarCliente("Brian","Lalli","38165168","22683434554","direccion1","correo1");	
 		miTienda.getFacturas().agregarObjetoColeccion(facturaAux.getId(), facturaAux);
 		miTienda.agregarVendedor("Gonzalo","Benoffi","3512355","223542587","direccion2","correo2","contrasenia");
@@ -123,7 +123,7 @@ public class Menu {
 				
 				
 			}
-		} catch (ContraseñaIncorrectaExcepcion e1) {
+		} catch (ContraseniaIncorrectaExcepcion e1) {
 			// TODO Auto-generated catch block
 			System.out.println(e1.getMessage()); 
 		} catch (DNIIncorrectoExcepcion e1) {
@@ -133,7 +133,7 @@ public class Menu {
 		
 		
 		
-		if(accedido) {
+		if(true) {
 			Vendedor vendedorActivo=miTienda.retornarVendedor(dniLogin);
 		do {
 			
@@ -881,8 +881,17 @@ public class Menu {
 									ventas=0;
 									break;
 								case 3:
-									System.out.println("Carrito de compras:\n");
-									System.out.println(miTienda.listarCarrito());
+									
+									if(miTienda.tamanioDeCarro()>0) 
+									{
+										System.out.println("Carrito de compras:\n");
+										System.out.println(miTienda.listarCarrito());
+									}else 
+									{
+										System.out.println("EL CARRITO NO CONTIENE PRODUCTOS");
+									}
+									
+									
 									ventas=0;
 									break;
 								case 4:
@@ -915,16 +924,8 @@ public class Menu {
 									
 									Cliente comprador=miTienda.retornarCliente(DNICliente);
 									
-									String nomApe=vendedorActivo.getApellido()+vendedorActivo.getNombre();
-									vendedorActivo.sumarVenta(miTienda.getCarroDeCompras().calcularPrecioTotal());
-									System.out.println(miTienda.ticket(comprador, miTienda.getCarroDeCompras(), nomApe));
-									
-									/*
-									if(miTienda.getCarroDeCompras().getMisServicios().size()>0) {
-										ServicioTaller nuevo = new ServicioTaller(miTienda.getCarroDeCompras().getMisServicios().get(0).getDescripcion(),comprador,miTienda.getCarroDeCompras().getMisServicios().get(0).getPrecio());
-									}
-									*/
-									//System.out.println(miTienda.ticket(comprador,miTienda.getCarroDeCompras(),"Pablo Cugini"));
+									System.out.println(miTienda.ticket(comprador,miTienda.getCarroDeCompras(),vendedorActivo));
+									miTienda.getCarroDeCompras().vaciarCarro();
 								 }
 
 									ventas=0;
@@ -933,12 +934,7 @@ public class Menu {
 
 							
 						}while(ventas==1);
-						/**
-						if(miTienda.tamanioDeCarro()>0) {
-						System.out.println("Carrito de compras:\n");
-						System.out.println(miTienda.listarCarrito());
-						}
-						*/
+					
 						break;
 					case 3:
 						do{
@@ -949,11 +945,13 @@ public class Menu {
 						switch (opcion) {
 							case 1:
 								//Ver cola de servicios
-								miTienda.listarTaller();
+								System.out.println("TAREAS TALLER: \n");
+								System.out.println(miTienda.listarTaller()); 
 								break;
 							case 2:
 								//Conformar Servicio
 								miTienda.conformarServicio();
+								System.out.println("Lista servicios pendientes: ");
 								System.out.println(miTienda.listarTaller());
 								break;
 						}
@@ -961,6 +959,7 @@ public class Menu {
 							System.out.println("\n1 para continuar, otro digito para salir\n");
 							cont = teclado.nextInt();
 						}while(cont == 1);
+						
 						break;
 					case 4:
 						do{
@@ -1035,9 +1034,10 @@ public class Menu {
 							System.out.println("\n3.Remover Vendedor");
 							System.out.println("\n4.Ver vendedor");
 							System.out.println("\n5.Listar vendedores");
-							opcion = teclado.nextInt();
+							System.out.println("\n6.Listar facturas");
+							int opcionADM = teclado.nextInt();
 
-							switch (opcion) {
+							switch (opcionADM) {
 								case 1:
 									////Cargar un vendedor
 									System.out.println("\nIngrese nombre");
@@ -1104,6 +1104,11 @@ public class Menu {
 								case 5:
 									//listar vendedores
 									System.out.println("\nVENDEDORES: \n"+miTienda.listarVendedores());
+									break;
+								
+								case 6: 
+									System.out.println("FACTURAS DE LA TIENDA: \n");
+									System.out.println(miTienda.listarFacturas()); 
 									break;
 							}
 

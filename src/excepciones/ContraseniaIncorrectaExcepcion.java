@@ -1,8 +1,8 @@
 package excepciones;
 
-public class ContraseñaIncorrectaExcepcion extends Exception{
+public class ContraseniaIncorrectaExcepcion extends Exception{
 
-	public ContraseñaIncorrectaExcepcion (String mensaje) 
+	public ContraseniaIncorrectaExcepcion (String mensaje) 
 	{
 		super(mensaje);
 	}

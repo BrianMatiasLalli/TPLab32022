@@ -67,4 +67,9 @@ public class Carrito {
     	return misServicios.size()+items.size();
     }
     
+    public void vaciarCarro() 
+    {
+    	items.removeAll(items);
+    	misServicios.removeAll(misServicios);
+    }
 }

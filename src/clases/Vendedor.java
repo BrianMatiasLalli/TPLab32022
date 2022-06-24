@@ -2,7 +2,7 @@ package clases;
 
 import java.io.Serializable;
 
-import excepciones.ContraseñaIncorrectaExcepcion;
+import excepciones.ContraseniaIncorrectaExcepcion;
 import excepciones.DNIIncorrectoExcepcion;
 
 public class Vendedor extends Persona implements Serializable{
@@ -58,7 +58,7 @@ public class Vendedor extends Persona implements Serializable{
 		}
 	}
 	
-	public boolean comprobarContraseña(String contrasenia) throws ContraseñaIncorrectaExcepcion 
+	public boolean comprobarContrasenia(String contrasenia) throws ContraseniaIncorrectaExcepcion 
 	{
 		boolean correcto=false;
 		if(this.contrasenia.equals(contrasenia)) 
@@ -66,7 +66,7 @@ public class Vendedor extends Persona implements Serializable{
 			correcto=true;
 		}else 
 		{
-			throw new ContraseñaIncorrectaExcepcion("CONTRASEÑA INCORRECTA");
+			throw new ContraseniaIncorrectaExcepcion("CONTRASENIA INCORRECTA");
 		}
 		return correcto;
 	}

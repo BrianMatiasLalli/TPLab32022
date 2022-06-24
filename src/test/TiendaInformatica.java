@@ -9,7 +9,7 @@ import clases.Vendedor;
 import colecciones.Catalogo;
 import colecciones.Contenedora;
 import colecciones.ContenedoraDeFacturas;
-import excepciones.ContraseñaIncorrectaExcepcion;
+import excepciones.ContraseniaIncorrectaExcepcion;
 import excepciones.DNIIncorrectoExcepcion;
 import manejoArchivo.ArchivoHerramientas;
 
@@ -284,15 +284,26 @@ public class TiendaInformatica<K> {
 	{
 		return carroDeCompras.tamanioCarrito();
 	}
-	public Factura ticket(Cliente comprador,Carrito aFacturar,String vendedor){
+	public Factura ticket(Cliente comprador,Carrito aFacturar,Vendedor vendedor){
 		
-		Factura nueva= new Factura(comprador,aFacturar,vendedor);
+		Factura nueva= new Factura(comprador,aFacturar,vendedor.getApellido()+vendedor.getNombre());
+		vendedor.sumarVenta(carroDeCompras.calcularPrecioTotal());
 		comprador.agregarFacturaCliente(nueva);
+		generarServicio(comprador);
 		agregarFactura(nueva);
 		
 		return nueva;
 	}
 
+	public void generarServicio(Cliente comprador) 
+	{
+		for(int i=0;i<carroDeCompras.getMisServicios().size();i++) {
+			ServicioTaller nuevo = new ServicioTaller(carroDeCompras.getMisServicios().get(i).getDescripcion(),comprador);
+			taller.agregar(nuevo);
+		}
+	}
+	
+	
 	public void agregarFactura(Factura nueva) 
 	{
 		Integer aux=nueva.getId();
@@ -383,12 +394,12 @@ public class TiendaInformatica<K> {
 		listaDeVendedores.eliminarObjDeLaColeccion((K) id);
 	}
 	
-	public boolean comprobarLoginVendedor(String dni, String contrasenia) throws ContraseñaIncorrectaExcepcion, DNIIncorrectoExcepcion 
+	public boolean comprobarLoginVendedor(String dni, String contrasenia) throws ContraseniaIncorrectaExcepcion, DNIIncorrectoExcepcion 
 	{
 		boolean correcto=false;
 		if(listaDeVendedores.existe((K)dni)) {
 			Vendedor aux= listaDeVendedores.devolverPersona((K) dni);
-			if(((aux.comprobarDNI(dni))==true && aux.comprobarContraseña(contrasenia))==true) 
+			if(((aux.comprobarDNI(dni))==true && aux.comprobarContrasenia(contrasenia))==true) 
 			{
 				correcto=true;
 			}
@@ -410,4 +421,11 @@ public class TiendaInformatica<K> {
 	{
 		taller.remover();
 	}
+	
+	public String listarFacturas() 
+	{
+		return facturas.listar();
+	}
+	
+
 }
