@@ -28,6 +28,8 @@ public class Catalogo {
 		return mapaCatalogo;
 	}
 	
+	
+	
 	public String listar(){
 		StringBuilder sb = new StringBuilder();
 		Iterator<Map.Entry<String, Producto>> it = mapaCatalogo.entrySet().iterator();

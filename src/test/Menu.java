@@ -136,8 +136,7 @@ public class Menu {
 		if(true) {
 			Vendedor vendedorActivo=miTienda.retornarVendedor(dniLogin);
 		do {
-			
-			
+
 			System.out.println("\nMenu Principal.\nDiginte la opcion deseada o 9 para salir\n");
 			System.out.println("\n1.Catalogo.");
 			System.out.println("\n2.Ventas.");
@@ -156,8 +155,9 @@ public class Menu {
 							System.out.println("\n2.quitar producto:");
 							System.out.println("\n3.Listar Productos");
 							System.out.println("\n4.Consultar Producto");
-							opcion = teclado.nextInt();
-							switch (opcion) {
+							System.out.println("\n5.Actualizar producto");
+							int menuCatalogo = teclado.nextInt();
+							switch (menuCatalogo) {
 								case 1:
 									
 									System.out.println("\nCategoria:");
@@ -732,6 +732,43 @@ public class Menu {
 									String aMostrar= teclado.nextLine();
 									System.out.println(miTienda.buscarProducto(aMostrar));
 									break;
+									
+									case 5:
+										System.out.println("\nIngrese el codigo del producto: ");
+										teclado.nextLine();
+										String codigoMP=teclado.nextLine();
+										int stock=0;
+										if(miTienda.checkProducto(codigoMP)) {
+											
+											System.out.println("1.Modificar precio \n2.Aumentar stock de producto \n3.Reducir stock: ");
+											int opModificarProducto=teclado.nextInt();
+											
+											switch(opModificarProducto) 
+											{
+											case 1:
+												System.out.println("\nIngrese nuevo precio: ");
+												double nuevoPrecio=teclado.nextDouble();
+												miTienda.actualizarPrecioProducto(codigoMP,nuevoPrecio);
+												break;
+											case 2:
+												System.out.println("Ingrese cantidad a agregar: ");
+												stock= teclado.nextInt();
+												System.out.println("Se actualizo el stock a: "+miTienda.aumentarStockDeProducto(codigoMP,stock));
+												break;
+											case 3:
+												System.out.println("Ingrese cantidad a reducir: ");
+												stock=teclado.nextInt();
+												try {
+													System.out.println("Se actualizo el stock a: "+miTienda.reducirStockDeProducto(codigoMP,stock));
+												} catch (NoHayStockExcepcion e) {
+													// TODO Auto-generated catch block
+													System.out.println(e.getMessage()); 
+												}
+												break;
+											
+											}
+										}
+										break;
 							}
 							System.out.println("\n1 para continuar, otro digito para salir\n");
 							cont = teclado.nextInt();

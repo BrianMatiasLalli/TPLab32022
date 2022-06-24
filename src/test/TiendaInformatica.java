@@ -11,6 +11,7 @@ import colecciones.Contenedora;
 import colecciones.ContenedoraDeFacturas;
 import excepciones.ContraseniaIncorrectaExcepcion;
 import excepciones.DNIIncorrectoExcepcion;
+import excepciones.NoHayStockExcepcion;
 import manejoArchivo.ArchivoHerramientas;
 
 import java.util.ArrayList;
@@ -213,6 +214,31 @@ public class TiendaInformatica<K> {
 	public boolean checkProducto(String codigo){
 		return catalogo.getMapaCatalogo().containsKey(codigo);
 	}
+	
+	public void actualizarPrecioProducto(String codigo,double precio) 
+	{
+		Producto aux=catalogo.retornarProducto(codigo);
+		aux.setPrecio(precio);
+	}
+	
+	public int aumentarStockDeProducto(String codigo,int cantidad) 
+	{
+		
+		Producto aux=catalogo.retornarProducto(codigo);
+		aux.aumentarStock(cantidad);
+		
+		return aux.getStock();
+	}
+	
+	public int reducirStockDeProducto(String codigo,int cantidad) throws NoHayStockExcepcion 
+	{
+		
+		Producto aux=catalogo.retornarProducto(codigo);
+		aux.reducirStock(cantidad);
+		
+		return aux.getStock();
+	}
+	
 	public String mostrarAlmacenamiento(){
 		return catalogo.listarAlmacenamiento();
 	}
