@@ -52,5 +52,11 @@ public class Taller {
 		
 		return sb.toString();
 	}
+	
+	public boolean estaVacio() 
+	{
+		boolean vacio = serviciosTomados.isEmpty();
+		return vacio;
+	}
 }
 

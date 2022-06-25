@@ -32,7 +32,7 @@ public class Menu {
 		
 		
 		miTienda.archivoATiendaInformatica();
-		/*
+		/**
 		miTienda.agregarCliente("Brian","Lalli","38165168","22683434554","direccion1","correo1");	
 		miTienda.getFacturas().agregarObjetoColeccion(facturaAux.getId(), facturaAux);
 		miTienda.agregarVendedor("Gonzalo","Benoffi","3512355","223542587","direccion2","correo2","contrasenia");
@@ -100,10 +100,11 @@ public class Menu {
 		miTienda.agregarProducto("111787","Azza","Blizzard LCAZZ 240r",5,19640,1500,"China", true,"Negro","Water Cooling","cooler cpu", 10,150,"cooler cpu","1200 Comet Lake,1150,1151,1151 Coffe Lake,1151 Kaby Lake,1155,1156,1200 Rocket Lake-S,1366,2011,2011_v3,2066,AM2,AM2+,AM3,AM3+,AM4 A-Series,AM4 APU 1th Gen,AM4 APU 2th Gen,AM4 APU 3th Gen,AM4 Ryzen 1th Gen,AM4 Ryzen 2th Gen,AM4 Ryzen 3th Gen,AM4 APU 5000");
 		miTienda.agregarProducto("890289","DeepCool","Castle v2 240 arg",20,19999,2000,"Vietnam",true,"Negro","Water Cooling ARGB", "cooler cpu","1200 Comet Lake,1150,1151,1155,1156,1200 Rocket Lake-S,2011_v3,2066,AM4 A-Series,AM4 APU 1th Gen,AM4 APU 2th Gen,AM4 APU 3th Gen,AM4 APU 5000,AM4 Ryzen 1th Gen,AM4 Ryzen 2th Gen,AM4 Ryzen 3th Gen,AM4 Ryzen 4th Gen");
 		*/
+		/*
 		miTienda.agregarService(new Servicio("Armado PC", 1000));
 		miTienda.agregarService(new Servicio("Instalacion SO", 500));
 		miTienda.agregarService(new Servicio("Limpieza PC", 1500));
-		
+		*/
 		int opcion,opcionCatalogo;
 
 		Scanner teclado = new Scanner(System.in);
@@ -133,7 +134,7 @@ public class Menu {
 		
 		
 		
-		if(true) {
+		if(accedido) {
 			Vendedor vendedorActivo=miTienda.retornarVendedor(dniLogin);
 		do {
 
@@ -1157,10 +1158,10 @@ public class Menu {
 				}
 			} while (opcion < 6 && opcion > -1);
 
-	
+			miTienda.pasarTiendaAArchivo();
 			}
 		System.out.println(nuevoJSON.javaAJSON(miTienda.getCatalogo()));
-		miTienda.pasarTiendaAArchivo();
+		
 		
 		}
 

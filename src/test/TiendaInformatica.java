@@ -346,6 +346,8 @@ public class TiendaInformatica<K> {
 		archivo.guardarClienteEnArchivo(listaDeClientes);
 		archivo.guardarVendedorEnArchivo(listaDeVendedores);
 		archivo.guardarFacturasEnArchivo(facturas);
+		archivo.guardarTallerEnArchivo(taller);
+		archivo.guardarServicesEnArchivo(services);
 	}
 	
 	public void archivoATiendaInformatica() 
@@ -354,6 +356,8 @@ public class TiendaInformatica<K> {
 		listaDeClientes=archivo.cargarClientesDesdeArchivo();
 		listaDeVendedores=archivo.cargarVendedoresDesdeArchivo();
 		facturas=archivo.cargarFacturasDesdeArchivo();
+		taller=archivo.cargarTallerDesdeArchivo();
+		services=archivo.cargarServicesDesdeArchivo();
 	}
 	public void agregarCliente(String nombre,String apellido,String dni,String telefono,String direccion,String correo){
 		Cliente nuevo= new Cliente(nombre, apellido,dni,telefono,direccion,correo);

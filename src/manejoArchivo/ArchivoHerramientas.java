@@ -1,12 +1,16 @@
 package manejoArchivo;
 
 import Facturacion.Factura;
+import ProductosYServicios.Servicio;
+import ProductosYServicios.ServicioTaller;
 import clases.Cliente;
+import clases.Taller;
 import clases.Vendedor;
 import colecciones.Contenedora;
 import colecciones.ContenedoraDeFacturas;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
@@ -207,6 +211,135 @@ public class ArchivoHerramientas<K> {
 		return contenedoraFacturas;
 	}
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	public void guardarTallerEnArchivo(Taller taller) 
+	{
+		FileOutputStream archi= null;
+		
+		try {
+			archi = new FileOutputStream("taller.bin");
+			ObjectOutputStream tallerArchi = new ObjectOutputStream(archi);
+			
+			while(!taller.estaVacio())
+	        {
+	        	
+	        	tallerArchi.writeObject(taller.remover());
+	        }
+			
+			tallerArchi.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}  finally {
+            try {
+            	archi.close();
+            }catch(IOException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+	}
 	
-	 
+	public Taller cargarTallerDesdeArchivo() 
+	{
+		FileInputStream archi=null;
+		Taller tallerAux= new Taller();
+		try {
+			archi = new FileInputStream("taller.bin");
+			ObjectInputStream tallerArchi = new ObjectInputStream(archi);
+			ServicioTaller servicioAux;
+			
+			while((servicioAux=(ServicioTaller)tallerArchi.readObject())!=null)
+			{
+				tallerAux.agregar(servicioAux);                   
+			}
+			tallerArchi.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+            try {
+                archi.close();
+                return tallerAux;
+            }catch(IOException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+		
+		return tallerAux;
+	}
+	
+   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	public void guardarServicesEnArchivo(ArrayList<Servicio> servicio) 
+	{
+		FileOutputStream archi= null;
+		
+		try {
+			archi = new FileOutputStream("servicios.bin");
+			ObjectOutputStream serviciosArchi = new ObjectOutputStream(archi);
+			
+			for(int i=0;i<servicio.size();i++)
+	        {
+	        	
+				serviciosArchi.writeObject(servicio.get(i));
+	        }
+			
+			serviciosArchi.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}  finally {
+            try {
+            	archi.close();
+            }catch(IOException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+	}
+	
+	public ArrayList<Servicio> cargarServicesDesdeArchivo() 
+	{
+		FileInputStream archi=null;
+		ArrayList<Servicio> serviciosArray= new ArrayList<>();
+		try {
+			archi = new FileInputStream("servicios.bin");
+			ObjectInputStream serviciosArchi = new ObjectInputStream(archi);
+			Servicio servicioAux;
+			
+			while((servicioAux=(Servicio)serviciosArchi.readObject())!=null)
+			{
+				serviciosArray.add(servicioAux);                   
+			}
+			serviciosArchi.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+            try {
+                archi.close();
+                return serviciosArray;
+            }catch(IOException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+		
+		return serviciosArray;
+	}
+	
 }

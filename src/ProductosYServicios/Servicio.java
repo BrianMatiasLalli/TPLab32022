@@ -1,6 +1,8 @@
 package ProductosYServicios;
 
-public class Servicio {
+import java.io.Serializable;
+
+public class Servicio implements Serializable{
     private String descripcion;
     private double precio;
 
