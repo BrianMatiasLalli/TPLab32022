@@ -1,14 +1,14 @@
 package Facturacion;
 
 import ProductosYServicios.ItemPedido;
-import ProductosYServicios.Servicio;
+import ProductosYServicios.ItemServicio;
 
 import java.util.ArrayList;
 
 public class Carrito {
 	
     private ArrayList<ItemPedido> items;
-    private ArrayList<Servicio>misServicios;
+    private ArrayList<ItemServicio>misServicios;
 
     public Carrito() {
         this.items=new ArrayList<>();
@@ -33,7 +33,7 @@ public class Carrito {
         this.items.add(nuevo);
     }
     
-    public void agregar(Servicio nuevo){
+    public void agregar(ItemServicio nuevo){
         this.misServicios.add(nuevo);
     }
     
@@ -58,7 +58,7 @@ public class Carrito {
         return items;
     }
 
-    public ArrayList<Servicio> getMisServicios() {
+    public ArrayList<ItemServicio> getMisServicios() {
         return misServicios;
     }
 

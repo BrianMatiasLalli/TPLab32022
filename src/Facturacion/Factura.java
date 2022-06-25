@@ -33,7 +33,7 @@ public class Factura implements Serializable{
     
     public void nuevoID(){
         this.id=cantTotalFacturas+1;
-        cantTotalFacturas++;
+       this.cantTotalFacturas=cantTotalFacturas+1;
     }
     
     

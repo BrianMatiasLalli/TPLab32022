@@ -1,7 +1,7 @@
 package manejoArchivo;
 
 import Facturacion.Factura;
-import ProductosYServicios.Servicio;
+import ProductosYServicios.ItemServicio;
 import ProductosYServicios.ServicioTaller;
 import clases.Cliente;
 import clases.Taller;
@@ -277,7 +277,7 @@ public class ArchivoHerramientas<K> {
 	}
 	
    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	public void guardarServicesEnArchivo(ArrayList<Servicio> servicio) 
+	public void guardarServicesEnArchivo(ArrayList<ItemServicio> servicio) 
 	{
 		FileOutputStream archi= null;
 		
@@ -307,16 +307,16 @@ public class ArchivoHerramientas<K> {
         }
 	}
 	
-	public ArrayList<Servicio> cargarServicesDesdeArchivo() 
+	public ArrayList<ItemServicio> cargarServicesDesdeArchivo() 
 	{
 		FileInputStream archi=null;
-		ArrayList<Servicio> serviciosArray= new ArrayList<>();
+		ArrayList<ItemServicio> serviciosArray= new ArrayList<>();
 		try {
 			archi = new FileInputStream("servicios.bin");
 			ObjectInputStream serviciosArchi = new ObjectInputStream(archi);
-			Servicio servicioAux;
+			ItemServicio servicioAux;
 			
-			while((servicioAux=(Servicio)serviciosArchi.readObject())!=null)
+			while((servicioAux=(ItemServicio)serviciosArchi.readObject())!=null)
 			{
 				serviciosArray.add(servicioAux);                   
 			}

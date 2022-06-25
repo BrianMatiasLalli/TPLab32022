@@ -3,7 +3,7 @@ package test;
 import Facturacion.Factura;
 import ProductosYServicios.Computadora;
 import ProductosYServicios.Producto;
-import ProductosYServicios.Servicio;
+import ProductosYServicios.ItemServicio;
 import ProductosYServicios.ServicioTaller;
 import clases.Cliente;
 import clases.Vendedor;
@@ -26,7 +26,7 @@ public class Menu {
 	TiendaInformatica miTienda= new TiendaInformatica<>(nombre);
     //String nombre, String apellido, String dni, String telefono, String direccion, String correo
     //String nombre, String apellido, String dni, String telefono, String direccion, String correo, String contrasenia
-    Factura facturaAux= new Factura();
+   // Factura facturaAux= new Factura();
     
 	public void opciones(){
 		
@@ -46,7 +46,7 @@ public class Menu {
 		StreamJSON aux= new StreamJSON();
 		miTienda.setCatalogo(aux.JsonAJava(fuente));
 		
-		/**
+		/*
 		//Almacenamiento
 		miTienda.agregarProducto("10001","Seagate","STEB6000403",5,30000,950,"Estados Unidos",false,"Negro","disco almacenamiento1",6000,"SSD");
 		miTienda.agregarProducto("10002","Seagate","ST2000DM005",6,8700,415,"Estados Unidos",false,"Gris","disco almacenamiento2",2000,"HDD");
@@ -67,14 +67,18 @@ public class Menu {
 		miTienda.agregarProducto("11320","Nisuta","Ovansu OS-AUG580C ",12,3000,900,"China",false,"camuflado","PC/PS4",true,true,3);
 		miTienda.agregarProducto("10924","Redragon","Zeus",10,8700,1000,"China",false,"blanco, rosa","Audio virtual,Surround 7.1",false,true,2);
 		miTienda.agregarProducto("12958","MSI","Immerse",2,8000,850,"China",false,"negro","Usb",true,true,2);
-		/*miTienda.agregarProducto("11762","Cougar","Immersa Ti",7,9000,750,"China",false,"negro,naranja","audio 2.0",true,true,2);
+		
+		miTienda.agregarProducto("11762","Cougar","Immersa Ti",7,9000,750,"China",false,"negro,naranja","audio 2.0",true,true,2);
+		/*
 		miTienda.agregarProducto("","","",2,10700,250,"",false,"negro","",true,true,0);
 		miTienda.agregarProducto("","","",2,10700,250,"",false,"negro","",true,true,0);
 		miTienda.agregarProducto("","","",2,10700,250,"",false,"negro","",true,true,0);
 		miTienda.agregarProducto("","","",2,10700,250,"",false,"negro","",true,true,0);
 		miTienda.agregarProducto("","","",2,10700,250,"",false,"negro","",true,true,0);
-
-
+		
+		//Computadora
+		
+		miTienda.agregarProducto("13547", "XPG", "Xenia 15.6", 5, 190000, 1650,"China", true, "plateado", "W10H Silver","notebook","1TB SSD nvme", "16GB (2x8GB)", "Core i7 1165G7", " ", " ", " ", "Intel Integrated Graphics"," ");
 		//CoolerGabinete
 		miTienda.agregarProducto("10007","Sate","RGB-73K",4,6100,300,"Taiwan",true,"negro y rgb multicolor","120mm","cooler para Gabinete",6);
 		miTienda.agregarProducto("12372","ID-Cooling","NO-8025-SD",20,400,100,"Taiwan",false,"negro","120mm","cooler para Gabinete",3);
@@ -109,29 +113,48 @@ public class Menu {
 		miTienda.agregarProducto("220001","MAGNUMTECH","435R-FANLED",10,5050,1000,"EE.UU",true,"negro","Gabinete magnumtech","ITX,M-ATX,ATX",true,5,3,42,20,41);
 		miTienda.agregarProducto("220002","Thermaltake","Ryzen Edition",12,5220,1200,"Espania",false,"negro","Gabinete Thermaltake","ITX,M-ATX,ATX",true,11,3,41,19,47);
 		miTienda.agregarProducto("220003","Shensy","SH-F18",14,5380,1300,"EE.UU",true,"negro","Gabinete Shensy","ITX,M-ATX,ATX",true,7,3,45,20,36);
-		*/
 		
+		//Memorias Ram
+		miTienda.agregarProducto("230001","Kingston","Fury Beast CL16",15,4990,10,"EE.UU",false,"negro","memoria ram Kingston 8gb",8,3200,"DDR4",1,"16cl",1.35f,true);
+		miTienda.agregarProducto("230002","GeiL","Super Luce",7,11340,15,"Taiwan",true,"negro","memoria ram GeiL 16gb",16,3000,"DDR4",1,"16cl",1.35f,true);
+		miTienda.agregarProducto("230003","Corsair","Vengeance LP",20,6390,10,"Taiwan",false,"negro y verde","memoria ram Corsair 8gb",8,1600,"DDR3",1,"1cl",1f,true);
 		
-		//computadora
-		//memorias ram
-		//microfono
-		//monitor
-		//motherBoard
+		//Microfonos
+		miTienda.agregarProducto("240001","Logitech ","Blue Snowball Black",50,7540,200,"Suiza",false,"negro","microfono Logitech","Pie corto de mesa","USB");
+		miTienda.agregarProducto("240002","HyperX ","QuadCast",20,23190,300,"EE.UU",true,"negro y rojo","microfono HyperX","Pie corto de mesa","USB");
+		miTienda.agregarProducto("240003","HyperX ","QuadCast S",10,32707,150,"EE.UU",true,"negro","microfono HyperX","Pie corto de mesa","USB");
+		
+		//Monitor
+		miTienda.agregarProducto("250001","LG","19M38A-B",7,24690,2000,"Corea del sur",false,"negro","Monitor LG","TN",false,"VGA","externa",19,"1366x768","60hz");
+		miTienda.agregarProducto("250002","LG","20MK400H-B",6,27660,2100,"Corea del sur",false,"negro","Monitor LG","TN",false,"HDMI-VGA","externa",20,"1366x768","60hz");
+		miTienda.agregarProducto("250003","Lenovo ","S22E",5,28430,2000,"China",false,"negro","Monitor Lenovo","VA",false,"HDMI-VGA","interna",22,"1920x1080","60hz");
+		
+		//MotherBoard
+		miTienda.agregarProducto("260001","ASUS","PRIME H310M",10,7790,500,"Taiwan",false,"negro","Mother ASUS","Intel","1151 Coffe Lake","M-ATX",2,4,"HDMI,DVI,VGA",0,6);
+		miTienda.agregarProducto("260002","Gigabyte","AB350M",12,8570,600,"Taiwan",false,"negro","Mother Gigabyte","AMD","AM4 A-Series,AM4 APU 1th Gen,AM4 APU 2th Gen,AM4 Ryzen 1th Gen,AM4 Ryzen 2th Gen,AM4 Ryzen 3th Gen","M-ATX",4,4,"HDMI,DVI",2,8);
+		miTienda.agregarProducto("260003","ASUS","PRIME A320M-K",9,8690,700,"Taiwan",false,"azul","Mother ASUS","AMD","AM4 A-Series,AM4 APU 1th Gen,AM4 APU 2th Gen,AM4 Ryzen 1th Gen,AM4 Ryzen 2th Gen,AM4 Ryzen 3th Gen,AM4 Ryzen 4th Gen,AM4 APU 5000","M-ATX",2,4,"HDMI,VGA",1,6);
+		
 		//mouse
-		//parlante
-		//placa de video
-		//procesador
-		//Teclado
-		//webcam
+		miTienda.agregarProducto("270003","Logitech","G903",10,11599,110,"Suiza",true,"negro","Mouse Logitech",11,"Hero","Optico",false,16000);
+		miTienda.agregarProducto("270004","HyperX","Pulsefire Surge",20,4200,100,"EE.UU",true,"negro y rojo","Mouse HyperX",6,"Omron","Óptico",false,16000);
+		miTienda.agregarProducto("270005","Corsair","Ironclaw",15,9.800,105,"Taiwan",true,"negro y blanco","Mouse Corsair",7,"Omron","Optico",false,18000);
+		*/
 		
+		//Parlantes
+		//miTienda.agregarProducto("13547", "XPG", "Xenia 15.6", 5, 190000, 1650,"China", true, "plateado", "W10H Silver","notebook","1TB SSD nvme", "16GB (2x8GB)", "Core i7 1165G7", "", "", "", "Intel Integrated Graphics","");
 		/*
-		 
+		miTienda.agregarService(new ItemServicio("Armado PC", 1000));
+		miTienda.agregarService(new ItemServicio("Instalacion SO", 500));
+		miTienda.agregarService(new ItemServicio("Limpieza PC", 1500));
 		*/
-		/*
-		miTienda.agregarService(new Servicio("Armado PC", 1000));
-		miTienda.agregarService(new Servicio("Instalacion SO", 500));
-		miTienda.agregarService(new Servicio("Limpieza PC", 1500));
-		*/
+		
+				//computadora
+				//mouse
+				//parlante
+				//placa de video
+				//procesador
+				//Teclado
+				//webcam
 		int opcion,opcionCatalogo;
 
 		Scanner teclado = new Scanner(System.in);
@@ -293,48 +316,38 @@ public class Menu {
 									
 									case 3:
 										//aca hay que agregar logica para cuando no hay stock
-										System.out.println("\nMotherboards");
-										System.out.println(miTienda.mostrarMothers());
-										System.out.println("\nIngrese el codigo de la motherboard");
-										String codigoMother = teclado.nextLine();
-										String motherAcargar=miTienda.buscarProducto(codigoMother);
-										System.out.println("\nElija Procesador");
-										System.out.println(miTienda.mostrarProcesadores());
-										System.out.println("\nIngrese el codigo del Procesador");
-										String codigoProcesador = teclado.nextLine();
-										String procesadorAcargar=miTienda.buscarProducto(codigoProcesador);
-										System.out.println("\nElija Memoria");
-										System.out.println(miTienda.mostrarMemorias());
-										System.out.println("\nIngrese el codigo de la memoria");
-										String codigoMemoria = teclado.nextLine();
-										String memoriaAcargar=miTienda.buscarProducto(codigoMemoria);
-										System.out.println("\nElija Fuente");
-										System.out.println(miTienda.mostrarFuentes());
-										System.out.println("\nIngrese el codigo de la Fuente");
-										String codigoFuente = teclado.nextLine();
-										String fuenteAcargar=miTienda.buscarProducto(codigoFuente);
-										System.out.println("\nElija Gabinete");
-										System.out.println(miTienda.mostrarGabinetes());
-										System.out.println("\nIngrese el codigo del Gabinet");
-										String codigoGabinete = teclado.nextLine();
-										String gabineteAcargar=miTienda.buscarProducto(codigoGabinete);
-										System.out.println("\nElija Almacenamiento");
-										System.out.println(miTienda.mostrarAlmacenamiento());
-										System.out.println("\nIngrese el codigo del Almacenamiento");
-										String codigoAlmacenamiento = teclado.nextLine();
-										String almacenamientoAcargar=miTienda.buscarProducto(codigoAlmacenamiento);
-										System.out.println("\nElija Cooler");
-										System.out.println(miTienda.mostrarCooler());
-										System.out.println("\nIngrese el codigo del Cooler o 0 para dejar el de stock");
-										String codigoCooler = teclado.nextLine();
-										codigoCooler=miTienda.buscarProducto(codigoCooler);
-										System.out.println("\nElija GPU");
-										System.out.println(miTienda.mostrarPlacas());
-										System.out.println("\nIngrese el codigo de GPU");
-										String codigoGPU = teclado.nextLine();
+										System.out.println("Ingrese tipo de PC(Notebooke,AIO,Escritorio):");
+										String tipoPc=teclado.nextLine();
+										
+										System.out.println("\nIngrese motherboard");
+										String mother = teclado.nextLine();
+								
+										System.out.println("\nIngrese Procesador");
+										String procesador = teclado.nextLine();
+									
+										
+										System.out.println("\nIngrese memoria Ram");
+										String memoriaR = teclado.nextLine();
+										
+										System.out.println("\nIngrese Fuente");
+										String fuenteC = teclado.nextLine();
+								
+										System.out.println("\nIngrese Gabinete");
+										String gabinete = teclado.nextLine();
+										
+										System.out.println("\nIngrese Almacenamiento");
+										String almacenamiento = teclado.nextLine();
+										
+								
+										System.out.println("\nIngrese Cooler");
+										String cooler = teclado.nextLine();
+	
+										System.out.println("\nIngrese GPU");
+										String GPU = teclado.nextLine();
 
-										Computadora nueva = new Computadora("Escritorio, custom",almacenamientoAcargar,memoriaAcargar,procesadorAcargar,motherAcargar,fuenteAcargar,gabineteAcargar,codigoGPU,codigoCooler );
-										//aca hay que agregar la computadora a la tienda
+									
+										miTienda.agregarProducto(codigo2,marca,modelo,stock,precio,peso,paisOrigen,isRgb,color,descripcion,tipoPc,almacenamiento,memoriaR,procesador,mother,fuenteC,gabinete,GPU,cooler);
+									
 										break;
 									case 4: 
 										System.out.println("\nCOOLER DE GABINETE\n");

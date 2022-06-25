@@ -156,11 +156,8 @@ public class Computadora extends Producto {
 
 	@Override
 	public String toString() {
-		return super.toString()+"Computadora: Tipo de Pc=" + tipoPc + ", disco:" + disco + ", ram: " + ram + ", cpu: " + cpu + ", mother: "
-				+ mother + ", fuente: " + fuente + ", gabinete: " + gabinete + ", gpu: " + gpu + ", cooler: " + cooler
-				+ ", tipo de Pc: " + getTipoPc() + ", Disco: " + getDisco() + ", Ram: " + getRam()
-				+ ", CPU: " + getCpu() + ", Mother: " + getMother() + ", Fuente: " + getFuente()
-				+ ", Gabinete: " + getGabinete() + ", GPU:" + getGpu() + ", Cooler: " + getCooler() + "]";
+		return super.toString()+"Tipo=" + tipoPc + ", disco:" + disco + ", ram: " + ram + ", cpu: " + cpu + ", mother: "
+				+ mother + ", fuente: " + fuente + ", gabinete: " + gabinete + ", gpu: " + gpu + ", cooler: " + cooler;
 	}
 
 
@@ -188,11 +185,10 @@ public class Computadora extends Producto {
 			retorno.put("Gabinete", getGabinete());
 			retorno.put("GPU", getGpu());
 			retorno.put("Cooler", getCooler());
-			
+
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
-		
-		return null;
+		return retorno;
 	}
 }

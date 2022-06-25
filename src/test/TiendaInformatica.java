@@ -22,7 +22,7 @@ public class TiendaInformatica<K> {
 	private String nombre;
 	private Catalogo catalogo;
 	private Taller taller;
-	private ArrayList<Servicio>services;
+	private ArrayList<ItemServicio>services;
 	private ContenedoraDeFacturas<K, Factura> facturas;
 	private Contenedora<K,Cliente> listaDeClientes;
 	private Contenedora<K,Vendedor> listaDeVendedores;
@@ -81,7 +81,7 @@ public class TiendaInformatica<K> {
 		
 	}
 	
-	public void agregarService(Servicio nuevo){
+	public void agregarService(ItemServicio nuevo){
 		this.services.add(nuevo);
 	}
 	public String listarServices(){
@@ -102,6 +102,15 @@ public class TiendaInformatica<K> {
 		Producto nuevo= new Auriculares(codigo,marca,modelo,stock,precio,peso, paisOrigen,rgb,color, descripcion,inalambrico,microfono,cable);
 		this.catalogo.agregar(nuevo);
 	}
+	
+	public void agregarProducto(String codigo, String marca, String modelo, int stock, double precio, double peso,
+			String paisOrigen, boolean rgb, String color, String descripcion, String tipoPc, String disco, String ram,
+			String cpu, String mother, String fuente, String gabinete, String gpu, String cooler) 
+	{
+		Producto nuevo =new Computadora(codigo,marca,modelo,stock,precio,peso,paisOrigen,rgb,color,descripcion,tipoPc,disco,ram,cpu,mother,fuente,gabinete,gpu,cooler);
+		this.catalogo.agregar(nuevo);
+	}
+	
 	public void agregarProducto(String codigo, String marca, String modelo, int stock, double precio, double peso,
 								String paisOrigen, boolean rgb, String color, String descripcion,String tipo, int consumo) {
 		Producto nuevo= new Cooler(codigo,marca,modelo,stock,precio,peso, paisOrigen,rgb,color, descripcion,tipo, consumo);

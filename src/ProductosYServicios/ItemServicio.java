@@ -2,11 +2,11 @@ package ProductosYServicios;
 
 import java.io.Serializable;
 
-public class Servicio implements Serializable{
+public class ItemServicio implements Serializable{
     private String descripcion;
     private double precio;
 
-    public Servicio(String descripcion, double precio) {
+    public ItemServicio(String descripcion, double precio) {
         this.descripcion = descripcion;
         this.precio = precio;
     }
