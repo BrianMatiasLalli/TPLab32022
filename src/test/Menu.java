@@ -99,6 +99,33 @@ public class Menu {
 		miTienda.agregarProducto("23451","Tecware","Mirage 240",9,14099,1250,"Taiwan",true,"Negro","Water cooling","cooler cpu",5,200,"Radiador","1200 Comet Lake,1150,1151,1151 Coffe Lake,1151 Kaby Lake,1155,1156,1200 Rocket Lake-S,AM4 A-Series,AM4 APU 1th Gen,AM4 APU 2th Gen,AM4 APU 3th Gen,AM4 APU 5000,AM4 Ryzen 1th Gen,AM4 Ryzen 2th Gen,AM4 Ryzen 3th Gen,AM4 Ryzen 4th Gen");
 		miTienda.agregarProducto("111787","Azza","Blizzard LCAZZ 240r",5,19640,1500,"China", true,"Negro","Water Cooling","cooler cpu", 10,150,"cooler cpu","1200 Comet Lake,1150,1151,1151 Coffe Lake,1151 Kaby Lake,1155,1156,1200 Rocket Lake-S,1366,2011,2011_v3,2066,AM2,AM2+,AM3,AM3+,AM4 A-Series,AM4 APU 1th Gen,AM4 APU 2th Gen,AM4 APU 3th Gen,AM4 Ryzen 1th Gen,AM4 Ryzen 2th Gen,AM4 Ryzen 3th Gen,AM4 APU 5000");
 		miTienda.agregarProducto("890289","DeepCool","Castle v2 240 arg",20,19999,2000,"Vietnam",true,"Negro","Water Cooling ARGB", "cooler cpu","1200 Comet Lake,1150,1151,1155,1156,1200 Rocket Lake-S,2011_v3,2066,AM4 A-Series,AM4 APU 1th Gen,AM4 APU 2th Gen,AM4 APU 3th Gen,AM4 APU 5000,AM4 Ryzen 1th Gen,AM4 Ryzen 2th Gen,AM4 Ryzen 3th Gen,AM4 Ryzen 4th Gen");
+		
+		//fuentes
+		miTienda.agregarProducto("212355","Sentey","High Beat Power",10,8899,500,"EE.UU",false,"negro y marron","fuente Sentey",650,"ATX","certificacion 80 plus bronce",true);
+		miTienda.agregarProducto("212356","LNZ","ZX650-LS",12,5499,600,"Argentina",false,"negro y naranja","fuente LNZ	",650,"ATX","certificacion no",false);
+		miTienda.agregarProducto("212357","ASUS","ROG STRIX 750G",7,26000,750,"Taiwan",false,"negro","fuente ASUS",650,"ATX","certificacion 80 plus gold",true);
+		
+		//gabinete
+		miTienda.agregarProducto("220001","MAGNUMTECH","435R-FANLED",10,5050,1000,"EE.UU",true,"negro","Gabinete magnumtech","ITX,M-ATX,ATX",true,5,3,42,20,41);
+		miTienda.agregarProducto("220002","Thermaltake","Ryzen Edition",12,5220,1200,"Espania",false,"negro","Gabinete Thermaltake","ITX,M-ATX,ATX",true,11,3,41,19,47);
+		miTienda.agregarProducto("220003","Shensy","SH-F18",14,5380,1300,"EE.UU",true,"negro","Gabinete Shensy","ITX,M-ATX,ATX",true,7,3,45,20,36);
+		*/
+		
+		
+		//computadora
+		//memorias ram
+		//microfono
+		//monitor
+		//motherBoard
+		//mouse
+		//parlante
+		//placa de video
+		//procesador
+		//Teclado
+		//webcam
+		
+		/*
+		 
 		*/
 		/*
 		miTienda.agregarService(new Servicio("Armado PC", 1000));
