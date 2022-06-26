@@ -19,7 +19,6 @@ public class Menu {
 
 	
 	private String nombre;
-	public static int cantF;
 	public Menu(String nombre) {
 		this.nombre=nombre;
 	}
@@ -32,7 +31,7 @@ public class Menu {
 		
 		
 		miTienda.archivoATiendaInformatica();
-		cantF=miTienda.getFacturas().tamanio();
+		int cantF=miTienda.getFacturas().tamanio();
 		Factura auxF=new Factura();
 		auxF.setCantF(cantF);
 		
