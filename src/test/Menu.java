@@ -19,7 +19,7 @@ public class Menu {
 
 	
 	private String nombre;
-
+	public static int cantF;
 	public Menu(String nombre) {
 		this.nombre=nombre;
 	}
@@ -32,7 +32,11 @@ public class Menu {
 		
 		
 		miTienda.archivoATiendaInformatica();
-		/*
+		cantF=miTienda.getFacturas().tamanio();
+		Factura auxF=new Factura();
+		auxF.setCantF(cantF);
+		
+		
 		miTienda.agregarCliente("Brian","Lalli","38165168","22683434554","direccion1","correo1");	
 		//miTienda.getFacturas().agregarObjetoColeccion(facturaAux.getId(), facturaAux);
 		miTienda.agregarVendedor("Gonzalo","Benoffi","3512355","223542587","direccion2","correo2","contrasenia");
@@ -47,7 +51,7 @@ public class Menu {
 		StreamJSON aux= new StreamJSON();
 		miTienda.setCatalogo(aux.JsonAJava(fuente));
 		
-		
+		/*
 		//Almacenamiento
 		miTienda.agregarProducto("10001","Seagate","STEB6000403",5,30000,950,"Estados Unidos",false,"Negro","disco almacenamiento1",6000,"SSD");
 		miTienda.agregarProducto("10002","Seagate","ST2000DM005",6,8700,415,"Estados Unidos",false,"Gris","disco almacenamiento2",2000,"HDD");

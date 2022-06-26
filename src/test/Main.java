@@ -5,6 +5,7 @@ public class Main {
     	
     	Menu menuPrincipal= new Menu("hola");
         menuPrincipal.opciones();
+       
         /*
         Contenedora listaClientes= new Contenedora();
         Catalogo catalogo = new Catalogo();

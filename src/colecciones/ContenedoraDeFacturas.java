@@ -67,7 +67,10 @@ public class ContenedoraDeFacturas<K,T extends Factura> implements I_Colecciones
 	}
 
 
-	
+	public int tamanio() 
+	{
+		return listaFacturas.size();
+	}
 
 	
 

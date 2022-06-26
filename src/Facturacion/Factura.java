@@ -47,6 +47,10 @@ public class Factura implements Serializable{
 		return fecha;
 	}
 
+	public void setCantF(int nuevo) 
+	{
+		cantTotalFacturas=nuevo;
+	}
 	public Cliente getComprador() {
 		return comprador;
 	}
