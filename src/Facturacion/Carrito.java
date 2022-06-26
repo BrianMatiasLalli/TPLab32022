@@ -75,4 +75,10 @@ public class Carrito {
     	items.removeAll(items);
     	misServicios.removeAll(misServicios);
     }
+    public void limpiarCarro(){
+        for(int i=0;i<items.size();i++){
+            items.get(i).getProducto().aumentarStock(items.get(i).getCantidad());
+        }
+    }
+
 }

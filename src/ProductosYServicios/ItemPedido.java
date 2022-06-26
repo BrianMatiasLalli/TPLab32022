@@ -11,10 +11,12 @@ public class ItemPedido {
         this.precioTotal=cantidad*this.pedido.getPrecio();
         this.cantidad = cantidad;
     }
-    
- 
-    
-     public String descripcionPedido()
+
+    public Producto getProducto() {
+        return pedido;
+    }
+
+    public String descripcionPedido()
      {
      	return pedido.detallePedido();
      

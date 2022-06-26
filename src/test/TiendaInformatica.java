@@ -15,8 +15,6 @@ import excepciones.NoHayStockExcepcion;
 import manejoArchivo.ArchivoHerramientas;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Map;
 
 public class TiendaInformatica<K> {
 	private String nombre;
@@ -480,5 +478,7 @@ public class TiendaInformatica<K> {
 		return facturas.listar();
 	}
 	
-
+	public void restablecerStock(){
+		carroDeCompras.limpiarCarro();
+	}
 }

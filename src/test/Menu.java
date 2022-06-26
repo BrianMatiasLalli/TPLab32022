@@ -46,24 +46,26 @@ public class Menu {
 		Scanner teclado = new Scanner(System.in);
 		miTienda.getCatalogo();
 		StreamJSON nuevoJSON = new StreamJSON();
-		
+		String dniLogin="";
 		
 		boolean accedido=false;
-		System.out.println("\nIngrese su dni para ingresar: ");
-		String dniLogin= teclado.nextLine();
-		System.out.println("\nIngrese contraseña: \n");
-		String contraseñaLogin=teclado.nextLine();
-		try {
-			if(miTienda.comprobarLoginVendedor(dniLogin, contraseñaLogin)==true) 
-			{
-				accedido=true;
+		int intentos=0;
+		do {
+			System.out.println("\nIngrese su dni para ingresar: ");
+			dniLogin = teclado.nextLine();
+			System.out.println("\nIngrese contraseña: \n");
+			String contraseñaLogin = teclado.nextLine();
+			try {
+				if (miTienda.comprobarLoginVendedor(dniLogin, contraseñaLogin) == true) {
+					accedido = true;
+				}
+			} catch (ContraseniaIncorrectaExcepcion e1) {
+				System.out.println(e1.getMessage());
+			} catch (DNIIncorrectoExcepcion e1) {
+				System.out.println(e1.getMessage());
 			}
-		} catch (ContraseniaIncorrectaExcepcion e1) {
-			System.out.println(e1.getMessage()); 
-		} catch (DNIIncorrectoExcepcion e1) {
-			System.out.println(e1.getMessage()); 
-		}
-
+			intentos++;
+		}while(intentos<3 && accedido==false);
 		if(accedido) {
 			Vendedor vendedorActivo=miTienda.retornarVendedor(dniLogin);
 		do {
@@ -80,9 +82,9 @@ public class Menu {
 				switch (opcion) {
 					case 1:
 						do{
-							System.out.println("\nMenu Productos \nDigite la opcion:");
+							System.out.println("\nMenu Catalogo \nDigite la opcion:");
 							System.out.println("\n1.agregar producto");
-							System.out.println("\n2.quitar producto:");
+							System.out.println("\n2.quitar producto");
 							System.out.println("\n3.Listar Productos");
 							System.out.println("\n4.Consultar Producto");
 							System.out.println("\n5.Actualizar producto");
@@ -838,7 +840,6 @@ public class Menu {
 									ventas=0;
 									break;
 								case 3:
-									
 									if(miTienda.tamanioDeCarro()>0) 
 									{
 										System.out.println("Carrito de compras:\n");
@@ -847,8 +848,6 @@ public class Menu {
 									{
 										System.out.println("EL CARRITO NO CONTIENE PRODUCTOS");
 									}
-									
-									
 									ventas=0;
 									break;
 								case 4:
@@ -883,8 +882,12 @@ public class Menu {
 									
 									System.out.println(miTienda.ticket(comprador,miTienda.getCarroDeCompras(),vendedorActivo));
 									miTienda.getCarroDeCompras().vaciarCarro();
-								 }
-
+								 }else{
+										if(miTienda.tamanioDeCarro()>0){
+											miTienda.restablecerStock();
+										}
+										miTienda.getCarroDeCompras().vaciarCarro();
+									}
 									ventas=0;
 									break;	
 							}
@@ -1096,7 +1099,9 @@ public class Menu {
 
 				}
 			} while (opcion < 6 && opcion > -1);
-
+			if(miTienda.tamanioDeCarro()>0){
+				miTienda.restablecerStock();
+			}
 			miTienda.pasarTiendaAArchivo();
 			}
 		System.out.println(nuevoJSON.javaAJSON(miTienda.getCatalogo()));
