@@ -1,10 +1,7 @@
 package test;
 
 import Facturacion.Factura;
-import ProductosYServicios.Computadora;
 import ProductosYServicios.Producto;
-import ProductosYServicios.ItemServicio;
-import ProductosYServicios.ServicioTaller;
 import clases.Cliente;
 import clases.Vendedor;
 import excepciones.ContraseniaIncorrectaExcepcion;
@@ -23,9 +20,7 @@ public class Menu {
 		this.nombre=nombre;
 	}
 	TiendaInformatica miTienda= new TiendaInformatica<>(nombre);
-    //String nombre, String apellido, String dni, String telefono, String direccion, String correo
-    //String nombre, String apellido, String dni, String telefono, String direccion, String correo, String contrasenia
-   // Factura facturaAux= new Factura();
+
     
 	public void opciones(){
 		
@@ -34,15 +29,8 @@ public class Menu {
 		int cantF=miTienda.getFacturas().tamanio();
 		Factura auxF=new Factura();
 		auxF.setCantF(cantF);
-		
-		/*
-		miTienda.agregarCliente("Brian","Lalli","38165168","22683434554","direccion1","correo1");	
-		//miTienda.getFacturas().agregarObjetoColeccion(facturaAux.getId(), facturaAux);
-		miTienda.agregarVendedor("Gonzalo","Benoffi","3512355","223542587","direccion2","correo2","contrasenia");
-		miTienda.agregarVendedor("Pablo","Cuyo","34654651","2235965","direccion3","correo3","contrasenia2");
-		*/
-		
-		
+
+
 		String fuente= JsonUtiles.leer();
 		if(fuente.isEmpty()){
 			System.out.println("Este archivo no contiene nada\n\n");
@@ -50,124 +38,7 @@ public class Menu {
 		StreamJSON aux= new StreamJSON();
 		miTienda.setCatalogo(aux.JsonAJava(fuente));
 		
-		/*
-		//Almacenamiento
-		miTienda.agregarProducto("10001","Seagate","STEB6000403",5,30000,950,"Estados Unidos",false,"Negro","disco almacenamiento1",6000,"SSD");
-		miTienda.agregarProducto("10002","Seagate","ST2000DM005",6,8700,415,"Estados Unidos",false,"Gris","disco almacenamiento2",2000,"HDD");
-		miTienda.agregarProducto("10003","Kingston","SA400S37/960G",10,17106,410,"Estados Unidos",false,"Negro","disco almacenamiento3",960,"SSD");
-		miTienda.agregarProducto("5427","Western Digital","WD 240GB Green",80,4399,500,"Malasia",false,"Negro","bajo consumo 545 mb/s",240,"SSD SATA");
-		miTienda.agregarProducto("7917","Western Digital","WD 480GB Green",40,7999,500,"Malasia",false,"Negro","bajo consumo, 545 mb/s",480,"SSD SATA");
-		miTienda.agregarProducto("8277","Kingston","M.2 240GB A400",20,4699,500,"Malasia",false,"Negro","SSD M.2 500mbs/s",240,"SSD M.2");
-		miTienda.agregarProducto("10487","ADATA","FALCON",20,16999,460,"China",false,"Negro","3100MB/s NVMe PCI-E x4 ",960,"SSD M.2 NVME gen 4");
-		miTienda.agregarProducto("13612","ADATA","XPG SX6000 Pro",10,5500,400,"China",false,"Negro","2100MB/s NVMe PCI-E x4",256,"SSD M.2 NVMe PCI-E x4");
-		miTienda.agregarProducto("13335","Patriot","P310",30,7000,500,"China",false,"Negro","1700MB/s Gen3 x4",480,"SSD M.2 NVMe PCI-E x4");
-		miTienda.agregarProducto("8679","ADATA ","Spectrix S40G RGB",25,11000,500,"China",false,"Negro","3500MB/s NVMe PCI-E X4",512,"SSD M.2 NVMe PCI-E x4");
 
-		//auriculares
-		miTienda.agregarProducto("10004","HyperX","CloudX Stinger",7,6945,150,"Estados Unidos",false, "negro y verde","Auriculares 1",false,true,1);
-		miTienda.agregarProducto("10005","Logitech","Series G332",3,7810,200,"Suiza",false,"negro y rojo","Auriculares 2",false,true,2);
-		miTienda.agregarProducto("11340","Nisuta","Ovansu OS-AUG580",18,2800,1000,"China",false,"negro,verde","PC/PS4",false,true,3);
-		miTienda.agregarProducto("10683","Marvo","Skylab G1 HG8960",15,2750,700,"China",false,"negro,rojo","PRO PS4 Xbox PC",false,true,2);
-		miTienda.agregarProducto("11320","Nisuta","Ovansu OS-AUG580C ",12,3000,900,"China",false,"camuflado","PC/PS4",true,true,3);
-		miTienda.agregarProducto("10924","Redragon","Zeus",10,8700,1000,"China",false,"blanco, rosa","Audio virtual,Surround 7.1",false,true,2);
-		miTienda.agregarProducto("12958","MSI","Immerse",2,8000,850,"China",false,"negro","Usb",true,true,2);
-		
-		miTienda.agregarProducto("11762","Cougar","Immersa Ti",7,9000,750,"China",false,"negro,naranja","audio 2.0",true,true,2);
-	
-		//Computadora
-		
-		miTienda.agregarProducto("13547", "XPG", "Xenia 15.6", 5, 190000, 1650,"China", true, "plateado", "W10H Silver","notebook","1TB SSD nvme", "16GB (2x8GB)", "Core i7 1165G7", " ", " ", " ", "Intel Integrated Graphics"," ");
-		miTienda.agregarProducto("13082", "ASUS ROG", "ZEPHYRUS G14 14", 10, 275000, 1700, "China", true, "gris oscuro", "Ryzen 7 5800HS ","notebook","512GB SSD ", "16GB (2x8GB)", "Ryzen 7", "", "", "", "RTX 3050","");
-		
-		//CoolerGabinete
-		miTienda.agregarProducto("10007","Sate","RGB-73K",4,6100,300,"Taiwan",true,"negro y rgb multicolor","120mm","cooler para Gabinete",6);
-		miTienda.agregarProducto("12372","ID-Cooling","NO-8025-SD",20,400,100,"Taiwan",false,"negro","120mm","cooler para Gabinete",3);
-		miTienda.agregarProducto("8014","ID-Cooling","WF-12025-SD-W",7,6400,100,"Taiwan",false,"negro","80mm","cooler para Gabinete",3);
-		miTienda.agregarProducto("13009","Be quiet!","PURE WINGS 2",9,1200,150,"China",false,"blanco","120mm high speed PWM","cooler para Gabinete",3);
-		miTienda.agregarProducto("10008","Asus","Strix XF120",7,6400,100,"Taiwan",false,"negro","cooler Gabinete","cooler para Gabinete",3);
-		miTienda.agregarProducto("10008","Asus","Strix XF120",7,6400,100,"Taiwan",false,"negro","cooler Gabinete","cooler para Gabinete",3);
-		miTienda.agregarProducto("10008","Asus","Strix XF120",7,6400,100,"Taiwan",false,"negro","cooler Gabinete","cooler para Gabinete",3);
-		miTienda.agregarProducto("10008","Asus","Strix XF120",7,6400,100,"Taiwan",false,"negro","cooler Gabinete","cooler para Gabinete",3);
-		miTienda.agregarProducto("10008","Asus","Strix XF120",7,6400,100,"Taiwan",false,"negro","cooler Gabinete","cooler para Gabinete",3);
-		miTienda.agregarProducto("10008","Asus","Strix XF120",7,6400,100,"Taiwan",false,"negro","cooler Gabinete","cooler para Gabinete",3);
-
-		//cooler cpu
-		miTienda.agregarProducto("10009","Xigmatek","WP964 RGB",8,4700,350,"China",true,"negro","cooler de aire","Cooler CPU",3,140,"Ventilador","Intel: LGA 2066/2011-v3 / 2011/1366/115 ï¿½ / 1200 AMD: AM4 / AM3 + / AM3 / AM2 + / AM2 / FM2 + / FM2 / FM1");
-		miTienda.agregarProducto("10023","ID-Cooling","SE-902-SD",20,2199,400,"China",false,"negro","cooler de aire","Cooler CPU",5,100,"Ventilador","1151,1150,1151 Kaby Lake,1151 Coffe Lake,1155,1156,AM2,AM2+,1200 Comet Lake,AM3,AM3+,AM4 A-Series,AM4 APU 1th Gen,AM4 APU 2th Gen,AM4 Ryzen 1th Gen,AM4 Ryzen 2th Gen,AM4 Ryzen 3th Gen,FM1,FM2,FM2+,AM4 APU 5");
-		miTienda.agregarProducto("00021","Cooler Master","Hyper T20",15,2699,400,"China",false,"negro","cooler de aire","Cooler CPU",5,110,"Ventilador","1200 Comet Lake,1151,1151 Coffe Lake,1151 Kaby Lake,1155,1156,115X,1200,1200 Rocket Lake-S,AM2,AM2+,AM3,AM3+,AM4,AM4 APU 1th Gen,AM4 APU 2th Gen,AM4 APU 3th Gen,AM4 APU 5000,AM4 Ryzen 1th Gen,AM4 Ryzen 2th Gen,AM4 Ryzen 3th Gen,AM4 Ryzen 4th Gen,FM1,FM2,F");
-		miTienda.agregarProducto("10033","ID-Cooling","SE-903-XT",30,3230,600,"China",true,"negro","cooler de aire","Cooler CPU",5,130,"Ventilador","1200 Comet Lake,1150,1151 Coffe Lake,1151 Kaby Lake,1155,1156,1200 Rocket Lake-S,AM4 APU 1th Gen,AM4 APU 2th Gen,AM4 APU 3th Gen,AM4 APU 5000,AM4 Ryzen 1th Gen,AM4 Ryzen 2th Gen,AM4 Ryzen 3th Gen,AM4 Ryzen 4th Gen,1700 Alder Lake-S,1700");
-		miTienda.agregarProducto("202071","DeepCool","Gammaxx 400 V2 RED",14,3899,450,"Taiwan",true,"Negro","cooler de aire","Cooler CPU", 5,130,"Ventilador","1200 Comet Lake,1150,1151,1151 Coffe Lake,1151 Kaby Lake,1155,1156,AM2,AM2+,AM3,AM3+,AM4 A-Series,AM4 APU 1th Gen,AM4 APU 2th Gen,AM4 Ryzen 1th Gen,AM4 Ryzen 2th Gen,AM4 Ryzen 3th Gen,FM1,FM2,FM2+,AM4 APU 5000");
-		miTienda.agregarProducto("202021","DeepCool","Gammaxx 400 V2 RED",14,3899,450,"Taiwan",true,"Negro","cooler de aire","Cooler CPU", 5,130,"Ventilador","1200 Comet Lake,1150,1151,1151 Coffe Lake,1151 Kaby Lake,1155,1156,AM2,AM2+,AM3,AM3+,AM4 A-Series,AM4 APU 1th Gen,AM4 APU 2th Gen,AM4 Ryzen 1th Gen,AM4 Ryzen 2th Gen,AM4 Ryzen 3th Gen,FM1,FM2,FM2+,AM4 APU 5000");
-		miTienda.agregarProducto("131238","Be Quiet!","Pure Rock 2 Black",10,7130,750,"China",false,"Negro","cooler de aire","Cooler cpu",2,150,"Ventilador","1200 Comet Lake,1150,1151 Coffe Lake,1151 Kaby Lake,1155,1156,2011_v3,2066,AM4 A-Series,AM4 APU 1th Gen,AM4 APU 2th Gen,AM4 APU 3th Gen,AM4 APU 5000,AM4 Ryzen 1th Gen,AM4 Ryzen 2th Gen,AM4 Ryzen 3th Gen,AM4 Ryzen 4th Gen");
-		miTienda.agregarProducto("118426","ID-Cooling","FROSTFLOW X 240",25,9979,1200,"Taiwan", true,"Negro", "water cooling","Cooler cpu",10,250,"Radiador","775,1150,1151,1151 Coffe Lake,1155,1155_3,1156,1366,2011,2011_v3,2066,AM2,AM2+,AM3,AM3+,AM4,AM4 A-Series,FM1,FM2,FM2+,AM4 3ra Gen,1151 Kaby Lake,AM4 Ryzen 3th Gen,AM4 Ryzen 2th Gen,AM4 Ryzen 1th Gen,AM4 APU 2th Gen,AM4 APU 1th Gen,AM4 Ryzen 2th Gen,AM4 AP");
-		miTienda.agregarProducto("23451","Tecware","Mirage 240",9,14099,1250,"Taiwan",true,"Negro","Water cooling","cooler cpu",5,200,"Radiador","1200 Comet Lake,1150,1151,1151 Coffe Lake,1151 Kaby Lake,1155,1156,1200 Rocket Lake-S,AM4 A-Series,AM4 APU 1th Gen,AM4 APU 2th Gen,AM4 APU 3th Gen,AM4 APU 5000,AM4 Ryzen 1th Gen,AM4 Ryzen 2th Gen,AM4 Ryzen 3th Gen,AM4 Ryzen 4th Gen");
-		miTienda.agregarProducto("111787","Azza","Blizzard LCAZZ 240r",5,19640,1500,"China", true,"Negro","Water Cooling","cooler cpu", 10,150,"cooler cpu","1200 Comet Lake,1150,1151,1151 Coffe Lake,1151 Kaby Lake,1155,1156,1200 Rocket Lake-S,1366,2011,2011_v3,2066,AM2,AM2+,AM3,AM3+,AM4 A-Series,AM4 APU 1th Gen,AM4 APU 2th Gen,AM4 APU 3th Gen,AM4 Ryzen 1th Gen,AM4 Ryzen 2th Gen,AM4 Ryzen 3th Gen,AM4 APU 5000");
-		miTienda.agregarProducto("890289","DeepCool","Castle v2 240 arg",20,19999,2000,"Vietnam",true,"Negro","Water Cooling ARGB", "cooler cpu","1200 Comet Lake,1150,1151,1155,1156,1200 Rocket Lake-S,2011_v3,2066,AM4 A-Series,AM4 APU 1th Gen,AM4 APU 2th Gen,AM4 APU 3th Gen,AM4 APU 5000,AM4 Ryzen 1th Gen,AM4 Ryzen 2th Gen,AM4 Ryzen 3th Gen,AM4 Ryzen 4th Gen");
-		
-		//fuentes
-		miTienda.agregarProducto("212355","Sentey","High Beat Power",10,8899,500,"EE.UU",false,"negro y marron","fuente Sentey",650,"ATX","certificacion 80 plus bronce",true);
-		miTienda.agregarProducto("212356","LNZ","ZX650-LS",12,5499,600,"Argentina",false,"negro y naranja","fuente LNZ	",650,"ATX","certificacion no",false);
-		miTienda.agregarProducto("212357","ASUS","ROG STRIX 750G",7,26000,750,"Taiwan",false,"negro","fuente ASUS",650,"ATX","certificacion 80 plus gold",true);
-		
-		//gabinete
-		miTienda.agregarProducto("220001","MAGNUMTECH","435R-FANLED",10,5050,1000,"EE.UU",true,"negro","Gabinete magnumtech","ITX,M-ATX,ATX",true,5,3,42,20,41);
-		miTienda.agregarProducto("220002","Thermaltake","Ryzen Edition",12,5220,1200,"Espania",false,"negro","Gabinete Thermaltake","ITX,M-ATX,ATX",true,11,3,41,19,47);
-		miTienda.agregarProducto("220003","Shensy","SH-F18",14,5380,1300,"EE.UU",true,"negro","Gabinete Shensy","ITX,M-ATX,ATX",true,7,3,45,20,36);
-		
-		//Memorias Ram
-		miTienda.agregarProducto("230001","Kingston","Fury Beast CL16",15,4990,10,"EE.UU",false,"negro","memoria ram Kingston 8gb",8,3200,"DDR4",1,"16cl",1.35f,true);
-		miTienda.agregarProducto("230002","GeiL","Super Luce",7,11340,15,"Taiwan",true,"negro","memoria ram GeiL 16gb",16,3000,"DDR4",1,"16cl",1.35f,true);
-		miTienda.agregarProducto("230003","Corsair","Vengeance LP",20,6390,10,"Taiwan",false,"negro y verde","memoria ram Corsair 8gb",8,1600,"DDR3",1,"1cl",1f,true);
-		
-		//Microfonos
-		miTienda.agregarProducto("240001","Logitech ","Blue Snowball Black",50,7540,200,"Suiza",false,"negro","microfono Logitech","Pie corto de mesa","USB");
-		miTienda.agregarProducto("240002","HyperX ","QuadCast",20,23190,300,"EE.UU",true,"negro y rojo","microfono HyperX","Pie corto de mesa","USB");
-		miTienda.agregarProducto("240003","HyperX ","QuadCast S",10,32707,150,"EE.UU",true,"negro","microfono HyperX","Pie corto de mesa","USB");
-		
-		//Monitor
-		miTienda.agregarProducto("250001","LG","19M38A-B",7,24690,2000,"Corea del sur",false,"negro","Monitor LG","TN",false,"VGA","externa",19,"1366x768","60hz");
-		miTienda.agregarProducto("250002","LG","20MK400H-B",6,27660,2100,"Corea del sur",false,"negro","Monitor LG","TN",false,"HDMI-VGA","externa",20,"1366x768","60hz");
-		miTienda.agregarProducto("250003","Lenovo ","S22E",5,28430,2000,"China",false,"negro","Monitor Lenovo","VA",false,"HDMI-VGA","interna",22,"1920x1080","60hz");
-		
-		//MotherBoard
-		miTienda.agregarProducto("260001","ASUS","PRIME H310M",10,7790,500,"Taiwan",false,"negro","Mother ASUS","Intel","1151 Coffe Lake","M-ATX",2,4,"HDMI,DVI,VGA",0,6);
-		miTienda.agregarProducto("260002","Gigabyte","AB350M",12,8570,600,"Taiwan",false,"negro","Mother Gigabyte","AMD","AM4 A-Series,AM4 APU 1th Gen,AM4 APU 2th Gen,AM4 Ryzen 1th Gen,AM4 Ryzen 2th Gen,AM4 Ryzen 3th Gen","M-ATX",4,4,"HDMI,DVI",2,8);
-		miTienda.agregarProducto("260003","ASUS","PRIME A320M-K",9,8690,700,"Taiwan",false,"azul","Mother ASUS","AMD","AM4 A-Series,AM4 APU 1th Gen,AM4 APU 2th Gen,AM4 Ryzen 1th Gen,AM4 Ryzen 2th Gen,AM4 Ryzen 3th Gen,AM4 Ryzen 4th Gen,AM4 APU 5000","M-ATX",2,4,"HDMI,VGA",1,6);
-		
-		//mouse
-		miTienda.agregarProducto("270003","Logitech","G903",10,11599,110,"Suiza",true,"negro","Mouse Logitech",11,"Hero","Optico",false,16000);
-		miTienda.agregarProducto("270004","HyperX","Pulsefire Surge",20,4200,100,"EE.UU",true,"negro y rojo","Mouse HyperX",6,"Omron","Óptico",false,16000);
-		miTienda.agregarProducto("270005","Corsair","Ironclaw",15,9.800,105,"Taiwan",true,"negro y blanco","Mouse Corsair",7,"Omron","Optico",false,18000);
-		
-		//Parlantes
-		miTienda.agregarProducto("280001", "Logitech ", "Z607",15,19630, 2500, "Taiwan", true, "Negro", "5.1 Surround Bluetooth", "160W ", "USB", "220v");
-		miTienda.agregarProducto("280002", "Logitech ", "UE BOOM 3 Sunset RED",40,19680, 500, "Taiwan", false, "Rojo", "Portatil y Bluetooth", "60W ", "micro USB","Bateria interna");
-		
-		
-		//Placa de video
-		miTienda.agregarProducto("290001", "Asus Rog","RTX 3050 ", 10, 85000, 2500, "china", true, "Negro y plateado", "8GB DDR6", "HDMI,DP", 160,"DDR6",8, true);
-		miTienda.agregarProducto("290002", "Zotac ","GeForce GTX 1660 ", 20, 58000, 2000,"china", false, "Negro", "6GB DDR5", "HDMI,DP", 120,"DDR5",6, true);
-	    miTienda.agregarProducto("290003", "GALAX  ","GeForce GTX 3080", 5, 158000, 2000,"china", true, "Plateado", "SG LHR (1-Click OC)", "HDMI,DP", 320,"DDR6",10, true);
-	    
-	    //Procesadores
-	    miTienda.agregarProducto("30001", "AMD","Ryzen 3 4100", 30, 14000, 400, "Malasia",false,"gris", "No posee graficos integrados", "AM4", 4, 4, 3800, 7, 65, false);
-	    miTienda.agregarProducto("30002", "AMD","Ryzen 5 4500", 10, 19000, 400,"Malasia",false,"gris", "Posee graficos integrados", "AM4", 6, 12,3600, 7, 65, true);
-	    miTienda.agregarProducto("30003", "Intel","I7 11700F s1200", 14, 49000, 700,"China",true,"gris", "12th gen", "1200 Rocket Lake-S\n", 8, 16,4900, 14, 65, false);
-		
-	    //Teclado
-	    miTienda.agregarTeclado("12038", "Marvo", "KG965G", 40, 7000, 1900, "China", true, "Negro", "Permite macros","Mecanico", "Completo","outemu Blue");
-        miTienda.agregarTeclado("7420", "Redragon", "k550 YAMA White", 20, 9000, 1900, "China", true, "Blanco", "Macros, idioma español","Mecanico", "Completo","outemu Purple");
-        miTienda.agregarTeclado("10461", "Glorious", "Compact", 10, 14000, 2100, "China",true, "Negro", "hotswap 3pines","Mecanico", "Completo","gateron brown");
-	    //WebCam
-	    miTienda.agregarProducto("320001","Redragon","GW600 FOBOS",20,3930,200,"Argentina",false,"negro y rojo","WebCam Redragon","720p","optico","720",true);
-		miTienda.agregarProducto("320002","Logitech","C920e",25,10120,200,"Suiza",false,"negro y azul","WebCam Logitech","1920 x 1080","optico","full HD",true);
-	
-				
-		
-		miTienda.agregarService(new ItemServicio("Armado PC", 1000));
-		miTienda.agregarService(new ItemServicio("Instalacion SO", 500));
-		miTienda.agregarService(new ItemServicio("Limpieza PC", 1500));
-		*/
 		
 		
 		int opcion,opcionCatalogo;
@@ -186,23 +57,16 @@ public class Menu {
 			if(miTienda.comprobarLoginVendedor(dniLogin, contraseñaLogin)==true) 
 			{
 				accedido=true;
-				
-				
 			}
 		} catch (ContraseniaIncorrectaExcepcion e1) {
-			// TODO Auto-generated catch block
 			System.out.println(e1.getMessage()); 
 		} catch (DNIIncorrectoExcepcion e1) {
-			// TODO Auto-generated catch block
 			System.out.println(e1.getMessage()); 
 		}
-		
-		
-		
+
 		if(accedido) {
 			Vendedor vendedorActivo=miTienda.retornarVendedor(dniLogin);
 		do {
-
 			System.out.println("\nMenu Principal.\nDiginte la opcion deseada o 9 para salir\n");
 			System.out.println("\n1.Catalogo.");
 			System.out.println("\n2.Ventas.");
@@ -330,7 +194,7 @@ public class Menu {
 										break;
 									
 									case 3:
-										//aca hay que agregar logica para cuando no hay stock
+
 										System.out.println("Ingrese tipo de PC(Notebooke,AIO,Escritorio):");
 										String tipoPc=teclado.nextLine();
 										
@@ -692,7 +556,6 @@ public class Menu {
 									}
 									}
 
-									//agregar producto
 									break;
 								case 2:
 									//quitar producto
@@ -831,6 +694,7 @@ public class Menu {
 						}while(cont == 1);
 						break;
 					case 2:
+						//MENU DE VENTAS
 						System.out.println("1.Agregar productos al carrito");
 						System.out.println("2.Agregar Servicio al carrito");
 						System.out.println("3.Ver carrito");
@@ -1061,7 +925,6 @@ public class Menu {
 						System.out.println("2.Editar Clientes");
 						System.out.println("3.Buscar Cliente");
 						System.out.println("4.Listar Clientes");
-						System.out.println("5.Listar facturas de un cliente");
 						opcion = teclado.nextInt();
 
 
