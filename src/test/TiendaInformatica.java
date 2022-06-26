@@ -413,9 +413,9 @@ public class TiendaInformatica<K> {
 		return listaDeClientes.existe(clave);
 	}
 	
-	public void agregarVendedor(String nombre,String apellido,String dni,String telefono,String direccion,String correo,String contraseña) 
+	public void agregarVendedor(String nombre,String apellido,String dni,String telefono,String direccion,String correo,String contrasenia) 
 	{
-		Vendedor nuevo= new Vendedor(nombre, apellido,dni,telefono,direccion,correo,contraseña);
+		Vendedor nuevo= new Vendedor(nombre, apellido,dni,telefono,direccion,correo,contrasenia);
 		if(!listaDeVendedores.existe((K)dni)) {
 			listaDeVendedores.agregarObjetoColeccion((K) dni, nuevo);
 		}

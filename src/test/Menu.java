@@ -35,12 +35,12 @@ public class Menu {
 		Factura auxF=new Factura();
 		auxF.setCantF(cantF);
 		
-		
+		/*
 		miTienda.agregarCliente("Brian","Lalli","38165168","22683434554","direccion1","correo1");	
 		//miTienda.getFacturas().agregarObjetoColeccion(facturaAux.getId(), facturaAux);
 		miTienda.agregarVendedor("Gonzalo","Benoffi","3512355","223542587","direccion2","correo2","contrasenia");
 		miTienda.agregarVendedor("Pablo","Cuyo","34654651","2235965","direccion3","correo3","contrasenia2");
-		
+		*/
 		
 		
 		String fuente= JsonUtiles.leer();
