@@ -32,12 +32,13 @@ public class Menu {
 		
 		
 		miTienda.archivoATiendaInformatica();
-		/**
+		/*
 		miTienda.agregarCliente("Brian","Lalli","38165168","22683434554","direccion1","correo1");	
-		miTienda.getFacturas().agregarObjetoColeccion(facturaAux.getId(), facturaAux);
+		//miTienda.getFacturas().agregarObjetoColeccion(facturaAux.getId(), facturaAux);
 		miTienda.agregarVendedor("Gonzalo","Benoffi","3512355","223542587","direccion2","correo2","contrasenia");
 		miTienda.agregarVendedor("Pablo","Cuyo","34654651","2235965","direccion3","correo3","contrasenia2");
-		*/
+		
+		
 		
 		String fuente= JsonUtiles.leer();
 		if(fuente.isEmpty()){
@@ -46,7 +47,7 @@ public class Menu {
 		StreamJSON aux= new StreamJSON();
 		miTienda.setCatalogo(aux.JsonAJava(fuente));
 		
-		/*
+		
 		//Almacenamiento
 		miTienda.agregarProducto("10001","Seagate","STEB6000403",5,30000,950,"Estados Unidos",false,"Negro","disco almacenamiento1",6000,"SSD");
 		miTienda.agregarProducto("10002","Seagate","ST2000DM005",6,8700,415,"Estados Unidos",false,"Gris","disco almacenamiento2",2000,"HDD");
@@ -69,16 +70,12 @@ public class Menu {
 		miTienda.agregarProducto("12958","MSI","Immerse",2,8000,850,"China",false,"negro","Usb",true,true,2);
 		
 		miTienda.agregarProducto("11762","Cougar","Immersa Ti",7,9000,750,"China",false,"negro,naranja","audio 2.0",true,true,2);
-		/*
-		miTienda.agregarProducto("","","",2,10700,250,"",false,"negro","",true,true,0);
-		miTienda.agregarProducto("","","",2,10700,250,"",false,"negro","",true,true,0);
-		miTienda.agregarProducto("","","",2,10700,250,"",false,"negro","",true,true,0);
-		miTienda.agregarProducto("","","",2,10700,250,"",false,"negro","",true,true,0);
-		miTienda.agregarProducto("","","",2,10700,250,"",false,"negro","",true,true,0);
-		
+	
 		//Computadora
 		
 		miTienda.agregarProducto("13547", "XPG", "Xenia 15.6", 5, 190000, 1650,"China", true, "plateado", "W10H Silver","notebook","1TB SSD nvme", "16GB (2x8GB)", "Core i7 1165G7", " ", " ", " ", "Intel Integrated Graphics"," ");
+		miTienda.agregarProducto("13082", "ASUS ROG", "ZEPHYRUS G14 14", 10, 275000, 1700, "China", true, "gris oscuro", "Ryzen 7 5800HS ","notebook","512GB SSD ", "16GB (2x8GB)", "Ryzen 7", "", "", "", "RTX 3050","");
+		
 		//CoolerGabinete
 		miTienda.agregarProducto("10007","Sate","RGB-73K",4,6100,300,"Taiwan",true,"negro y rgb multicolor","120mm","cooler para Gabinete",6);
 		miTienda.agregarProducto("12372","ID-Cooling","NO-8025-SD",20,400,100,"Taiwan",false,"negro","120mm","cooler para Gabinete",3);
@@ -138,23 +135,38 @@ public class Menu {
 		miTienda.agregarProducto("270003","Logitech","G903",10,11599,110,"Suiza",true,"negro","Mouse Logitech",11,"Hero","Optico",false,16000);
 		miTienda.agregarProducto("270004","HyperX","Pulsefire Surge",20,4200,100,"EE.UU",true,"negro y rojo","Mouse HyperX",6,"Omron","Óptico",false,16000);
 		miTienda.agregarProducto("270005","Corsair","Ironclaw",15,9.800,105,"Taiwan",true,"negro y blanco","Mouse Corsair",7,"Omron","Optico",false,18000);
-		*/
 		
 		//Parlantes
-		//miTienda.agregarProducto("13547", "XPG", "Xenia 15.6", 5, 190000, 1650,"China", true, "plateado", "W10H Silver","notebook","1TB SSD nvme", "16GB (2x8GB)", "Core i7 1165G7", "", "", "", "Intel Integrated Graphics","");
-		/*
+		miTienda.agregarProducto("280001", "Logitech ", "Z607",15,19630, 2500, "Taiwan", true, "Negro", "5.1 Surround Bluetooth", "160W ", "USB", "220v");
+		miTienda.agregarProducto("280002", "Logitech ", "UE BOOM 3 Sunset RED",40,19680, 500, "Taiwan", false, "Rojo", "Portatil y Bluetooth", "60W ", "micro USB","Bateria interna");
+		
+		
+		//Placa de video
+		miTienda.agregarProducto("290001", "Asus Rog","RTX 3050 ", 10, 85000, 2500, "china", true, "Negro y plateado", "8GB DDR6", "HDMI,DP", 160,"DDR6",8, true);
+		miTienda.agregarProducto("290002", "Zotac ","GeForce GTX 1660 ", 20, 58000, 2000,"china", false, "Negro", "6GB DDR5", "HDMI,DP", 120,"DDR5",6, true);
+	    miTienda.agregarProducto("290003", "GALAX  ","GeForce GTX 3080", 5, 158000, 2000,"china", true, "Plateado", "SG LHR (1-Click OC)", "HDMI,DP", 320,"DDR6",10, true);
+	    
+	    //Procesadores
+	    miTienda.agregarProducto("30001", "AMD","Ryzen 3 4100", 30, 14000, 400, "Malasia",false,"gris", "No posee graficos integrados", "AM4", 4, 4, 3800, 7, 65, false);
+	    miTienda.agregarProducto("30002", "AMD","Ryzen 5 4500", 10, 19000, 400,"Malasia",false,"gris", "Posee graficos integrados", "AM4", 6, 12,3600, 7, 65, true);
+	    miTienda.agregarProducto("30003", "Intel","I7 11700F s1200", 14, 49000, 700,"China",true,"gris", "12th gen", "1200 Rocket Lake-S\n", 8, 16,4900, 14, 65, false);
+		
+	    //Teclado
+	    miTienda.agregarTeclado("12038", "Marvo", "KG965G", 40, 7000, 1900, "China", true, "Negro", "Permite macros","Mecanico", "Completo","outemu Blue");
+        miTienda.agregarTeclado("7420", "Redragon", "k550 YAMA White", 20, 9000, 1900, "China", true, "Blanco", "Macros, idioma español","Mecanico", "Completo","outemu Purple");
+        miTienda.agregarTeclado("10461", "Glorious", "Compact", 10, 14000, 2100, "China",true, "Negro", "hotswap 3pines","Mecanico", "Completo","gateron brown");
+	    //WebCam
+	    miTienda.agregarProducto("320001","Redragon","GW600 FOBOS",20,3930,200,"Argentina",false,"negro y rojo","WebCam Redragon","720p","optico","720",true);
+		miTienda.agregarProducto("320002","Logitech","C920e",25,10120,200,"Suiza",false,"negro y azul","WebCam Logitech","1920 x 1080","optico","full HD",true);
+	
+				
+		
 		miTienda.agregarService(new ItemServicio("Armado PC", 1000));
 		miTienda.agregarService(new ItemServicio("Instalacion SO", 500));
 		miTienda.agregarService(new ItemServicio("Limpieza PC", 1500));
 		*/
 		
-				//computadora
-				//mouse
-				//parlante
-				//placa de video
-				//procesador
-				//Teclado
-				//webcam
+		
 		int opcion,opcionCatalogo;
 
 		Scanner teclado = new Scanner(System.in);
@@ -781,7 +793,7 @@ public class Menu {
 										int stock=0;
 										if(miTienda.checkProducto(codigoMP)) {
 											
-											System.out.println("1.Modificar precio \n2.Aumentar stock de producto \n3.Reducir stock: ");
+											System.out.println("1.Modificar precio. \n2.Aumentar stock de producto. \n3.Reducir stock. ");
 											int opModificarProducto=teclado.nextInt();
 											
 											switch(opModificarProducto) 
@@ -920,7 +932,7 @@ public class Menu {
 
 									}
 									if(opcionCargar!=0) {
-										System.out.println("ingrese el codigo del disco a agregar\n");
+										System.out.println("ingrese el codigo a agregar\n");
 										teclado.nextLine();
 										String codigo= teclado.nextLine();
 										System.out.println("Ingrese Cantidad\n");
@@ -1046,6 +1058,7 @@ public class Menu {
 						System.out.println("2.Editar Clientes");
 						System.out.println("3.Buscar Cliente");
 						System.out.println("4.Listar Clientes");
+						System.out.println("5.Listar facturas de un cliente");
 						opcion = teclado.nextInt();
 
 
@@ -1070,7 +1083,7 @@ public class Menu {
 
 								break;
 							case 2:
-								System.out.println("\nIngrese ID del cliente a buscar:\n");
+								System.out.println("\nIngrese DNI del cliente a buscar:\n");
 								teclado.nextLine();
 								String id= teclado.nextLine();
 								System.out.println(miTienda.buscarCliente(id));
@@ -1090,10 +1103,22 @@ public class Menu {
 								}
 								break;
 							case 3:
-								System.out.println("\nIngrese ID del cliente:\n");
+								System.out.println("\nIngrese DNI del cliente:\n");
 								teclado.nextLine();
 								String idAbuscar= teclado.nextLine();
-								System.out.println(miTienda.buscarCliente(idAbuscar));
+								if(miTienda.existeCliente(idAbuscar)) 
+								{
+									System.out.println(miTienda.buscarCliente(idAbuscar));
+									System.out.println("Desea ver las facturas del cliente? \n1.Si \nOtro numero.No ");
+									int opMostrarFacturas= teclado.nextInt();
+									if(opMostrarFacturas==1) 
+									{
+										System.out.println(miTienda.mostrarFacturasDeCliente(idAbuscar)); 
+									}
+								}else 
+								{
+									System.out.println("No Existe cliente");
+								}
 								break;
 							case 4:
 								System.out.println("\nCLIENTES: \n"+miTienda.listarClientes());
@@ -1113,6 +1138,7 @@ public class Menu {
 							System.out.println("\n4.Ver vendedor");
 							System.out.println("\n5.Listar vendedores");
 							System.out.println("\n6.Listar facturas");
+							System.out.println("\n7.Bucar factura por ID");
 							int opcionADM = teclado.nextInt();
 
 							switch (opcionADM) {
@@ -1140,7 +1166,7 @@ public class Menu {
 
 									break;
 								case 2:
-									System.out.println("\nIngrese ID del vendedor a buscar:\n");
+									System.out.println("\nIngrese DNI del vendedor a buscar:\n");
 									teclado.nextLine();
 									String idVendedor= teclado.nextLine();
 									System.out.println(miTienda.buscarVendedor(idVendedor));
@@ -1161,7 +1187,7 @@ public class Menu {
 									break;
 								case 3:
 									//remover vendedor
-									System.out.println("\nIngrese ID del vendedor a remover:\n");
+									System.out.println("\nIngrese DNI del vendedor a remover:\n");
 									teclado.nextLine();
 									String idEliminar= teclado.nextLine();
 									System.out.println(miTienda.buscarVendedor(idEliminar));
@@ -1174,7 +1200,7 @@ public class Menu {
 									break;
 								case 4:
 									//ver vendedor
-									System.out.println("\nIngrese ID del vendedor:\n");
+									System.out.println("\nIngrese DNI del vendedor:\n");
 									teclado.nextLine();
 									String idAbuscar= teclado.nextLine();
 									System.out.println(miTienda.buscarVendedor(idAbuscar));
@@ -1187,6 +1213,13 @@ public class Menu {
 								case 6: 
 									System.out.println("FACTURAS DE LA TIENDA: \n");
 									System.out.println(miTienda.listarFacturas()); 
+									break;
+								
+								case 7:
+									System.out.println("Ingrese ID de factura: \n");
+									int idFactura= teclado.nextInt();
+									
+									System.out.println(miTienda.buscarFactura(idFactura));
 									break;
 							}
 

@@ -1,6 +1,7 @@
 package Facturacion;
 
 import clases.Cliente;
+import clases.Persona;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -12,7 +13,7 @@ public class Factura implements Serializable{
     private String listaDeProductos;
     private double precio;
     private String vendedor;//getNombre de vendedor
-    public static int cantTotalFacturas=0;
+    public static int cantTotalFacturas;
 
     public Factura() {
         nuevoID();
@@ -32,6 +33,7 @@ public class Factura implements Serializable{
     }
     
     public void nuevoID(){
+    	
         this.id=cantTotalFacturas+1;
        this.cantTotalFacturas=cantTotalFacturas+1;
     }
@@ -69,6 +71,27 @@ public class Factura implements Serializable{
     public String toString() {
         return "Tienda de Informatica\n"+"Factura numero:"+id+"\nFecha=" + fecha +
                 "\nCliente:" + comprador.getApellido() + " "+ comprador.getNombre() +
-                "\nProductos:" + listaDeProductos +"\nVendedor:" + vendedor + "\n\nPrecio total:" + precio ;
+                "\nProductos:" + listaDeProductos +"\nVendedor:" + vendedor + "\n\nPrecio total:" + precio+"\n\n" ;
     }
-}
+	
+	@Override
+	public int hashCode() {
+		// TODO Auto-generated method stub
+		return 5;
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		// TODO Auto-generated method stub
+		        boolean igual=false;
+		        if(o!=null){
+		            if(o instanceof Factura){
+		            	Factura aux= (Factura)o;
+		                if(aux.getId()== getId()){
+		                    igual=true;
+		                }
+		            }
+		        }
+		        return igual;
+	}
+}	

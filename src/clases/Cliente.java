@@ -37,7 +37,7 @@ public class Cliente extends Persona implements Serializable{
     }
 	@Override
 	public String toString() {
-		return "Cliente: "+super.toString()+"Facturas: "+listarCompras();
+		return "Cliente: "+super.toString();
 	}
 	
 	@Override

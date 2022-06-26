@@ -345,6 +345,20 @@ public class TiendaInformatica<K> {
 		facturas.agregarObjetoColeccion((K)aux, nueva);
 	}
 	
+	public String buscarFactura(int id) 
+	{
+		Integer aux= id;
+		String facturaAux = facturas.mostrarElementoDeLaColeccion((K)aux);
+		return facturaAux;
+	}
+	
+	public String mostrarFacturasDeCliente(String dni) 
+	{
+		Cliente aux;
+		aux=listaDeClientes.devolverPersona((K)dni);
+		
+		return aux.listarCompras();
+	}
 	public Carrito getCarroDeCompras() {
 		return carroDeCompras;
 	}

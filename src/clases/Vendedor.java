@@ -42,7 +42,7 @@ public class Vendedor extends Persona implements Serializable{
     
     @Override
     public String toString() {
-        return "\nVendedor="  + super.toString() + "Total de ventas acumuladas" + totalVentas;
+        return "\nVendedor="  + super.toString() + "Total de ventas acumuladas: " + totalVentas;
     }
     
     

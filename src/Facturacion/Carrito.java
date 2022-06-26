@@ -26,6 +26,8 @@ public class Carrito {
         {
             sb.append(misServicios.get(i).toString()+"\n");
         }
+        
+        sb.append("\nTotal carrito: "+calcularPrecioTotal()+"\n");
         return sb.toString();
     }
     
@@ -50,6 +52,7 @@ public class Carrito {
     	{
     		total=total+misServicios.get(i).getPrecio();
     	}
+    	
     	
     	return total;
     }

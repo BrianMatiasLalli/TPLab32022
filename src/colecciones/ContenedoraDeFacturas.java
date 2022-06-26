@@ -11,13 +11,13 @@ import interfaces.I_Colecciones;
 public class ContenedoraDeFacturas<K,T extends Factura> implements I_Colecciones<K,T>{
 	
 	private HashMap<K,T> listaFacturas;
-
+	
 	
 	public ContenedoraDeFacturas() {
 		this.listaFacturas = new HashMap<>();
 	}
 
-
+	
 	@Override
 	public void agregarObjetoColeccion(K clave, T elemento) {
 		// TODO Auto-generated method stub
@@ -65,8 +65,6 @@ public class ContenedoraDeFacturas<K,T extends Factura> implements I_Colecciones
 	{
 		return  listaFacturas.entrySet().iterator();
 	}
-
-
 
 
 	

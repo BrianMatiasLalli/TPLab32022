@@ -62,7 +62,7 @@ public class Procesador extends Producto{
 		return tdp;
 	}
 
-	public String isCooler() {
+	public String mostrarCooler() {
 		String cooler="no";
 		if(isCooler==true){
 			cooler="si";
@@ -70,6 +70,10 @@ public class Procesador extends Producto{
 		return cooler;
 	}
 
+	public boolean isCooler() 
+	{
+		return isCooler;
+	}
 	
 	public void setSocket(String socket) {
 		this.socket = socket;
@@ -103,7 +107,7 @@ public class Procesador extends Producto{
 	public String toString() {
 		return super.toString()+"Procesador: \nSocket: " + getSocket() + "\nNucleos:" + getNucleos() + "\nHilos: "
 				+ getHilos() + "\nFrecuencia turbo(Mhz): " + getFrecuenciaTurbo() + "\nProceso de fabricacion(nm): "
-				+ getProcesoDeFabricacion() + "\nTdp:" + getTdp() + "Tiene Cooler: " + isCooler();
+				+ getProcesoDeFabricacion() + "\nTdp:" + getTdp() + "\nTiene Cooler: " + mostrarCooler();
 	}
 
 	@Override
@@ -128,7 +132,7 @@ public class Procesador extends Producto{
 			retorno.put("Frecuencia turbo", getFrecuenciaTurbo());
 			retorno.put("Proceso de fabricacion", getProcesoDeFabricacion());
 			retorno.put("TDP", getTdp());
-			retorno.put("Cooler incluido", isCooler());
+			retorno.put("Cooler incluido",isCooler());
 		}
 		catch (
 				JSONException e) {
