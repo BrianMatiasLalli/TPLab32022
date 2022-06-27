@@ -26,10 +26,6 @@ public class TiendaInformatica<K> {
 	private Contenedora<K,Vendedor> listaDeVendedores;
 	private Carrito carroDeCompras;
 	
-	//harcodeo unica vez carga
-	Catalogo C= new Catalogo();
-	
-	
 	public TiendaInformatica(String nombre) {
 		this.nombre=nombre;
 		this.catalogo = new Catalogo();
@@ -72,7 +68,7 @@ public class TiendaInformatica<K> {
 	}
 
 
-	//temporario no se invoca desde el main
+	
 	public void cargarCatalogoAlaTienda(Catalogo catalogo) {
 		
 		this.catalogo=catalogo;
@@ -82,13 +78,16 @@ public class TiendaInformatica<K> {
 	public void agregarService(ItemServicio nuevo){
 		this.services.add(nuevo);
 	}
-	public String listarServices(){
+	
+	public String listarServices(){			//muestra los servicios disponibles en taller
 		StringBuilder sb=new StringBuilder();
 		for(int i=0;i<services.size();i++){
 			sb.append(services.get(i).toString());
 		}return sb.toString();
 	}
 	
+	
+	//Metodo agregarProducto poliformico para los distintos productos del catalogo
 	public void agregarProducto(String codigo, String marca, String modelo, int stock, double precio, double peso,
 								String paisOrigen, boolean rgb, String color, String descripcion, int capacidad
 								,String tipoDeDisco) {
@@ -206,29 +205,27 @@ public class TiendaInformatica<K> {
 		return catalogo;
 	}
 
-	public void borrarProducto(String aBorrar){
+	public void borrarProducto(String aBorrar){ //borra producto del catalogo por codigo
 		catalogo.eliminar(aBorrar);
 	}
-	public String buscarProducto(String codigo){
+	public String buscarProducto(String codigo){ //busca producto del catalogo por codigo
 		return catalogo.buscar(codigo);
 	}
-	public Producto productoAcarrito(String codigo){
-		Producto nuevo=null;
-		if(catalogo.getMapaCatalogo().containsKey(codigo)){
-			nuevo=catalogo.retornarProducto(codigo);
-		}return nuevo;
+	public Producto productoAcarrito(String codigo){ //retorna producto del catalogo se utiliza para el carrito en el menu
+		
+		return catalogo.retornarProducto(codigo);
 	}
-	public boolean checkProducto(String codigo){
+	public boolean checkProducto(String codigo){ //mira si existe un producto
 		return catalogo.getMapaCatalogo().containsKey(codigo);
 	}
 	
-	public void actualizarPrecioProducto(String codigo,double precio) 
+	public void actualizarPrecioProducto(String codigo,double precio) //actualiza el precio de un producto del catalogo
 	{
 		Producto aux=catalogo.retornarProducto(codigo);
 		aux.setPrecio(precio);
 	}
 	
-	public int aumentarStockDeProducto(String codigo,int cantidad) 
+	public int aumentarStockDeProducto(String codigo,int cantidad) //aumenta el stock de un producto del catalogo
 	{
 		
 		Producto aux=catalogo.retornarProducto(codigo);
@@ -237,7 +234,7 @@ public class TiendaInformatica<K> {
 		return aux.getStock();
 	}
 	
-	public int reducirStockDeProducto(String codigo,int cantidad) throws NoHayStockExcepcion 
+	public int reducirStockDeProducto(String codigo,int cantidad) throws NoHayStockExcepcion //recude el stock de un producto del catalogo si el valor ingresado es mayor al stock eleva una excepcion
 	{
 		
 		Producto aux=catalogo.retornarProducto(codigo);
@@ -246,6 +243,7 @@ public class TiendaInformatica<K> {
 		return aux.getStock();
 	}
 	
+	//MUESTRA DE DISTINTOS PRODUCTOS DEL CATALOGO
 	public String mostrarAlmacenamiento(){
 		return catalogo.listarAlmacenamiento();
 	}
@@ -299,26 +297,27 @@ public class TiendaInformatica<K> {
 	public String mostrarTodo(){
 		return catalogo.listar();
 	}
-	public void agregarAlCarrito(Producto nuevo, int cant){
+	
+	public void agregarAlCarrito(Producto nuevo, int cant){ //recibe un producto y la cantidad y lo agrega al carrito
 		ItemPedido nuevoItem=new ItemPedido(nuevo, cant);
 		this.carroDeCompras.agregar(nuevoItem);
 	}
 
-	public void agregarServiceAlCarrito(int opcion){
+	public void agregarServiceAlCarrito(int opcion){//agrega un serivicio al carrito que posteriormente puede ser agregado al taller
 		if(opcion>0 && opcion<=services.size()){
 			this.carroDeCompras.agregar(services.get(opcion-1));
 		}
 
 	}
-	public String listarCarrito(){
+	public String listarCarrito(){ //muestra al carrito
 		return this.carroDeCompras.mostrarCarrito();
 	}
-	public int tamanioDeCarro()
+	public int tamanioDeCarro() //retorna el tamanio del carrito
 	{
 		return carroDeCompras.tamanioCarrito();
 	}
-	public Factura ticket(Cliente comprador,Carrito aFacturar,Vendedor vendedor){
-		
+	public Factura ticket(Cliente comprador,Carrito aFacturar,Vendedor vendedor){ //GENERA FACTURA,AUMENTA LAS VENTAS DE EL VENDEDOR,SE GUARDA EN CLIENTE,
+																				 //GENERA UNA SERVICIO EN EL TALLER Y SE GUARDA EN LA CONTENEDORA DE FACTURAS.
 		Factura nueva= new Factura(comprador,aFacturar,vendedor.getApellido()+vendedor.getNombre());
 		vendedor.sumarVenta(carroDeCompras.calcularPrecioTotal());
 		comprador.agregarFacturaCliente(nueva);
@@ -328,7 +327,7 @@ public class TiendaInformatica<K> {
 		return nueva;
 	}
 
-	public void generarServicio(Cliente comprador) 
+	public void generarServicio(Cliente comprador) //SE INVOCA EN TICKET.AGREGA A LA COLA DE TALLER
 	{
 		for(int i=0;i<carroDeCompras.getMisServicios().size();i++) {
 			ServicioTaller nuevo = new ServicioTaller(carroDeCompras.getMisServicios().get(i).getDescripcion(),comprador);
@@ -337,20 +336,20 @@ public class TiendaInformatica<K> {
 	}
 	
 	
-	public void agregarFactura(Factura nueva) 
+	public void agregarFactura(Factura nueva) //AGREGA A LA CONTENEDORA DE FACTURAS DE LA TIENDA
 	{
 		Integer aux=nueva.getId();
 		facturas.agregarObjetoColeccion((K)aux, nueva);
 	}
 	
-	public String buscarFactura(int id) 
+	public String buscarFactura(int id) //RETORNA UN STRING CON UNA FACTURA A BUSCAR POR ID
 	{
 		Integer aux= id;
 		String facturaAux = facturas.mostrarElementoDeLaColeccion((K)aux);
 		return facturaAux;
 	}
 	
-	public String mostrarFacturasDeCliente(String dni) 
+	public String mostrarFacturasDeCliente(String dni) //MUESTRA LAS FACTURAS DE UN CLIENTE POR DNI
 	{
 		Cliente aux;
 		aux=listaDeClientes.devolverPersona((K)dni);
@@ -361,7 +360,7 @@ public class TiendaInformatica<K> {
 		return carroDeCompras;
 	}
 	
-	public void pasarTiendaAArchivo() 
+	public void pasarTiendaAArchivo() //PASA LOS ATRIBUTOS DE LA TIENDA QUE NOS INTERESAN QUE PERDUREN A UN ARCHIVO
 	{
 		ArchivoHerramientas archivo= new ArchivoHerramientas<>();
 		archivo.guardarClienteEnArchivo(listaDeClientes);
@@ -371,7 +370,7 @@ public class TiendaInformatica<K> {
 		archivo.guardarServicesEnArchivo(services);
 	}
 	
-	public void archivoATiendaInformatica() 
+	public void archivoATiendaInformatica() //CARGA EN LA TIENDA LAS DISTINTAS COLECCIONES DESDE UN ARCHIVO
 	{
 		ArchivoHerramientas archivo= new ArchivoHerramientas<>();
 		listaDeClientes=archivo.cargarClientesDesdeArchivo();
@@ -380,38 +379,38 @@ public class TiendaInformatica<K> {
 		taller=archivo.cargarTallerDesdeArchivo();
 		services=archivo.cargarServicesDesdeArchivo();
 	}
-	public void agregarCliente(String nombre,String apellido,String dni,String telefono,String direccion,String correo){
+	public void agregarCliente(String nombre,String apellido,String dni,String telefono,String direccion,String correo){//AGREGA UN CLIENTE A LA CONTENEDORA DE CLIENTES
 		Cliente nuevo= new Cliente(nombre, apellido,dni,telefono,direccion,correo);
 		if(!listaDeClientes.existe((K)dni)) {
 			listaDeClientes.agregarObjetoColeccion((K) dni, nuevo);
 		}
 	}
 	
-	public String listarClientes(){
+	public String listarClientes(){ //MUESTRA LOS CLIENTES
 		return listaDeClientes.listar();
 	}
-	public String buscarCliente(String id){
+	public String buscarCliente(String id){ //BUSCA UN CLIENTE POR DNI Y RETORNA UN STRING
 		return listaDeClientes.mostrarElementoDeLaColeccion((K)id);
 	}
 	
-	public Cliente retornarCliente(String id){
+	public Cliente retornarCliente(String id){//RETORNA UN CLIENTE POR DNI
 
 		return listaDeClientes.devolverPersona((K)id);
 	}
 	
-	public void editarCliente(String id,String dato,int opcion){
+	public void editarCliente(String id,String dato,int opcion){//EDITA UN CLIENTE (DIRECCION,CORREO,TELEFONO)
 		if(opcion>0 && opcion<4){
 			listaDeClientes.devolverPersona((K)id).editarPersona(dato, opcion);
 		}
 			
 	}
 	
-	public boolean existeCliente(K clave) 
+	public boolean existeCliente(K clave) //VERIFICA QUE EXISTA UN CLIENTE POR CLAVE
 	{
 		return listaDeClientes.existe(clave);
 	}
 	
-	public void agregarVendedor(String nombre,String apellido,String dni,String telefono,String direccion,String correo,String contrasenia) 
+	public void agregarVendedor(String nombre,String apellido,String dni,String telefono,String direccion,String correo,String contrasenia) //AGREGA UN VENDEDOR A LA CONTENEDORA DE VENDEDORES
 	{
 		Vendedor nuevo= new Vendedor(nombre, apellido,dni,telefono,direccion,correo,contrasenia);
 		if(!listaDeVendedores.existe((K)dni)) {
@@ -419,33 +418,34 @@ public class TiendaInformatica<K> {
 		}
 	}
 	
-	public String listarVendedores() 
+	public String listarVendedores() //MUESTRA LOS VENDEDORES
 	{
 		return listaDeVendedores.listar();
 	}
 	
-	public String buscarVendedor(String id){
+	public String buscarVendedor(String id){ //BUSCA UN VENDEDOR POR DNI
 		return listaDeVendedores.mostrarElementoDeLaColeccion((K)id);
 	}
 	
-	public Vendedor retornarVendedor(String id) 
+	public Vendedor retornarVendedor(String id) //DEVUELVE UN VENDEDOR POR DNI
 	{
 		return listaDeVendedores.devolverPersona((K) id);
 	}
 
-	public void editarVendedor(String id,String dato,int opcion){
+	public void editarVendedor(String id,String dato,int opcion){ //EDITA UN VENDEDOR 
 		if(opcion>0 && opcion<4){
 			listaDeVendedores.devolverPersona((K)id).editarPersona(dato, opcion);
 		}
 			
 	}
 	
-	public void removerVendedor(String id) 
+	public void removerVendedor(String id) //ELIMINA UN VENDEDOR DE LA CONTENEDORA DE VENDEDORES
 	{
 		listaDeVendedores.eliminarObjDeLaColeccion((K) id);
 	}
 	
-	public boolean comprobarLoginVendedor(String dni, String contrasenia) throws ContraseniaIncorrectaExcepcion, DNIIncorrectoExcepcion 
+	public boolean comprobarLoginVendedor(String dni, String contrasenia) throws ContraseniaIncorrectaExcepcion, DNIIncorrectoExcepcion //METODO PARA INGRESAR AL MENU DEL PROGRAMA, 
+																																		//	SI LA CONTRASENIA O EL DNI INGRESADO SON INCORRECTOS LANZA UNA EXCEPCION
 	{
 		boolean correcto=false;
 		if(listaDeVendedores.existe((K)dni)) {
@@ -463,22 +463,22 @@ public class TiendaInformatica<K> {
 		return correcto;
 	}
 	
-	public String listarTaller() 
+	public String listarTaller() //MUESTRA LOS SERVICIOS DEL TALLER
 	{
 		return taller.mostrar();
 	}
 	
-	public void conformarServicio() 
+	public void conformarServicio() //CONFORMA UN SERVICIO ES DECIR LO REMUEVE DEL TALLER
 	{
 		taller.remover();
 	}
 	
-	public String listarFacturas() 
+	public String listarFacturas() //LISTA LAS FACTURAS DE LA TIENDA
 	{
 		return facturas.listar();
 	}
 	
-	public void restablecerStock(){
+	public void restablecerStock(){ //METODO UTILIZADO EN CASO DE QUERER NO VENDER LOS ELEMENTOS DEL CARRITO, REINTEGRA EL STOCK DE LOS PRODUCTOS AL CATALOGO
 		carroDeCompras.limpiarCarro();
 	}
 }

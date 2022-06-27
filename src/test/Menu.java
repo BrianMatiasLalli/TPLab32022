@@ -38,9 +38,6 @@ public class Menu {
 		StreamJSON aux= new StreamJSON();
 		miTienda.setCatalogo(aux.JsonAJava(fuente));
 		
-
-		
-		
 		int opcion,opcionCatalogo;
 
 		Scanner teclado = new Scanner(System.in);
@@ -50,6 +47,9 @@ public class Menu {
 		
 		boolean accedido=false;
 		int intentos=0;
+		
+		System.out.println("BIENVENIDO A TIENDA INFORMATICA\n\n\n");
+		
 		do {
 			System.out.println("\nIngrese su dni para ingresar: ");
 			dniLogin = teclado.nextLine();
@@ -701,6 +701,7 @@ public class Menu {
 						System.out.println("2.Agregar Servicio al carrito");
 						System.out.println("3.Ver carrito");
 						System.out.println("4.Proceder a checkout");
+						System.out.println("0.SALIR");
 						int opcionVentas= teclado.nextInt();
 						int ventas=1;
 						do{
@@ -889,7 +890,11 @@ public class Menu {
 										miTienda.getCarroDeCompras().vaciarCarro();
 									}
 									ventas=0;
-									break;	
+									break;
+								default:
+									ventas=0;
+									break;
+									
 							}
 
 							
@@ -901,8 +906,8 @@ public class Menu {
 						System.out.println("Taller\nDiginte la opcion deseada:\n");
 						System.out.println("\n1.Ver cola de servicios");
 						System.out.println("\n2.Conformar Servicio");
-						opcion = teclado.nextInt();
-						switch (opcion) {
+						int opcionTaller = teclado.nextInt();
+						switch (opcionTaller) {
 							case 1:
 								//Ver cola de servicios
 								System.out.println("TAREAS TALLER: \n");
@@ -928,10 +933,10 @@ public class Menu {
 						System.out.println("2.Editar Clientes");
 						System.out.println("3.Buscar Cliente");
 						System.out.println("4.Listar Clientes");
-						opcion = teclado.nextInt();
+						int opcionCliente = teclado.nextInt();
 
 
-						switch (opcion) {
+						switch (opcionCliente) {
 							case 1:
 								//Cargar un cliente
 								System.out.println("\nIngrese nombre");
